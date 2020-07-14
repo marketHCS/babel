@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sell extends Model
+class Shipment extends Model
 {
     protected $fillable = [
-        'fec_vta', 'monto_pago', 'status_vta'
+        'fec_env', 'fec_ent'
     ];
 }

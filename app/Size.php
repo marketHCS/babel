@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sell extends Model
+class Size extends Model
 {
     protected $fillable = [
-        'fec_vta', 'monto_pago', 'status_vta'
+        'nom_talla'
     ];
 }
