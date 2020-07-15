@@ -10,4 +10,6 @@ class Product extends Model
         'nameProduct', 'desc_prod', 'costo_prod', 'precio_prod', 'mat_prod',
         'img_prod'
     ];
+
+    protected $table = 'products';
 }

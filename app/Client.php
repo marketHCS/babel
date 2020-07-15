@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Town extends Model
+class Client extends Model
 {
     protected $fillable = [
-        'nameTown'
+        'rfcClient',
     ];
 
-    protected $table = 'towns';
+    protected $table = 'clients';
 }

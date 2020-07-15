@@ -9,4 +9,6 @@ class Size extends Model
     protected $fillable = [
         'nom_talla'
     ];
+
+    protected $table = 'sizes';
 }

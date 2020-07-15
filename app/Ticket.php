@@ -9,4 +9,6 @@ class Ticket extends Model
     protected $fillable = [
         'fec_fac'
     ];
+
+    protected $table = 'tickets';
 }

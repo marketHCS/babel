@@ -9,4 +9,6 @@ class State extends Model
     protected $fillable = [
         'nameSate'
     ];
+
+    protected $table = 'states';
 }

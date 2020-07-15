@@ -9,4 +9,5 @@ class SellDetail extends Model
     protected $fillable = [
         'cantidad'
     ];
+    protected $table = 'selldetails';
 }

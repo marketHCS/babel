@@ -9,4 +9,6 @@ class Suburb extends Model
     protected $fillable = [
         'nameSuburb', 'postalCodeSuburb'
     ];
+
+    protected $table = 'suburbs';
 }

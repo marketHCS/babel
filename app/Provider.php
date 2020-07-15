@@ -10,4 +10,6 @@ class Provider extends Model
         'nameProvider', 'apProvider', 'amProvider', 'descriptionProvider',
         'emailProvider', 'rfcProfider'
     ];
+
+    protected $table = 'providers';
 }
