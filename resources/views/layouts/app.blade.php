@@ -13,15 +13,51 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
 
   <!-- Fonts -->
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
   <link rel="stylesheet" href="{{ asset('css/fontAwesome.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/animate.css') }}" />
+
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('icons/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('icons/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('icons/android-chrome-192x192.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('icons/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset('icons/site.webmanifest') }}">
+  <link rel="mask-icon" href="asset('icons/safari-pinned-tab.svg')" color="#f9dc3e">
+  <meta name="msapplication-TileColor" content="#c49400">
+  <meta name="msapplication-TileImage" content="{{ asset('icons/mstile-144x144.png') }}">
+  <meta name="theme-color" content="#ffffff">
+
+
+  <!-- Scrips -->
+  <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+  {{-- <script src="js/bootstrap.min.js"></script> --}}
+  <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
+  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+  <script src="{{ asset('js/main.js') }}"></script>
+
+
 </head>
 <body id="app">
+  <!-- Page Preloder -->
+  <div id="preloder">
+    <div class="loader"></div>
+  </div>
+
+
   <!-- Header section -->
   <header class="header-section">
     <div class="header-top">
@@ -29,7 +65,7 @@
         <div class="row">
           <div class="col-lg-2 text-center text-lg-left">
             <!-- logo -->
-            <a href="{{ route('home') }}" class="site-logo my-auto">
+            <a href="{{ route('index') }}" class="site-logo my-auto">
               <img src="{{ asset('img/babel.svg') }}" alt="" class="babel-svg" />
             </a>
           </div>
@@ -84,6 +120,8 @@
         </div>
       </div>
     </div>
+
+    @if (Request::url() != route('login') && Request::url() != route('register'))
     <nav class="main-navbar">
       <div class="container">
         <!-- menu -->
@@ -111,12 +149,92 @@
         </ul>
       </div>
     </nav>
+    @endif
+
+
   </header>
   <!-- Header section end -->
 
+  <!-- Content -->
+  @yield('content')
 
-  <main class="py-4">
-    @yield('content')
-  </main>
+
+  <!-- Footer section -->
+  <section class="footer-section">
+    <div class="container">
+      <div class="footer-logo text-center">
+        <a href="{{ route('index') }}"><img src="{{ asset('img/babel.svg') }}" alt="" class="babel-svg" /></a>
+      </div>
+      <div class="row spacing">
+        <div class="col-lg-4 col-sm-6">
+          <div class="footer-widget about-widget">
+            <h2>Acerca de nosotros:</h2>
+            <p>
+              Somos una marca de playeras juveniles, trayendo únicos diseños
+              llenos de estilo y personalidad.
+            </p>
+            <img src="img/cards.png" alt="" />
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="footer-widget about-widget">
+            <a href="#">
+              <h2 class="footer-questions">¿Preguntas?</h2>
+            </a>
+            <ul>
+              <li><a href="#">Acerca de nosotros</a></li>
+              <li><a href="#">Devoluciones</a></li>
+              <li><a href="#">Envios</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">Marcas</a></li>
+              <li><a href="#">Atención al cliente</a></li>
+              <li><a href="#">Aviso de privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="footer-widget contact-widget">
+            <a href="#">
+              <h2 class="footer-questions">Sucursales</h2>
+            </a>
+            <div class="con-info">
+              <span>1. </span>
+              <p><a href="#">Querétaro</a></p>
+            </div>
+            <div class="con-info">
+              <span>2. </span>
+              <p><a href="#">CDMX</a></p>
+            </div>
+            <div class="con-info">
+              <span>3. </span>
+              <p><a href="#">Guadalajara</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social-links-warp">
+      <div class="container">
+        <div class="social-links">
+          <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+          <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+          <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+        </div>
+
+        <p class="text-white text-center mt-5">
+          Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear());
+
+          </script>
+          All rights reserved | ⌨ con 💛 por
+          <a href="#">Abstraction</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Footer section end -->
+
 </body>
 </html>
