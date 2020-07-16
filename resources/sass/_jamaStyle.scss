@@ -1,0 +1,121 @@
+.offer-card h2,
+.offer-card p,
+.offer-card span {
+  color: #323330;
+}
+
+.hero-slider .hs-item .offer-card h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 1.5rem;
+}
+
+.hero-slider .hs-item p {
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+  top: 100px;
+  opacity: 0;
+}
+
+.hero-slider .hs-item p {
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+  top: 100px;
+  opacity: 0;
+}
+
+.babel-svg {
+  max-height: 5;
+  min-height: 4rem;
+  width: min-content;
+}
+
+.shopping-card span {
+  color: #323330;
+}
+
+.user-panel a {
+  text-decoration: underline;
+}
+
+.nbsp {
+  height: 200px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.spacing {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-questions:hover {
+  text-decoration: underline;
+}
+
+.con-info a {
+  color: #8f8f8f;
+}
+
+.con-info a:hover {
+  color: #fff;
+}
+
+.footer-widget.contact-widget {
+  justify-content: center;
+  justify-items: center;
+  vertical-align: center;
+}
+
+.product-section,
+.page-top-info {
+  background-color: #f6f6f6;
+}
+
+.center-unique {
+  margin-left: calc(50%);
+}
+
+.div-email {
+  margin-bottom: 10rem;
+}
+
+.loginBG {
+  background: #dfdfdf;
+  /* background: #ffde64; */
+}
+
+.card img {
+  max-width: 400px;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.central-card {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 450px;
+  /* max-height: 75vh; */
+}
+
+.toDown {
+  align-self: flex-end;
+}
+
+.section-login {
+  /* padding-top: 10rem;
+  padding-bottom: 10rem; */
+  height: 100vh;
+  display: flex;
+}
+
+.row.align-center {
+  justify-self: end;
+}
