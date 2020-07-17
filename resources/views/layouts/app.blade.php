@@ -7,7 +7,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -52,12 +52,13 @@
 
 </head>
 <body id="app">
-  <!-- Page Preloder -->
+  {{-- <!-- Page Preloder -->
   <div id="preloder">
     <div class="loader"></div>
-  </div>
+  </div> --}}
 
 
+  @if (Request::url() != route('login') && Request::url() != route('register'))
   <!-- Header section -->
   <header class="header-section">
     <div class="header-top">
@@ -96,7 +97,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('Cerrar sesión') }}
                       </a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -121,7 +122,7 @@
       </div>
     </div>
 
-    @if (Request::url() != route('login') && Request::url() != route('register'))
+
     <nav class="main-navbar">
       <div class="container">
         <!-- menu -->
@@ -149,11 +150,12 @@
         </ul>
       </div>
     </nav>
-    @endif
+
 
 
   </header>
   <!-- Header section end -->
+  @endif
 
   <!-- Content -->
   @yield('content')

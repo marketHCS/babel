@@ -119,3 +119,45 @@
 .row.align-center {
   justify-self: end;
 }
+
+.btn-babel {
+  background-color: $amarilloBabel;
+  color: $bgBlack;
+  border: 1px solid $bgBlack;
+}
+
+.btn-babel {
+  color: $bgBlack;
+  background-color: $amarilloBabel;
+  border-color: $amarilloBabel;
+}
+#submitFormLogin {
+  margin-right: 1rem;
+}
+.btn-success:hover {
+  color: $bgBlack;
+  background-color: $amarilloOscuro;
+  border-color: $amarilloOscuro;
+}
+.btn-success.focus,
+.btn-success:focus {
+  box-shadow: 0 0 0 0.2rem rgba(249, 220, 62, 0.5);
+}
+.btn-success.disabled,
+.btn-success:disabled {
+  color: $bgBlack;
+  background-color: $amarilloBabel;
+  border-color: $amarilloBabel;
+}
+.btn-success:not(:disabled):not(.disabled).active,
+.btn-success:not(:disabled):not(.disabled):active,
+.show > .btn-success.dropdown-toggle {
+  color: $bgBlack;
+  background-color: $amarilloOscuro;
+  border-color: $amarilloOscuro;
+}
+.btn-success:not(:disabled):not(.disabled).active:focus,
+.btn-success:not(:disabled):not(.disabled):active:focus,
+.show > .btn-success.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(249, 220, 62, 0.5);
+}
