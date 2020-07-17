@@ -112,7 +112,7 @@
 .section-login {
   /* padding-top: 10rem;
   padding-bottom: 10rem; */
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
 }
 
@@ -160,4 +160,37 @@
 .btn-success:not(:disabled):not(.disabled):active:focus,
 .show > .btn-success.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(249, 220, 62, 0.5);
+}
+
+.btn-login {
+  display: flex;
+  margin: 0;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+#last {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.section-login .card-body {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.card-body ul {
+  list-style: none;
+}
+
+.fluid {
+  width: 100%;
+}
+
+.biLeft {
+  padding-left: 0 !important;
+}
+
+.biRight {
+  padding-right: 0 !important;
 }

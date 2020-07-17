@@ -18,7 +18,7 @@
               </div>
               <div class="form-group toDown">
                 <label for="email">Correo electrónico:</label>
-                <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="apolo@babel.com" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="apolo@babel.rocks" value="{{ old('email') }}" required autocomplete="email" autofocus />
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -45,19 +45,39 @@
                     </label>
                   </div>
                   @if (Route::has('password.request'))
-                  <div class="form-group row">
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                      {{ __('¿Olvidaste tu contraseña?') }}
-                    </a>
-
+                  <div class="form-group row mt-5" id="last">
+                    <ul>
+                      <li>
+                        <a class="btn btn-link" href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
+                      </li>
+                      <li>
+                        <a class="btn btn-link" href="{{ route('register') }}">¿No tienes cuenta? ¡registrate!</a>
+                      </li>
+                    </ul>
+                    <input type="submit" name="submitFormLogin" id="submitFormLogin" class="btn toDown btn-babel btn-login float-right" value="Iniciar sesión" />
                   </div>
-                  <input type="submit" name="submitFormLogin" id="submitFormLogin" class="btn toDown btn-babel float-right" value="Iniciar sesión" />
                 </div>
               </div>
               @endif
-
-
             </form>
+            <script>
+              (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                  var forms = document.getElementsByClassName('needs-validation');
+                  var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                      if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                      }
+                      form.classList.add('was-validated');
+                    }, false);
+                  });
+                }, false);
+              })();
+
+            </script>
           </div>
         </div>
       </div>
