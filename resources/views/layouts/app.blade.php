@@ -9,8 +9,6 @@
 
   <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
 
   <!-- Fonts -->
   {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
@@ -39,19 +37,6 @@
   <meta name="msapplication-TileImage" content="{{ asset('icons/mstile-144x144.png') }}">
   <meta name="theme-color" content="#ffffff">
 
-
-  <!-- Scrips -->
-  <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-  {{-- <script src="js/bootstrap.min.js"></script> --}}
-  <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
-  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
-  <script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
-  <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script src="{{ asset('js/main.js') }}"></script>
-  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script> --}}
 
 </head>
 <body id="app">
@@ -162,6 +147,8 @@
 
   <!-- Content -->
   @yield('content')
+  <!-- Content end -->
+
 
 
   <!-- Footer section -->
@@ -239,6 +226,20 @@
       </div>
     </div>
   </section>
+
+  <!-- Scrips -->
+  <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+  {{-- <script src="js/bootstrap.min.js"></script> --}}
+  <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
+  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
+
   <!-- Footer section end -->
 
 </body>

@@ -37,8 +37,8 @@
 
               <div class="form-row">
                 <div class="form-group col-md-6 biLeft">
-                  <label for="birthday">Fecha de nacimiento:</label>
-                  <input type="date" name="birthday" id="birthday" class="form-control @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}" required autocomplete="bday-day" max="{{ date('d-m-Y') }}" />
+                  <label for="birthdate">Fecha de nacimiento:</label>
+                  <input type="date" name="birthdate" id="birthdate" class="form-control @error('birthdate') is-invalid @enderror" value="{{ old('birthdate') }}" required autocomplete="bday-day" max="{{ date('Y-m-d') }}" />
 
                 </div>
                 <div class="form-group col-md-6 biRight">
@@ -50,8 +50,6 @@
                   </select>
                 </div>
               </div>
-
-
 
               <div class="form-row">
                 <div class="form-group toDown fluid">
