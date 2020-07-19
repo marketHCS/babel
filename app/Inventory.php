@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     protected $fillable = [
-        'exist_inv', 'stat_inv', 'descuento'
+        'exist_inv',
+        'product_id',
+        'office_id'
     ];
 
     protected $table = 'inventories';

@@ -42,8 +42,8 @@
 
                 </div>
                 <div class="form-group col-md-6 biRight">
-                  <label for="sex">Sexo:</label>
-                  <select class="custom-select mr-sm-2 @error('sex') is-invalid @enderror" name="sex" id="sex" value="{{ old('sex') }}" required>
+                  <label for="sex_id">Sexo:</label>
+                  <select class="custom-select mr-sm-2 @error('sex_id') is-invalid @enderror" name="sex_id" id="sex_id" value="{{ old('sex_id') }}" required>
                     <option value="1">Masculino</option>
                     <option value="2">Femenino</option>
                     <option value="3">Otro</option>
@@ -66,17 +66,16 @@
               <div class="form-row">
                 <div class="form-group col-md-6 biLeft">
                   <label for="password">Contraseña:</label>
-                  <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" required />
+                  <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="off" />
                   @error('password')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
                   @enderror
-
                 </div>
                 <div class="form-group col-md-6 biRight">
                   <label for="password-confirm">Repetir contraseña:</label>
-                  <input type="password" name="password_confirmation" id="password-confirm" class="form-control @error('password-confirm') is-invalid @enderror" required />
+                  <input type="password" name="password_confirmation" id="password-confirm" class="form-control @error('password-confirm') is-invalid @enderror" required autocomplete="off" />
                 </div>
               </div>
 

@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Buy extends Model
 {
     protected $fillable = [
-        'fec_com', 'pago_com'
+        'dateBuy',
+        'cost_com',
+        'administrator_id'
     ];
 
     protected $table = 'buys';
