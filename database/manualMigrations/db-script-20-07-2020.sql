@@ -13,16 +13,16 @@ GRANT ALL PRIVILEGES ON babel.* TO 'jamahcs';
 GRANT ALL PRIVILEGES ON tienda.* TO 'jamahcs';
 
 # CREATE USER 'verohcs' IDENTIFIED BY 'Acceso.117';
-GRANT ALL PRIVILEGES ON tienda.* TO 'verohcs';
-GRANT ALL PRIVILEGES ON babel.* TO 'verohcs';
+# GRANT ALL PRIVILEGES ON tienda.* TO 'verohcs';
+# GRANT ALL PRIVILEGES ON babel.* TO 'verohcs';
 
 # CREATE USER 'laravelsystem' IDENTIFIED BY 'Acceso.117';
-GRANT ALL PRIVILEGES ON tienda.* TO 'laravelsystem';
-GRANT ALL PRIVILEGES ON babel.* TO 'laravelsystem';
+# GRANT ALL PRIVILEGES ON tienda.* TO 'laravelsystem';
+# GRANT ALL PRIVILEGES ON babel.* TO 'laravelsystem';
 
 # SET GLOBAL log_bin_trust_function_creators = 1;
 # EST zona horaria east usa
-# cambio en la 464
+# cambio en la 441
 # php artisan make:model users -cfsr
 
 # show tables;
@@ -197,11 +197,13 @@ create trigger createAdmin
     on users
     for each row
 begin
-    if typeUser_id=2 then begin
+    if new.typeUser_id=2 then begin
         insert into administrators (user_id) value (new.id);
     end; end if;
 end //
 delimiter ;
+
+drop trigger createAdmin;
 
 delimiter //
 create trigger timestamps
@@ -538,3 +540,9 @@ end //
 delimiter ;
 
 show tables;
+
+update users set typeUser_id=2 where id=1;
+
+select *from users;
+select * from administrators;
+select * from typeUsers;

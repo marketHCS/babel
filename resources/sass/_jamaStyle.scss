@@ -1,3 +1,7 @@
+body {
+  font-family: "Roboto", sans-serif !important;
+}
+
 .offer-card h2,
 .offer-card p,
 .offer-card span {
@@ -193,4 +197,39 @@
 
 .biRight {
   padding-right: 0 !important;
+}
+
+.notify li {
+  margin-left: 2em;
+}
+
+.notify {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.9;
+  width: auto;
+  // margin-right: 2em;
+  // margin-top: 4em;
+}
+
+.dropdown-menu {
+  text-align: center;
+}
+
+.dropdown-item:active {
+  background-color: #d4b91c;
+}
+
+@media screen and (min-width: 572px) {
+  .notify {
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .notify {
+    max-width: 33%;
+  }
 }

@@ -6,9 +6,9 @@
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="routename" content="{{ Route::currentRouteAction() }}">
 
-  <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
-
+  <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
   <!-- Fonts -->
   {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
@@ -37,7 +37,6 @@
   <meta name="msapplication-TileImage" content="{{ asset('icons/mstile-144x144.png') }}">
   <meta name="theme-color" content="#ffffff">
 
-
 </head>
 <body id="app">
   {{-- <!-- Page Preloder -->
@@ -58,13 +57,13 @@
               <img src="{{ asset('img/babel.svg') }}" alt="" class="babel-svg" />
             </a>
           </div>
-          <div class="col-xl-4 col-lg-5">
+          <div class="col-xl-3 col-lg-4">
             <form class="header-search-form centered">
               <input type="text" placeholder="Buscar en babel ...." />
               <button><i class="flaticon-search"></i></button>
             </form>
           </div>
-          <div class="col-xl-6 col-lg-5">
+          <div class="col-xl-7 col-lg-6">
             <div class="user-panel">
               <div class="up-item">
                 @guest
@@ -102,10 +101,28 @@
                 </div>
                 <a href="#">Carrito de compras</a>
               </div>
+              @guest
+              @if(Auth::user()->typeUser_id == 1)
+              👕
+              @endif
+              @else
+              <div class="up-item ml-4">
+                <div class="row">
+                  <span class="nav-item dropdown">
+                    <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Administrador</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                      <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                      <a class="dropdown-item" href="{{ route('dashboard') }}">Productos</a>
+                      <a class="dropdown-item" href="{{ route('dashboard') }}">Clients</a>
+                      <a class="dropdown-item" href="{{ route('dashboard') }}">Ventas</a>
+                      </a>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              @endguest
             </div>
           </div>
-
-
         </div>
       </div>
     </div>

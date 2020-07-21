@@ -3070,7 +3070,7 @@ input[type="submit"].btn-block {
 .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #d4b91c;
 }
 .dropdown-item.disabled,
 .dropdown-item:disabled {
@@ -3844,7 +3844,7 @@ input[type="submit"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #d4b91c;
 }
 .nav-fill .nav-item {
   -ms-flex: 1 1 auto;
@@ -4846,7 +4846,7 @@ a.badge-dark:hover {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #007bff;
+  background-color: #d4b91c;
   transition: width 0.6s ease;
 }
 @media screen and (prefers-reduced-motion: reduce) {
@@ -4936,7 +4936,7 @@ a.badge-dark:hover {
   z-index: 2;
   color: #fff;
   background-color: #007bff;
-  border-color: #007bff;
+  border-color: #d4b91c;
 }
 .list-group-flush .list-group-item {
   border-right: 0;
