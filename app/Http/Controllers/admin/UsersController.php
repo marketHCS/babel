@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function __construct()
     {
@@ -21,8 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users', [
-            'users' => User::orderBy('updated_at', 'asc')->paginate()
+        return view('admin.user.index', [
+            'users' => User::orderBy('updated_at', 'desc')->paginate()
         ]);
     }
 
@@ -53,9 +53,9 @@ class UserController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Type $type)
+    public function show(User $user)
     {
-        //
+        return view('admin.user.show', compact('user'));
     }
 
     /**
@@ -64,9 +64,9 @@ class UserController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Type $type)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', compact('user'));
     }
 
     /**

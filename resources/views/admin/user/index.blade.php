@@ -10,14 +10,27 @@
       <table class="table">
         <thead class="thead-dark">
           <th scope="col">#</th>
+          <th scope="col">Tipo</th>
           <th scope="col">Nombre</th>
           <th scope="col">email</th>
           <th scope="col">Sexo</th>
+          <th colspan="3">&nbsp;</th>
         </thead>
         <tbody>
           @foreach($users as $user)
           <tr>
             <td scope="row">{{ $user->id }}</td>
+            <td>
+              @if($user->typeUser_id == 1)
+              <span>
+                Cliente
+              </span>
+              @else
+              <span class="underline">
+                Admin
+              </span>
+              @endif
+            </td>
             <td>{{ $user->name . ' ' . $user->ap }}</td>
             <td>{{ $user->email }}</td>
             <td>
@@ -28,6 +41,21 @@
               @else
               Otro
               @endif
+            </td>
+            <td>
+              <a href="{{ route('users.show', $user) }}" class="btn btn-sm btn-success">
+                Detalles
+              </a>
+            </td>
+            <td>
+              <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning">
+                Editar
+              </a>
+            </td>
+            <td>
+              <a href="{{ route('users.destroy', $user) }}" class="btn btn-sm btn-danger">
+                Eliminar
+              </a>
             </td>
           </tr>
           @endforeach

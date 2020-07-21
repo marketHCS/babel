@@ -76,7 +76,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'birthdate' => $data['birthdate'],
-            'sex_id' => $data['sex_id']
+            'sex_id' => $data['sex_id'],
+            'profilePicture' => 'https://api.adorable.io/avatars/285/' . str_replace(' ', '', $data['name'] . $data['ap'] . $data['am']) . '.png'
         ]);
     }
 }

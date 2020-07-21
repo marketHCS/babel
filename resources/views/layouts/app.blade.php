@@ -65,34 +65,13 @@
           </div>
           <div class="col-xl-7 col-lg-6">
             <div class="user-panel">
+              @if(!Auth::User())
               <div class="up-item">
-                @guest
                 <div class="row">
                   <i class="flaticon-profile"></i>
                   <a class="btn nav-item" href="{{ route('login') }}">Iniciar sesión</a>
-                  @if (Route::has('register'))
                   <a class="btn nav-item" href="{{ route('register') }}">Registrarse</a>
                 </div>
-                @endif
-                @else
-                <div class="row">
-                  <i class="flaticon-profile"></i>
-                  <span class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar sesión') }}
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                      </form>
-                    </div>
-                  </span>
-                </div>
-                @endguest
               </div>
               <div class="up-item">
                 <div class="shopping-card">
@@ -101,11 +80,35 @@
                 </div>
                 <a href="#">Carrito de compras</a>
               </div>
-              @guest
-              @if(Auth::user()->typeUser_id == 1)
               👕
-              @endif
               @else
+              <div class="up-item">
+                <div class="row">
+                  <i class="flaticon-profile"></i>
+                  <span class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                        {{ __('Cerrar sesión') }}
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                      </form>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div class="up-item">
+                <div class="shopping-card">
+                  <i class="flaticon-bag"></i>
+                  <span>2</span>
+                </div>
+                <a href="#">Carrito de compras</a>
+              </div>
+              @if(Auth::user()->typeUser_id != 1)
               <div class="up-item ml-4">
                 <div class="row">
                   <span class="nav-item dropdown">
@@ -113,48 +116,49 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Productos</a>
-                      <a class="dropdown-item" href="{{ route('admin.users') }}">Usuarios</a>
+                      <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Ventas</a>
                       </a>
                     </div>
                   </span>
                 </div>
               </div>
-              @endguest
+              @endif
+              👕
+              @endif
             </div>
           </div>
         </div>
       </div>
-    </div>
 
 
-    <nav class="main-navbar">
-      <div class="container">
-        <!-- menu -->
-        <ul class="main-menu">
-          <li><a href="#">Inicio</a></li>
-          <li>
-            <a href="#">
-              Tee-shirts
-              <span class="new">Nuevo</span>
-            </a>
-            <ul class="sub-menu">
-              <li><a href="#">Hombres</a></li>
-              <li><a href="#">Mujeres</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Pages (test)</a>
-            <ul class="sub-menu">
-              <li><a href="#">Product Page</a></li>
-              <li><a href="#">Category Page</a></li>
-              <li><a href="#">Cart Page</a></li>
-              <li><a href="#">login</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      <nav class="main-navbar">
+        <div class="container">
+          <!-- menu -->
+          <ul class="main-menu">
+            <li><a href="#">Inicio</a></li>
+            <li>
+              <a href="#">
+                Tee-shirts
+                <span class="new">Nuevo</span>
+              </a>
+              <ul class="sub-menu">
+                <li><a href="#">Hombres</a></li>
+                <li><a href="#">Mujeres</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Pages (test)</a>
+              <ul class="sub-menu">
+                <li><a href="#">Product Page</a></li>
+                <li><a href="#">Category Page</a></li>
+                <li><a href="#">Cart Page</a></li>
+                <li><a href="#">login</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
 
 

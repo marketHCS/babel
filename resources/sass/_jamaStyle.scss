@@ -41,7 +41,9 @@ body {
   color: #323330;
 }
 
-.user-panel a {
+.user-panel a,
+.footer-questions:hover,
+.underline {
   text-decoration: underline;
 }
 
@@ -57,10 +59,6 @@ body {
 .spacing {
   display: flex;
   justify-content: space-around;
-}
-
-.footer-questions:hover {
-  text-decoration: underline;
 }
 
 .con-info a {
@@ -224,6 +222,36 @@ body {
 
 #section-users {
   margin: 10em 0;
+}
+
+.header-top {
+  padding-bottom: 0;
+}
+
+.page-link {
+  color: #000;
+}
+
+.page-link:hover {
+  color: $amarilloOscuro;
+}
+
+span.page-link {
+  background-color: $amarilloOscuro;
+  color: #000;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #000;
+  background-color: $amarilloOscuro;
+  border-color: $amarilloOscuro;
+}
+
+.page-item:active .page-link {
+  background-color: $amarilloBabel;
+  border-color: $amarilloBabel;
+  color: #000;
 }
 
 @media screen and (min-width: 572px) {
