@@ -2619,6 +2619,10 @@ body {
   background-color: #d4b91c;
 }
 
+#section-users {
+  margin: 10em 0;
+}
+
 @media screen and (min-width: 572px) {
   .notify {
     max-width: 50%;

@@ -11,7 +11,6 @@
           </a>
           <div class="card-body">
             <form method="POST" action="{{ route('login') }}">
-
               @csrf
               <div class="form-group text-center mb-3">
                 <h3>Iniciar sesión</h3>

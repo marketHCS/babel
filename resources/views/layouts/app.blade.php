@@ -113,7 +113,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Productos</a>
-                      <a class="dropdown-item" href="{{ route('dashboard') }}">Clients</a>
+                      <a class="dropdown-item" href="{{ route('admin.users') }}">Usuarios</a>
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Ventas</a>
                       </a>
                     </div>
@@ -230,7 +230,6 @@
           <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
           <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
         </div>
-
         <p class="text-white text-center mt-5">
           Copyright &copy;
           <script>
@@ -246,7 +245,6 @@
 
   <!-- Scrips -->
   <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-  {{-- <script src="js/bootstrap.min.js"></script> --}}
   <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
   <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
   <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
