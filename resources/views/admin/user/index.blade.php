@@ -53,7 +53,7 @@
               </a>
             </td>
             <td>
-              <a href="{{ route('users.destroy', $user) }}" class="btn btn-sm btn-danger">
+              <a href="{{ route('users.destroy', $user) }}" class="btn btn-sm btn-danger" onclick="confirm('¿Seguro que quieres borrar este usuario...?')">
                 Eliminar
               </a>
             </td>

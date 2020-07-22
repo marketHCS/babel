@@ -247,6 +247,23 @@
     </div>
   </section>
 
+  @if($errors->any())
+  <div class="alert alert-danger notify alert-dismissible fade show mt-4 mx-4" role="alert" id="alert">
+    @if($message)
+    {{ Session::get('message') }}
+    @endif
+    <ul>
+      @foreach($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
+
+
   <!-- Scrips -->
   <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
   <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
@@ -258,6 +275,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
+  @if($errors->any())
+  <script src="{{ asset('js/alerts.js') }}"></script>
+  @endif
 
   <!-- Footer section end -->
 

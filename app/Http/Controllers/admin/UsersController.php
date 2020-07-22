@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Adress;
 
 class UsersController extends Controller
 {
@@ -22,7 +23,7 @@ class UsersController extends Controller
     public function index()
     {
         return view('admin.user.index', [
-            'users' => User::orderBy('updated_at', 'desc')->paginate()
+            'users' => User::orderBy('updated_at', 'asc')->paginate()
         ]);
     }
 
@@ -55,6 +56,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
+        // $adresses = Address::where('user_id', '')
         return view('admin.user.show', compact('user'));
     }
 
