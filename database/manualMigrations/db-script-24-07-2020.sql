@@ -6,16 +6,16 @@ create database if not exists tienda;
 use tienda;
 
 # CREATE USER 'jamahcs' IDENTIFIED BY 'Acceso.117';
-GRANT ALL PRIVILEGES ON babel.* TO 'jamahcs';
-GRANT ALL PRIVILEGES ON tienda.* TO 'jamahcs';
+# GRANT ALL PRIVILEGES ON babel.* TO 'jamahcs';
+# GRANT ALL PRIVILEGES ON tienda.* TO 'jamahcs';
 
 # CREATE USER 'verohcs' IDENTIFIED BY 'Acceso.117';
-GRANT ALL PRIVILEGES ON tienda.* TO 'verohcs';
-GRANT ALL PRIVILEGES ON babel.* TO 'verohcs';
+# GRANT ALL PRIVILEGES ON tienda.* TO 'verohcs';
+# GRANT ALL PRIVILEGES ON babel.* TO 'verohcs';
 
 # CREATE USER 'laravelsystem' IDENTIFIED BY 'Acceso.117';
-GRANT ALL PRIVILEGES ON tienda.* TO 'laravelsystem';
-GRANT ALL PRIVILEGES ON babel.* TO 'laravelsystem';
+# GRANT ALL PRIVILEGES ON tienda.* TO 'laravelsystem';
+# GRANT ALL PRIVILEGES ON babel.* TO 'laravelsystem';
 
 # SET GLOBAL log_bin_trust_function_creators = 1;
 # EST zona horaria east usa
@@ -261,7 +261,7 @@ create table imagesProducts
 create table inventories
 (
     id         int NOT NULL AUTO_INCREMENT,
-    exist_inv  int,
+    exist_inv  int default 0,
     created_at timestamp default now(),
     updated_at timestamp default now(),
     product_id int,

@@ -1,12 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Product;
 use Illuminate\Http\Request;
+use App\Product;
+use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+        $this->middleware('isntDeleted');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.product.index', [
+            'products' => Product::orderBy('updated_at', 'desc')->paginate()
+        ]);
     }
 
     /**

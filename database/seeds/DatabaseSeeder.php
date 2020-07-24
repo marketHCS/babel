@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
             'size_id' => 4
         ]);
 
-        DB::update('update inventories set exist_inv=10 where product_id between ? and ?', [1, 3]);
+        DB::update('update inventories set exist_inv=10 where product_id between ? and ?', [1,9]);
 
         factory(App\Product::class, 50)->create();
     }
