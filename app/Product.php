@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use ImagesProduct;
 
 class Product extends Model
 {
@@ -14,12 +15,15 @@ class Product extends Model
       'precio_prod',
       'descuento',
       'material_prod',
-      'img_prod',
-      'type_id',
       'category_id',
       'provider_id',
       'size_id'
     ];
+
+    public function imagesProduct()
+    {
+        return $this->hasMany(ImagesProduct::class);
+    }
 
     protected $table = 'products';
 }

@@ -68,26 +68,84 @@ class DatabaseSeeder extends Seeder
             'profilePicture' => 'https://api.adorable.io/avatars/285/VictorAguilarSanchez.png'
         ]);
 
-        App\Address::create([
-        'street' => 'Prol. Francisco Zarco',
-        'exteriorNumberAddress' => '15',
-        'interiorNumberAddress' => '1',
-        'suburb' => 'San José',
-        'city' => 'Tula de Allende',
-        'estate' => 'Hidalgo',
-        'cp' => '42805',
-        'user_id' => 1
-    ]);
+
+        DB::update('update users set typeUser_id=3 where id = ?', [51]);
+        DB::update('update users set typeUser_id=2 where id = ?', [53]);
+        DB::update('update users set typeUser_id=2 where id = ?', [54]);
+        DB::update('update users set typeUser_id=4 where id = ?', [55]);
 
         App\Address::create([
-        'street' => 'Prol. Francisco Zarco',
-        'exteriorNumberAddress' => '15',
-        'interiorNumberAddress' => '1',
-        'suburb' => 'San José',
-        'city' => 'Tula de Allende',
-        'estate' => 'Hidalgo',
-        'cp' => '42805',
-        'user_id' => 1
-    ]);
+            'street' => 'Prol. Francisco Zarco',
+            'exteriorNumberAddress' => '15',
+            'interiorNumberAddress' => '1',
+            'suburb' => 'San José',
+            'city' => 'Tula de Allende',
+            'estate' => 'Hidalgo',
+            'cp' => '42805',
+            'user_id' => 1
+        ]);
+
+        App\Address::create([
+            'street' => 'Prol. Francisco Zarco',
+            'exteriorNumberAddress' => '15',
+            'interiorNumberAddress' => '1',
+            'suburb' => 'San José',
+            'city' => 'Tula de Allende',
+            'estate' => 'Hidalgo',
+            'cp' => '42805',
+            'user_id' => 1
+        ]);
+
+        App\Provider::create([
+            'nameProvider' => 'Printful',
+            'companyProvider'=> 'Printful',
+            'descriptionProvider' => 'Proveedor de dropshiping ropa.',
+            ]);
+
+        App\Category::create([
+            'nameCategory' => 'DC'
+        ]);
+
+        App\Category::create([
+            'nameCategory' => 'Marvel'
+        ]);
+
+        App\Category::create([
+            'nameCategory' => 'Unicornios'
+        ]);
+
+        App\Product::create([
+            'nameProduct' => 'playera batman',
+            'description_prod' => 'Playera bien bonita de batman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 1,
+            'provider_id' => 1,
+            'size_id' => 2
+        ]);
+
+        App\Product::create([
+            'nameProduct' => 'playera batman',
+            'description_prod' => 'Playera bien bonita de batman',
+            'costo_prod' => 250.00,
+            'precio_prod'=> 400.00,
+            'category_id' => 1,
+            'provider_id' => 1,
+            'size_id' => 3
+        ]);
+
+        App\Product::create([
+            'nameProduct' => 'playera batman',
+            'description_prod' => 'Playera bien bonita de batman',
+            'costo_prod' => 250.00,
+            'precio_prod'=> 400.00,
+            'category_id' => 1,
+            'provider_id' => 1,
+            'size_id' => 4
+        ]);
+
+        DB::update('update inventories set exist_inv=10 where product_id between ? and ?', [1, 3]);
+
+        factory(App\Product::class, 50)->create();
     }
 }
