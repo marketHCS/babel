@@ -3,10 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
 use Auth;
 
-class Admin
+class isntDeleted
 {
     /**
      * Handle an incoming request.
@@ -17,10 +16,11 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->typeUser_id == 2 || Auth::user()->typeUser_id == 3) {
-            return $next($request);
+        if (Auth::user()->typeUser_id == 4) {
+            Auth::logout();
+            return redirect('/')->with('status', 'Cuenta Eliminada, por favor crea otra cuenta.');
         } else {
-            return redirect('/');
+            return $next($request);
         }
     }
 }

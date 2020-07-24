@@ -2687,6 +2687,16 @@ span.page-link {
   margin-bottom: 0;
 }
 
+.separated {
+  width: 85%;
+  height: 1px;
+  border-bottom: 1px solid #7c7c7c;
+}
+
+.hiddenInput {
+  display: none;
+}
+
 @media screen and (min-width: 572px) {
   .notify {
     max-width: 50%;

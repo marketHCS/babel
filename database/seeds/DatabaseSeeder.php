@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Usuarios
+        factory(App\User::class, 50)->create();
         App\User::create([
             'name' => 'Jama Ideal',
             'ap' => 'Escobedo',
@@ -56,6 +57,37 @@ class DatabaseSeeder extends Seeder
             'profilePicture' => 'https://api.adorable.io/avatars/285/VictorAguilarSanchez.png'
         ]);
 
-        factory(App\User::class, 50)->create();
+        App\User::create([
+            'name' => 'Eliminado',
+            'ap' => 'Eliminado',
+            'am' => 'Eliminado',
+            'email' => 'eliminado@eliminado.com',
+            'password' => bcrypt('acceso.jama'),
+            'birthdate' => '1980-10-10',
+            'sex_id' => 1,
+            'profilePicture' => 'https://api.adorable.io/avatars/285/VictorAguilarSanchez.png'
+        ]);
+
+        App\Address::create([
+        'street' => 'Prol. Francisco Zarco',
+        'exteriorNumberAddress' => '15',
+        'interiorNumberAddress' => '1',
+        'suburb' => 'San José',
+        'city' => 'Tula de Allende',
+        'estate' => 'Hidalgo',
+        'cp' => '42805',
+        'user_id' => 1
+    ]);
+
+        App\Address::create([
+        'street' => 'Prol. Francisco Zarco',
+        'exteriorNumberAddress' => '15',
+        'interiorNumberAddress' => '1',
+        'suburb' => 'San José',
+        'city' => 'Tula de Allende',
+        'estate' => 'Hidalgo',
+        'cp' => '42805',
+        'user_id' => 1
+    ]);
     }
 }

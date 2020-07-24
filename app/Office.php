@@ -9,7 +9,7 @@ class Office extends Model
     protected $fillable = [
         'nameOffice',
         'address_id',
-        'phone_id'
+        'phone'
     ];
 
     protected $table = 'offices';

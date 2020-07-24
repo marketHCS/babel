@@ -14,7 +14,7 @@
           <th scope="col">Nombre</th>
           <th scope="col">email</th>
           <th scope="col">Sexo</th>
-          <th colspan="3">&nbsp;</th>
+          <th colspan="2">&nbsp;</th>
         </thead>
         <tbody>
           @foreach($users as $user)
@@ -25,9 +25,17 @@
               <span>
                 Cliente
               </span>
-              @else
+              @elseif($user->typeUser_id == 2)
               <span class="underline">
                 Admin
+              </span>
+              @elseif($user->typeUser_id == 3)
+              <span class="underline bold">
+                SuperAdmin
+              </span>
+              @else
+              <span class="text-muted">
+                Eliminado
               </span>
               @endif
             </td>
@@ -50,11 +58,6 @@
             <td>
               <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning">
                 Editar
-              </a>
-            </td>
-            <td>
-              <a href="{{ route('users.destroy', $user) }}" class="btn btn-sm btn-danger" onclick="confirm('¿Seguro que quieres borrar este usuario...?')">
-                Eliminar
               </a>
             </td>
           </tr>

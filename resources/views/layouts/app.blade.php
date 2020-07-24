@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/animate.css') }}" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/fe02ebbd3b.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -108,7 +109,7 @@
                 </div>
                 <a href="#">Carrito de compras</a>
               </div>
-              @if(Auth::user()->typeUser_id != 1)
+              @if(Auth::user()->typeUser_id == 2 || Auth::user()->typeUser_id == 3)
               <div class="up-item ml-4">
                 <div class="row">
                   <span class="nav-item dropdown">
@@ -186,7 +187,7 @@
               Somos una marca de playeras juveniles, trayendo únicos diseños
               llenos de estilo y personalidad.
             </p>
-            <img src="img/cards.png" alt="" />
+            <img src="{{ asset('img/cards.png') }}" alt="" />
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
@@ -247,10 +248,12 @@
     </div>
   </section>
 
-  @if($errors->any())
+  @if($errors->any() || session('status') || session('message'))
   <div class="alert alert-danger notify alert-dismissible fade show mt-4 mx-4" role="alert" id="alert">
-    @if($message)
-    {{ Session::get('message') }}
+    @if(isset($message))
+    <span class="bold">{{ Session::get('message') }}</span>
+    @else
+    {{ session('status') }}
     @endif
     <ul>
       @foreach($errors->all() as $error)

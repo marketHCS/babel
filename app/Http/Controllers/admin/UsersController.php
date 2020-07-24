@@ -3,16 +3,19 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\Adress;
+use App\Address;
 
 class UsersController extends Controller
 {
+    // use Add
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('admin');
+        $this->middleware('isntDeleted');
     }
 
     /**
@@ -23,7 +26,7 @@ class UsersController extends Controller
     public function index()
     {
         return view('admin.user.index', [
-            'users' => User::orderBy('updated_at', 'asc')->paginate()
+            'users' => User::orderBy('updated_at', 'desc')->paginate()
         ]);
     }
 
@@ -56,8 +59,9 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        // $adresses = Address::where('user_id', '')
-        return view('admin.user.show', compact('user'));
+        $addresses = Address::where('addresses.user_id', '=', $user->id)->get();
+
+        return view('admin.user.show', compact('user', 'addresses'));
     }
 
     /**
@@ -78,9 +82,10 @@ class UsersController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $user->update($request->all());
+        return back()->with('status', 'Actualizado con éxito');
     }
 
     /**
@@ -89,8 +94,15 @@ class UsersController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Type $type)
+    public function delete(Request $request, User $user)
     {
-        //
+        $user->update($request->all());
+        return back()->with('status', 'Actualizado con éxito');
+    }
+
+    public function admin(Request $request, User $user)
+    {
+        $user->update($request->all());
+        return \redirect(\route('users.show', $user));
     }
 }

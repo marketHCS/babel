@@ -32,7 +32,7 @@ class User extends Authenticatable
       'rfc',
       'sex_id',
       'address_id',
-      'phone_id'
+      'phone'
     ];
 
     /**

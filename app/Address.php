@@ -12,7 +12,8 @@ class Address extends Model
         'interiorNumberAddress',
         'suburb',
         'city',
-        'estate'
+        'estate',
+        'cp'
     ];
 
     protected $table = 'addresses';

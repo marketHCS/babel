@@ -14,7 +14,7 @@ class Provider extends Model
         'descriptionProvider',
         'emailProvider',
         'rfcProfider',
-        'phone_id',
+        'phone',
         'adress_id'
     ];
 
