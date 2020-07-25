@@ -119,6 +119,7 @@
                       <a class="dropdown-item" href="{{ route('products.index') }}">Productos</a>
                       <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Ventas</a>
+                      <a class="dropdown-item" href="{{ route('dashboard') }}">Proveedores</a>
                       </a>
                     </div>
                   </span>

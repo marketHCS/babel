@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Http\Controllers\Controller;
+use App\ImagesProduct;
 
 class ProductsController extends Controller
 {
@@ -23,7 +24,7 @@ class ProductsController extends Controller
     public function index()
     {
         return view('admin.product.index', [
-            'products' => Product::orderBy('updated_at', 'desc')->paginate()
+          'products' =>Product::orderBy('id', 'asc')->paginate()
         ]);
     }
 
@@ -45,7 +46,17 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //salvar
+        $product = Product::create($request->all());
+
+        //imagen
+        if ($request->hasFile('image')) {
+            $image = ImagesProduct::create();
+            $image->url = $request->image->store('products', 'public');
+            $image->save();
+        }
+        //retornar
+        return back()->with('status', 'Creado con éxito');
     }
 
     /**
@@ -56,7 +67,7 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('admin.product.show', compact('product'));
     }
 
     /**

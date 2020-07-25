@@ -7,7 +7,10 @@ use Product;
 
 class ImagesProduct extends Model
 {
-    protected $fillable = ['url'];
+    protected $fillable = [
+      'url',
+      'product_id'
+  ];
 
     public function product()
     {
@@ -15,4 +18,11 @@ class ImagesProduct extends Model
     }
 
     protected $table = 'imagesProducts';
+
+    public function getGetImageAttribute()
+    {
+        if ($this->url) {
+            return url("storage/$this->url");
+        }
+    }
 }

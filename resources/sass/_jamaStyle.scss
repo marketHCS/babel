@@ -220,7 +220,8 @@ body {
   background-color: #d4b91c;
 }
 
-#section-users {
+#section-users,
+#section-products {
   margin: 10em 0;
 }
 
@@ -303,6 +304,47 @@ span.page-link {
 
 .hiddenInput {
   display: none;
+}
+
+.thumb {
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-details .p-stock-admin {
+  font-size: 2rem;
+  color: #000;
+  font-weight: 700;
+  color: #323330;
+  margin-bottom: 10px;
+}
+
+.product-details .p-title-admin {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #323330;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.product-details .p-date {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #7a7a7a;
+  // text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.product-details .p-stock-admin span {
+  color: #f9dc3e;
+}
+
+.underline.green {
+  text-decoration-color: $green;
+}
+
+.underline.red {
+  text-decoration-color: $red;
 }
 
 @media screen and (min-width: 572px) {
