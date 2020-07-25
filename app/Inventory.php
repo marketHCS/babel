@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     protected $fillable = [
-        'exist_inv',
+        'eq_s',
+        'eq_m',
+        'eq_g',
+        'ec_s',
+        'ec_m',
+        'ec_g',
+        'eg_s',
+        'eg_m',
+        'eg_g',
         'product_id',
-        'office_id',
-        'product_size_id'
     ];
 
     protected $table = 'inventories';

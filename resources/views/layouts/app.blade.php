@@ -116,7 +116,7 @@
                     <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Administrador</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
-                      <a class="dropdown-item" href="{{ route('dashboard') }}">Productos</a>
+                      <a class="dropdown-item" href="{{ route('products.index') }}">Productos</a>
                       <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Ventas</a>
                       </a>

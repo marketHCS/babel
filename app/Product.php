@@ -17,7 +17,6 @@ class Product extends Model
       'material_prod',
       'category_id',
       'provider_id',
-      'size_id'
     ];
 
     public function imagesProduct()

@@ -13,6 +13,5 @@ $factory->define(Product::class, function (Faker $faker) {
       'precio_prod' => 400,
       'category_id' => rand(1, 3),
       'provider_id' => 1,
-      'size_id' => rand(1, 5)
     ];
 });

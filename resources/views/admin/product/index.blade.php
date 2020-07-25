@@ -10,53 +10,27 @@
       <table class="table">
         <thead class="thead-dark">
           <th scope="col">#</th>
-          <th scope="col">Tipo</th>
+          <th scope="col">Estado</th>
           <th scope="col">Nombre</th>
-          <th scope="col">email</th>
-          <th scope="col">Sexo</th>
+          <th scope="col">Precio</th>
           <th colspan="2">&nbsp;</th>
         </thead>
         <tbody>
-          @foreach($users as $user)
+          @foreach($products as $product)
           <tr>
-            <td scope="row">{{ $user->id }}</td>
+            <td scope="row">{{ $product->id }}</td>
             <td>
-              @if($user->typeUser_id == 1)
-              <span>
-                Cliente
-              </span>
-              @elseif($user->typeUser_id == 2)
-              <span class="underline">
-                Admin
-              </span>
-              @elseif($user->typeUser_id == 3)
-              <span class="underline bold">
-                SuperAdmin
-              </span>
-              @else
-              <span class="text-muted">
-                Eliminado
-              </span>
-              @endif
+              Est: {{ $product->statusProduct_id }}
             </td>
-            <td>{{ $user->name . ' ' . $user->ap }}</td>
-            <td>{{ $user->email }}</td>
+            <td>{{ $product->nameProduct}}</td>
+            <td>{{ $product->precio_prod }}</td>
             <td>
-              @if($user->sex_id == 1)
-              Masculino
-              @elseif($user->sex_id == 2)
-              Femenino
-              @else
-              Otro
-              @endif
-            </td>
-            <td>
-              <a href="{{ route('users.show', $user) }}" class="btn btn-sm btn-success">
+              <a href="{{ route('products.show', $product) }}" class="btn btn-sm btn-success">
                 Detalles
               </a>
             </td>
             <td>
-              <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning">
+              <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-warning">
                 Editar
               </a>
             </td>
@@ -64,7 +38,7 @@
           @endforeach
         </tbody>
       </table>
-      {{$users->links()}}
+      {{$products->links()}}
     </div>
   </div>
 </section>

@@ -117,35 +117,31 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'playera batman',
             'description_prod' => 'Playera bien bonita de batman',
+            'costo_prod' => 250.00,
+            'precio_prod'=> 400.00,
+            'category_id' => 1,
+            'provider_id' => 1,
+        ]);
+
+        App\Product::create([
+            'nameProduct' => 'playera Unicornio',
+            'description_prod' => 'Playera bien bonita de unicornio',
+            'costo_prod' => 250.00,
+            'precio_prod'=> 400.00,
+            'category_id' => 3,
+            'provider_id' => 1,
+        ]);
+
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
             'costo_prod' => '250.00',
             'precio_prod'=> '400.00',
-            'category_id' => 1,
+            'category_id' => 2,
             'provider_id' => 1,
-            'size_id' => 2
         ]);
 
-        App\Product::create([
-            'nameProduct' => 'playera batman',
-            'description_prod' => 'Playera bien bonita de batman',
-            'costo_prod' => 250.00,
-            'precio_prod'=> 400.00,
-            'category_id' => 1,
-            'provider_id' => 1,
-            'size_id' => 3
-        ]);
 
-        App\Product::create([
-            'nameProduct' => 'playera batman',
-            'description_prod' => 'Playera bien bonita de batman',
-            'costo_prod' => 250.00,
-            'precio_prod'=> 400.00,
-            'category_id' => 1,
-            'provider_id' => 1,
-            'size_id' => 4
-        ]);
-
-        DB::update('update inventories set exist_inv=10 where product_id between ? and ?', [1,9]);
-
-        factory(App\Product::class, 50)->create();
+        DB::update('update inventories set eq_s=10, eq_m=10, eq_g=10, ec_s=10, ec_m=10, ec_g=10, eg_s=10, eg_m=10, eg_g=10 where product_id between ? and ?', [1,3]);
     }
 }
