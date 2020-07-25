@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\Http\Controllers\Controller;
 use App\ImagesProduct;
+use Illuminate\Database\Eloquent\Model;
+
+// use db;
 
 class ProductsController extends Controller
 {
@@ -44,7 +48,7 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         //salvar
         $product = Product::create($request->all());
@@ -88,7 +92,7 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
         //
     }
@@ -99,8 +103,16 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+
+    public function delete(Product $product)
     {
-        //
+        if ($product->statusProduct_id != 5) {
+            Product::where('id', $product->id)->update(['statusProduct_id'=>5]);
+        } else {
+            Product::where('id', $product->id)->update(['statusProduct_id'=>2]);
+        }
+        $product->save();
+
+        return back()->with('status', 'Actualizado con éxito');
     }
 }

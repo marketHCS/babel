@@ -5,7 +5,7 @@
 <section id="section-products">
   <div class="container">
     <div class="row">
-      <a href="{{ route('products.create') }}" class="btn btn-success mb-5 float-right ml-auto"><i class="fas fa-tshirt"></i> Crear product</a>
+      <a href="{{ route('products.create') }}" class="btn btn-success mb-5 float-right ml-auto"><i class="fas fa-tshirt"></i> Crear producto</a>
     </div>
     <div class="row">
       <table class="table">
@@ -14,9 +14,10 @@
           <th scope="col">Estado</th>
           <th scope="col">Nombre</th>
           <th scope="col">Precio</th>
-          <th scope="col">Existencia QRO</th>
-          <th scope="col">Existencia CDMX</th>
-          <th scope="col">Existencia GDL</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">QRO</th>
+          <th scope="col">CDMX</th>
+          <th scope="col">GDL</th>
           <th colspan="2">&nbsp;</th>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@
             </td>
             <td>{{ $product->nameProduct}}</td>
             <td>{{ $product->precio_prod }}</td>
+            <td><span class="ml-4">Existencia: </span></td>
             <td>
               @php
               $queryExistenciaQRO = DB::select('select eq_s, eq_m, eq_g from inventories join products p on inventories.product_id = p.id where p.id = ?', [$product->id]);

@@ -10,6 +10,15 @@
     <div class="site-pagination">
       <a href="">Inicio</a> >
       <a href="">Producto</a>
+      <div class="back-link">
+        <a href="{{ route('products.index') }}" class="btn btn-danger my-3 float-left"><i class="fas fa-backward"></i> Regrezar</a>
+        <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-warning float-right my-3 mx-2">Editar</a>
+        <form action="{{ route('products.delete', $product) }}" method="POST">
+          @method('put')
+          @csrf
+          <button class="btn btn-sm btn-danger float-right my-3 mx-2">Eliminar</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
@@ -20,8 +29,6 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <div class="back-link">
-          <a href="{{ route('products.index') }}" class="btn btn-danger mt-5"><i class="fas fa-backward"></i> Regrezar</a> </div>
         <div class="row">
           <div class="col-lg-6">
             <div class="product-pic-zoom">
