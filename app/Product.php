@@ -8,15 +8,15 @@ use ImagesProduct;
 class Product extends Model
 {
     protected $fillable = [
-      'statusProduct_id',
-      'nameProduct',
+      'statusProduct_id', //
+      'nameProduct', //
       'description_prod',
-      'costo_prod',
-      'precio_prod',
-      'descuento',
-      'material_prod',
-      'category_id',
-      'provider_id',
+      'costo_prod', //
+      'precio_prod', //
+      'descuento', //
+      'material_prod', //
+      'category_id', //
+      'provider_id', //
     ];
 
     public function imagesProduct()

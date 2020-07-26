@@ -6,17 +6,23 @@
 <!-- Page info -->
 <div class="page-top-info">
   <div class="container">
-    <h4>¿Te gustó?</h4>
+    <h4>Detalles del producto:</h4>
     <div class="site-pagination">
-      <a href="">Inicio</a> >
-      <a href="">Producto</a>
+      <a href="{{ route('dashboard') }}">Administrador</a> >
+      <a href="{{ route('products.index') }}">Productos</a>
       <div class="back-link">
         <a href="{{ route('products.index') }}" class="btn btn-danger my-3 float-left"><i class="fas fa-backward"></i> Regrezar</a>
         <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-warning float-right my-3 mx-2">Editar</a>
         <form action="{{ route('products.delete', $product) }}" method="POST">
           @method('put')
           @csrf
-          <button class="btn btn-sm btn-danger float-right my-3 mx-2">Eliminar</button>
+          <button class="btn btn-sm btn-danger float-right my-3 mx-2">
+            @if($product->statusProduct_id ==5)
+            Activar
+            @else
+            Eliminar
+            @endif
+          </button>
         </form>
       </div>
     </div>
@@ -34,7 +40,7 @@
             <div class="product-pic-zoom">
               @php
               use App\ImagesProduct;
-              $queryId = DB::select('select * from imagesproducts join products p on imagesproducts.product_id = p.id where p.id=?', [$product->id]);
+              $queryId = DB::select('select * from imagesproducts where product_id=?', [$product->id]);
               $queryImage = ImagesProduct::find($queryId[0]->product_id);
               @endphp
               <img class="product-big-img" src="{{ $queryImage->get_image }}" alt="Producto" />
@@ -43,7 +49,7 @@
               <div class="product-thumbs-track">
                 @foreach($queryId as $result)
                 @php
-                $resultImage = ImagesProduct::find($result->product_id);
+                $resultImage = ImagesProduct::find($result->id);
                 @endphp
                 <div class="pt" data-imgbigurl="{{ $resultImage->get_image }}">
                   <img src="{{ $resultImage->get_image }}" alt="Imagen" class="thumb" />
@@ -51,39 +57,8 @@
                 @endforeach
               </div>
             </div>
-          </div>
-          <div class="col-lg-6 product-details">
-            <h1 class="p-title-admin">{{ $product->nameProduct }} | Tee-shirt</h1>
-            <h3 class="p-price">$ <span class="underline green">{{ $product->precio_prod }}</span> | $ <span class="underline red">{{ $product->costo_prod }}</span></h3>
-            <h2 class="p-stock-admin">
-              Estado:
-              <span>
-                @php
-                $queryStatus = DB::select('select nameStatus from products join statusproducts s on products.statusProduct_id = s.id where products.id=?', [$product->id])
-                @endphp
-                {{ $queryStatus[0]->nameStatus }}
-              </span>
-            </h2>
-            <h3 class="p-price">Descuento:
-              <span class="underline">
-                @if($product->descuento == null)
-                No disponible
-                @else
-                {{ $product->descuento * 100 }}
-                @endif
-              </span>
-            </h3>
-            <h3 class="p-price">Material: {{ $product->material_prod }}</h3>
-            @php
-            $queryCategory = DB::select('select nameCategory from categories join products p on categories.id = p.category_id where p.id = ?', [$product->id])
-            @endphp
-            <h3 class="p-price">Categoría: {{ $queryCategory[0]->nameCategory }}</h3>
-            @php
-            $queryProvider = DB::select('select nameProvider from providers join products p on providers.id = p.provider_id where p.id = ?;', [$product->id])
-            @endphp
-            <h3 class="p-price">Proveedor: {{ $queryProvider[0]->nameProvider }}</h3>
-            <h5 class="p-date">Creado el: {{ $product->created_at->format('d M Y') }}</h5>
-            <h5 class="p-date">Modificado el: {{ $product->updated_at->format('d M Y') }}</h5>
+            <a href="{{ route('products.images', $product) }}" class="btn btn-success mt-5">Modificar imagenes</a>
+
             <div id="accordion" class="accordion-area">
               <div class="panel">
                 <div class="panel-header" id="headingOne">
@@ -99,6 +74,91 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="col-lg-6 product-details">
+            <h1 class="p-title-admin">{{ $product->nameProduct }} | Tee-shirt</h1>
+            @if($product->descuento>0)
+            <h3 class="p-price">Precio: $<span class="underline green">{{ $product->precio_prod - ($product->precio_prod * $product->descuento) }}</span> | Costo: $<span class="underline red">{{ $product->costo_prod }}</span></h3>
+            @else
+            <h3 class="p-price">Precio: $<span class="underline green">{{ $product->precio_prod }}</span> | Costo: $<span class="underline red">{{ $product->costo_prod }}</span></h3>
+            @endif
+            <h2 class="p-stock-admin">
+              Estado:
+              <span>
+                @php
+                $queryStatus = DB::select('select nameStatus from products join statusproducts s on products.statusProduct_id = s.id where products.id=?', [$product->id])
+                @endphp
+                {{ $queryStatus[0]->nameStatus }}
+              </span>
+            </h2>
+            <h3 class="p-price">Descuento:
+              <span class="underline">
+                @if($product->descuento == null)
+                No disponible
+                @else
+                {{ $product->descuento * 100 }}%
+                @endif
+              </span>
+            </h3>
+            <h3 class="p-price">Material: {{ $product->material_prod }}</h3>
+            @php
+            $queryCategory = DB::select('select nameCategory from categories join products p on categories.id = p.category_id where p.id = ?', [$product->id])
+            @endphp
+            <h3 class="p-price">Categoría: {{ $queryCategory[0]->nameCategory }}</h3>
+            @php
+            $queryProvider = DB::select('select nameProvider from providers join products p on providers.id = p.provider_id where p.id = ?;', [$product->id])
+            @endphp
+            <h3 class="p-price">Proveedor: {{ $queryProvider[0]->nameProvider }}</h3>
+            <h5 class="p-date">Creado el: {{ $product->created_at->format('d M Y') }}</h5>
+            <h5 class="p-date">Modificado el: {{ $product->updated_at->format('d M Y') }}</h5>
+            @php
+            $queryInventory = DB::select('select * from inventories where product_id=?', [$product->id])
+            @endphp
+            <div class="row my-3">
+              <h5 class="p-price">Existencia por almacen: (Talla chica)</h5>
+              <table class="table mt-2">
+                <thead class="thead-dark">
+                  <th scope="col">QRO</th>
+                  <th scope="col">CDMX</th>
+                  <th scope="col">GDL</th>
+                </thead>
+                <tbody>
+                  <td scope="row">{{ $queryInventory[0]->eq_s }}</td>
+                  <td scope="row">{{ $queryInventory[0]->ec_s }}</td>
+                  <td scope="row">{{ $queryInventory[0]->eg_s }}</td>
+                </tbody>
+              </table>
+            </div>
+            <div class="row my-3">
+              <h5 class="p-price">Existencia por almacen: (Talla mediana)</h5>
+              <table class="table mt-2">
+                <thead class="thead-dark">
+                  <th scope="col">QRO</th>
+                  <th scope="col">CDMX</th>
+                  <th scope="col">GDL</th>
+                </thead>
+                <tbody>
+                  <td scope="row">{{ $queryInventory[0]->eq_m }}</td>
+                  <td scope="row">{{ $queryInventory[0]->ec_m }}</td>
+                  <td scope="row">{{ $queryInventory[0]->eg_m }}</td>
+                </tbody>
+              </table>
+            </div>
+            <div class="row my-3">
+              <h5 class="p-price">Existencia por almacen: (Talla grande)</h5>
+              <table class="table mt-2">
+                <thead class="thead-dark">
+                  <th scope="col">QRO</th>
+                  <th scope="col">CDMX</th>
+                  <th scope="col">GDL</th>
+                </thead>
+                <tbody>
+                  <td scope="row">{{ $queryInventory[0]->eq_g }}</td>
+                  <td scope="row">{{ $queryInventory[0]->ec_g }}</td>
+                  <td scope="row">{{ $queryInventory[0]->eg_g }}</td>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

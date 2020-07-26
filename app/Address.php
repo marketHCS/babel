@@ -13,7 +13,9 @@ class Address extends Model
         'suburb',
         'city',
         'estate',
-        'cp'
+        'cp',
+        'user_id',
+        'provider_id'
     ];
 
     protected $table = 'addresses';

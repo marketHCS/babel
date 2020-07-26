@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Usuarios
-        factory(App\User::class, 50)->create();
         App\User::create([
             'name' => 'Jama Ideal',
             'ap' => 'Escobedo',
@@ -68,11 +67,12 @@ class DatabaseSeeder extends Seeder
             'profilePicture' => 'https://api.adorable.io/avatars/285/VictorAguilarSanchez.png'
         ]);
 
+        factory(App\User::class, 50)->create();
 
-        DB::update('update users set typeUser_id=3 where id = ?', [51]);
-        DB::update('update users set typeUser_id=2 where id = ?', [53]);
-        DB::update('update users set typeUser_id=2 where id = ?', [54]);
-        DB::update('update users set typeUser_id=4 where id = ?', [55]);
+        DB::update('update users set typeUser_id=3 where id = ?', [1]);
+        DB::update('update users set typeUser_id=2 where id = ?', [3]);
+        DB::update('update users set typeUser_id=2 where id = ?', [4]);
+        DB::update('update users set typeUser_id=4 where id = ?', [5]);
 
         App\Address::create([
             'street' => 'Prol. Francisco Zarco',
@@ -148,6 +148,10 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i<3; $i++) {
             App\ImagesProduct::create([
             'url' => 'products/9.jpg',
+            'product_id' => $i + 1
+          ]);
+            App\ImagesProduct::create([
+            'url' => 'products/apolo.jpg',
             'product_id' => $i + 1
           ]);
         }

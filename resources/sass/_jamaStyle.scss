@@ -310,6 +310,12 @@ span.page-link {
   width: 100%;
   object-fit: cover;
 }
+.thumb-destroy {
+  width: 64px;
+  object-fit: cover;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 .product-details .p-stock-admin {
   font-size: 2rem;
@@ -346,6 +352,9 @@ span.page-link {
 .underline.red {
   text-decoration-color: $red;
 }
+.addresses {
+  margin-top: 3rem;
+}
 
 @media screen and (min-width: 572px) {
   .notify {
@@ -362,5 +371,8 @@ span.page-link {
 @media screen and (min-width: 992px) {
   .notify {
     max-width: 33%;
+  }
+  .addresses {
+    margin-top: 0rem;
   }
 }

@@ -71,6 +71,7 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
+        // dd($product);
         return view('admin.product.show', compact('product'));
     }
 
@@ -82,7 +83,7 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.product.edit', compact('product'));
     }
 
     /**
@@ -94,7 +95,8 @@ class ProductsController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return back()->with('status', 'Actualizado con éxito');
     }
 
     /**
@@ -104,15 +106,22 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function delete(Product $product)
+    public function delete(Request $request, Product $product)
     {
+        // dd($product);
         if ($product->statusProduct_id != 5) {
             Product::where('id', $product->id)->update(['statusProduct_id'=>5]);
+        // dd($request);
+            // $product->statusProduct_id = 5;
+            // $product->save();
         } else {
             Product::where('id', $product->id)->update(['statusProduct_id'=>2]);
         }
-        $product->save();
-
         return back()->with('status', 'Actualizado con éxito');
+    }
+
+    public function images(Product $product)
+    {
+        return view('admin.product.images', compact('product'));
     }
 }
