@@ -39,7 +39,6 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $addresses = Address::where('addresses.user_id', '=', $user->id)->get();
-
         return view('admin.user.show', compact('user', 'addresses'));
     }
 

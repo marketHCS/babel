@@ -10,5 +10,6 @@ Route::prefix('/admin')->group(function () {
     Route::resource('products', 'admin\ProductsController')->except('destroy');
     Route::put('products/delete/{product}', 'admin\ProductsController@delete')->name('products.delete');
     Route::get('products/images/{product}', 'admin\ProductsController@images')->name('products.images');
-    Route::delete('products/images/delete/{product}', 'admin\ImagesProductController@destroy')->name('products.destroyImage');
+    Route::delete('products/images/delete/{id}', 'admin\ImagesProductController@destroy')->name('products.destroyImage');
+    Route::post('products/images/store/{product}', 'admin\ImagesProductController@store')->name('products.storeImage');
 });

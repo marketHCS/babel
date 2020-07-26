@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Product;
@@ -53,12 +54,6 @@ class ProductsController extends Controller
         //salvar
         $product = Product::create($request->all());
 
-        //imagen
-        if ($request->hasFile('image')) {
-            $image = ImagesProduct::create();
-            $image->url = $request->image->store('products', 'public');
-            $image->save();
-        }
         //retornar
         return back()->with('status', 'Creado con éxito');
     }
@@ -72,7 +67,9 @@ class ProductsController extends Controller
     public function show(Product $product)
     {
         // dd($product);
-        return view('admin.product.show', compact('product'));
+        $images = ImagesProduct::where('imagesproducts.product_id', '=', $product->id)->get();
+        // dd($images);
+        return view('admin.product.show', compact('product', 'images'));
     }
 
     /**
@@ -122,6 +119,8 @@ class ProductsController extends Controller
 
     public function images(Product $product)
     {
-        return view('admin.product.images', compact('product'));
+        $images = ImagesProduct::where('imagesproducts.product_id', '=', $product->id)->get();
+        // dd($images);
+        return view('admin.product.images', compact('product', 'images'));
     }
 }

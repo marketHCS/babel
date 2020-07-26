@@ -37,22 +37,16 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6">
+            @if(count($images) > 0)
             <div class="product-pic-zoom">
-              @php
-              use App\ImagesProduct;
-              $queryId = DB::select('select * from imagesproducts where product_id=?', [$product->id]);
-              $queryImage = ImagesProduct::find($queryId[0]->product_id);
-              @endphp
-              <img class="product-big-img" src="{{ $queryImage->get_image }}" alt="Producto" />
+              <img class="product-big-img" src="{{ $images[0]->get_image }}" alt="Producto" />
             </div>
+            @endif
             <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
               <div class="product-thumbs-track">
-                @foreach($queryId as $result)
-                @php
-                $resultImage = ImagesProduct::find($result->id);
-                @endphp
-                <div class="pt" data-imgbigurl="{{ $resultImage->get_image }}">
-                  <img src="{{ $resultImage->get_image }}" alt="Imagen" class="thumb" />
+                @foreach($images as $image)
+                <div class="pt" data-imgbigurl="{{ $image->get_image }}">
+                  <img src="{{ $image->get_image }}" alt="Imagen" class="thumb" />
                 </div>
                 @endforeach
               </div>

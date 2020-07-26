@@ -145,15 +145,20 @@ class DatabaseSeeder extends Seeder
         DB::update('update inventories set eq_s=10, eq_m=10, eq_g=10, ec_s=10, ec_m=10, ec_g=10, eg_s=10, eg_m=10, eg_g=10 where product_id between ? and ?', [1,3]);
 
 
-        for ($i = 0; $i<3; $i++) {
-            App\ImagesProduct::create([
-            'url' => 'products/9.jpg',
-            'product_id' => $i + 1
+
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 1
           ]);
-            App\ImagesProduct::create([
-            'url' => 'products/apolo.jpg',
-            'product_id' => $i + 1
+
+        App\ImagesProduct::create([
+            'url' => 'products/2.jpg',
+            'product_id' => 2
           ]);
-        }
+
+        App\ImagesProduct::create([
+            'url' => 'products/3.png',
+            'product_id' => 3
+          ]);
     }
 }
