@@ -162,5 +162,32 @@ class DatabaseSeeder extends Seeder
             'url' => 'products/3.png',
             'product_id' => 3
           ]);
+
+        App\Buy::create([
+          'administrator_id' => 1,
+          'provider_id' => 1
+          ]);
+        App\Buy::create([
+          'administrator_id' => 2,
+          'provider_id' => 1
+        ]);
+
+        App\BuyDetail::create([
+          'cantidad_com' => 2,
+          'product_id' => 1,
+          'buy_id' => 1
+        ]);
+
+        App\BuyDetail::create([
+          'cantidad_com' => 1,
+          'product_id' => 2,
+          'buy_id' => 1
+        ]);
+
+        App\BuyDetail::create([
+          'cantidad_com' => 1,
+          'product_id' => 1,
+          'buy_id' => 2
+        ]);
     }
 }

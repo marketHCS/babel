@@ -15,6 +15,9 @@ Route::prefix('/admin')->group(function () {
     Route::resource('products', 'admin\ProductsController')->except('destroy');
     Route::put('products/delete/{product}', 'admin\ProductsController@delete')->name('products.delete');
 
+    // Inventories CRUD
+    // Route::resource('inventories', 'admin\InventoryController')->except('destroy', 'index', 'create', 'store', 'show');
+
     // Images CRUD
     Route::get('products/images/{product}', 'admin\ProductsController@images')->name('products.images');
     Route::delete('products/images/delete/{id}', 'admin\ImagesProductController@destroy')->name('products.destroyImage');
@@ -27,4 +30,8 @@ Route::prefix('/admin')->group(function () {
     // Categories CRUD
     Route::resource('categories', 'admin\CategoryController')->except('destroy');
     Route::put('categories/delete/{category}', 'admin\CategoryController@delete')->name('categories.delete');
+
+    // Buys CRUD
+    Route::resource('buys', 'admin\BuyController');
+    Route::put('buys/delete/{buy}', 'admin\BuyController@delete')->name('buys.delete');
 });

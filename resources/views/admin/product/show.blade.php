@@ -52,7 +52,6 @@
               </div>
             </div>
             <a href="{{ route('products.images', $product) }}" class="btn btn-success mt-5">Modificar imagenes</a>
-
             <div id="accordion" class="accordion-area">
               <div class="panel">
                 <div class="panel-header" id="headingOne">

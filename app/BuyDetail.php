@@ -14,5 +14,10 @@ class BuyDetail extends Model
         'inventory_id'
     ];
 
+    public function buy()
+    {
+        return $this->belongsTo('App\Buy');
+    }
+
     protected $table = 'buydetails';
 }

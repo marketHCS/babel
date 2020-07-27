@@ -9,8 +9,14 @@ class Buy extends Model
     protected $fillable = [
         'dateBuy',
         'cost_com',
-        'administrator_id'
+        'administrator_id',
+        'provider_id'
     ];
+
+    public function details()
+    {
+        return $this->hasMany('App\BuyDetail');
+    }
 
     protected $table = 'buys';
 }
