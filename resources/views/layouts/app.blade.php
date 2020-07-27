@@ -117,7 +117,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                       <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
-                      <a class="dropdown-item" href="{{ route('users.index') }}">Categorías</a>
+                      <a class="dropdown-item" href="{{ route('categories.index') }}">Categorías</a>
                       <a class="dropdown-item" href="{{ route('providers.index') }}">Proveedores</a>
                       <a class="dropdown-item" href="{{ route('products.index') }}">Productos</a>
                       <a class="dropdown-item" href="{{ route('dashboard') }}">Compras</a>

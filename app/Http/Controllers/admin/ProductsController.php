@@ -40,7 +40,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
     /**
@@ -51,11 +51,15 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        //salvar
-        $product = Product::create($request->all());
+        if ($request->costo_prod > $request->precio_prod) {
+            return back()->with('status', 'No puedes vender a perdida.');
+        } else {
+            //salvar
+            $product = Product::create($request->all());
 
-        //retornar
-        return back()->with('status', 'Creado con éxito');
+            //retornar
+            return back()->with('status', 'Creado con éxito');
+        }
     }
 
     /**
@@ -92,8 +96,12 @@ class ProductsController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        $product->update($request->all());
-        return back()->with('status', 'Actualizado con éxito');
+        if ($request->costo_prod > $request->precio_prod) {
+            return back()->with('status', 'No puedes vender a perdida.');
+        } else {
+            $product->update($request->all());
+            return back()->with('status', 'Actualizado con éxito');
+        }
     }
 
     /**

@@ -23,4 +23,8 @@ Route::prefix('/admin')->group(function () {
     // Prodividers CRUD
     Route::resource('providers', 'admin\ProviderController')->except('destroy');
     Route::put('providers/delete/{provider}', 'admin\ProviderController@delete')->name('providers.delete');
+
+    // Categories CRUD
+    Route::resource('categories', 'admin\CategoryController')->except('destroy');
+    Route::put('categories/delete/{category}', 'admin\CategoryController@delete')->name('categories.delete');
 });
