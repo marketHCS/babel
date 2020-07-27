@@ -100,7 +100,9 @@ class DatabaseSeeder extends Seeder
             'nameProvider' => 'Printful',
             'companyProvider'=> 'Printful',
             'descriptionProvider' => 'Proveedor de dropshiping ropa.',
+            'emailProvider' => 'printful@printful.com'
             ]);
+
 
         App\Category::create([
             'nameCategory' => 'DC'

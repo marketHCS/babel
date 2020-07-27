@@ -2,6 +2,7 @@
 @section('title', 'Usuarios')
 
 @section('content')
+
 <section id="section-users">
   <div class="container">
     <div class="row">

@@ -2399,6 +2399,16 @@ body {
   color: #323330;
 }
 
+.text-bold {
+  font-weight: 600;
+}
+
+.text-bold span {
+  font-weight: 400;
+  text-decoration: underline;
+  align-self: flex-end;
+}
+
 .hero-slider .hs-item .offer-card h2 {
   font-size: 3rem;
   font-weight: 400;
