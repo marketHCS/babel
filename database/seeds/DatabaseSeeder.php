@@ -165,11 +165,13 @@ class DatabaseSeeder extends Seeder
 
         App\Buy::create([
           'administrator_id' => 1,
-          'provider_id' => 1
+          'provider_id' => 1,
+          'status_id' => 1
           ]);
         App\Buy::create([
           'administrator_id' => 2,
-          'provider_id' => 1
+          'provider_id' => 1,
+          'status_id' => 2
         ]);
 
         App\BuyDetail::create([

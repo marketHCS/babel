@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Buy extends Model
 {
     protected $fillable = [
-        'dateBuy',
         'cost_com',
         'administrator_id',
-        'provider_id'
+        'provider_id',
+        'concepto_compra',
+        'status_id'
     ];
 
     public function details()

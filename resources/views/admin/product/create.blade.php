@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Crear proveedor')
 
-@show
-
 @section('content')
 
 <!-- Page info -->
@@ -104,7 +102,7 @@
         </div>
         <div class="container-fluid">
           @csrf
-          <button type="submit" class="btn btn-success float-right">Actualizar</button>
+          <button type="submit" class="btn btn-success float-right">Crear producto</button>
         </div>
       </form>
     </div>

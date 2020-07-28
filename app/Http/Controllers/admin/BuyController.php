@@ -37,7 +37,7 @@ class BuyController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        return view('admin.buy.create');
     }
 
     /**

@@ -11,13 +11,11 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            @php
-            $admins = DB::select('select * from users where typeUser_id between 2 and 3', []);
-            // dd($admins);
-            @endphp
             <th>#</th>
+            <th>Estado</th>
             <th>Monto</th>
             <th>Administrador</th>
+            <th>Proveedor</th>
             <th colspan="3">&nbsp;</th>
           </tr>
         </thead>
@@ -27,24 +25,21 @@
           // dd($buy);
           $userXadmin = DB::select('select * from users inner join administrators a on users.id = a.user_id where a.id = ?', [$buy->administrator_id]);
           // dd($userXadmin);
+          $provider = DB::select('select nameProvider from providers where id=?', [$buy->provider_id]);
+          $status = DB::select('select nameStatus from buystatus where id = ?', [$buy->status_id]);
           @endphp
           <tr>
             <td>{{ $buy->id }}</td>
-            <td>{{ $buy->cost_com }}</td>
+            <td class="underline">{{ $status[0]->nameStatus }}</td>
+            <td>${{ $buy->cost_com }}</td>
             <td>{{ $userXadmin[0]->name }}</td>
+            <td>{{ $provider[0]->nameProvider }}</td>
             <td><a href="{{ route('buys.show', $buy) }}" class="btn btn-sm btn-success">Detalles</a></td>
-            <td><a href="{{ route('buys.edit', $buy) }}" class="btn btn-sm btn-warning">Editar</a></td>
             <td>
               <form action="{{ route('buys.delete', $buy) }}" method="POST">
                 @method('put')
                 @csrf
-                <button class="btn btn-sm btn-danger">
-                  {{-- @if($buy->status !=1)
-                  Activar
-                  @else
-                  Eliminar
-                  @endif --}}
-                </button>
+                <button class="btn btn-sm btn-danger">Cancelar</button>
               </form>
             </td>
           </tr>
