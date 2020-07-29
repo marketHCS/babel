@@ -3,6 +3,7 @@
 
 @section('content')
 
+
 <!-- Page info -->
 <div class="page-top-info pb-5">
   <div class="container">
@@ -28,6 +29,7 @@
             <div class="col-6">
               <label for="nameAdmin">Nombre del administrador: </label>
               <input type="text" class="form-control" id="nameAdmin" value="{{ Auth::user()->name }}" disabled>
+              <input type="number" class="form-control hiddenO" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
             </div>
             <div class="col-6">
               @php

@@ -35,6 +35,9 @@ const addNewProduct = productsResponses => {
     let button = document.getElementById(`delete-${count - 1}`);
     button.classList.add("hidden");
   }
+  if (count === 11) {
+    return;
+  }
 
   let prepareStatement = `
   <div class="form-group border-bottom" id="product-${count}">
@@ -44,7 +47,7 @@ const addNewProduct = productsResponses => {
     </div>
     <div class="col-4 offset-1">
       <label for="productSelect-${count}">Producto: </label>
-      <select name="productSelect-${count}" id="productSelect-${count}" class="form-control custom-select">
+      <select name="productSelect${count}" id="productSelect-${count}" class="form-control custom-select">
   `;
 
   for (let product of productsResponses) {
@@ -57,7 +60,7 @@ const addNewProduct = productsResponses => {
     </div>
     <div class="col-1 offset-1">
       <label for="quant-${count}">Cantidad</label>
-      <input type="number" name="quant-${count}" id="quant-${count}" class="form-control">
+      <input type="number" name="quant${count}" id="quant-${count}" class="form-control">
     </div>
     <div class="col-1 offset-2">
       <button type="button" id="delete-${count}" class="btn btn-warning btn-delete"><i class="far fa-trash-alt"></i></button>

@@ -8,6 +8,7 @@ class BuyDetail extends Model
 {
     protected $fillable = [
         'cantidad_com',
+        'costoProduct',
         'buy_id',
         'product_id',
         'inventory_id'
