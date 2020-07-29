@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('consults');
+    }
+
     public function providers($id)
     {
         // http://127.0.0.1:8000/api/products/provider/1

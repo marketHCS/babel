@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::apiResource('products', 'Api\ProductsController');
+// Route::apiResource('productsREST', 'Api\ProductsController');
 
-Route::get('products/provider/{id}', 'Api\ProductsController@providers');
+Route::get('products/provider/{id}', 'Api\ProductsController@providers')->name('api.providers');

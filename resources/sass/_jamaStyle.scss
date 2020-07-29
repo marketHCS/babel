@@ -368,6 +368,35 @@ span.page-link {
   border-bottom: 1px solid #323330;
 }
 
+.btn-delete {
+  position: relative;
+  margin-top: 32px;
+  margin-right: 20px;
+}
+#products .form-control {
+  margin-bottom: 1em;
+}
+
+.hidden {
+  display: none;
+}
+
+.hiddenO {
+  opacity: 0;
+}
+
+.id-control {
+  max-width: fit-content;
+  margin-top: 32px;
+}
+
+.disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+  justify-content: center;
+  align-content: center;
+}
+
 @media screen and (min-width: 572px) {
   .notify {
     max-width: 50%;

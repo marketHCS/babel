@@ -46,17 +46,9 @@ class BuyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        if ($request->costo_prod > $request->precio_prod) {
-            return back()->with('status', 'No puedes vender a perdida.');
-        } else {
-            //salvar
-            $product = Product::create($request->all());
-
-            //retornar
-            return back()->with('status', 'Creado con éxito');
-        }
+        dd($request);
     }
 
     /**
@@ -68,9 +60,9 @@ class BuyController extends Controller
     public function show(Product $product)
     {
         // dd($product);
-        $images = ImagesProduct::where('imagesproducts.product_id', '=', $product->id)->get();
+        // $images = ImagesProduct::where('imagesproducts.product_id', '=', $product->id)->get();
         // dd($images);
-        return view('admin.product.show', compact('product', 'images'));
+        return view('admin.product.show');
     }
 
     /**
@@ -79,9 +71,9 @@ class BuyController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit()
     {
-        return view('admin.product.edit', compact('product'));
+        return view('admin.product.edit');
     }
 
     /**
@@ -91,12 +83,12 @@ class BuyController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request)
     {
         if ($request->costo_prod > $request->precio_prod) {
-            return back()->with('status', 'No puedes vender a perdida.');
+            // return back()->with('status', 'No puedes vender a perdida.');
         } else {
-            $product->update($request->all());
+            // $product->update($request->all());
             return back()->with('status', 'Actualizado con éxito');
         }
     }
@@ -108,24 +100,17 @@ class BuyController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function delete(Request $request, Product $product)
+    public function delete(Request $request)
     {
         // dd($product);
-        if ($product->statusProduct_id != 5) {
-            Product::where('id', $product->id)->update(['statusProduct_id'=>5]);
+        // if ($product->statusProduct_id != 5) {
+            // Product::where('id', $product->id)->update(['statusProduct_id'=>5]);
         // dd($request);
             // $product->statusProduct_id = 5;
             // $product->save();
-        } else {
-            Product::where('id', $product->id)->update(['statusProduct_id'=>2]);
-        }
-        return back()->with('status', 'Actualizado con éxito');
-    }
-
-    public function images(Product $product)
-    {
-        $images = ImagesProduct::where('imagesproducts.product_id', '=', $product->id)->get();
-        // dd($images);
-        return view('admin.product.images', compact('product', 'images'));
+        // } else {
+            // Product::where('id', $product->id)->update(['statusProduct_id'=>2]);
+        // }
+        // return back()->with('status', 'Actualizado con éxito');
     }
 }

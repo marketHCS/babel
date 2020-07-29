@@ -36,6 +36,7 @@
               @endphp
               <label for="provider_id">Proveedor: </label>
               <select name="provider_id" id="provider_id" class="form-control custom-select" value="">
+                <option value="0">Seleccionar</option>
                 @foreach ($queryProvider as $provider)
                 <option value="{{ $provider->id }}">{{ $provider->nameProvider }}</option>
                 @endforeach
@@ -47,36 +48,28 @@
           <div class="form-row">
             <div class="col">
               <label for="concepto_compra">Concepto de la compra: </label>
-              <textarea name="concepto_compra" rows="3" class="form-control"></textarea>
+              <textarea name="concepto_compra" id="concepto_compra" rows="3" class="form-control"></textarea>
             </div>
           </div>
         </div>
         <div class="container-fluid">
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-success float-right" id="addProduct">Agregar producto</button>
+              <button type="button" class="btn btn-success float-right hidden" id="addProduct">Agregar producto</button>
             </div>
           </div>
         </div>
         <div id="products">
-          <div class="form-group" id="product-1">
-            <div class="form-row border-bottom mt-2">
-              <div class="col-3">
-                <input type="text">
-              </div>
-              <div class="col-3"></div>
-              <div class="col-3"></div>
-              <div class="col-3"></div>
-            </div>
-          </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid mt-1">
+          <input type="number" class="hiddenO" id="count" name="count">
           @csrf
-          <button type="submit" class="btn btn-success float-right">Crear compra</button>
+          <button type="submit" class="btn btn-success float-right hiddenO" id="submit">Crear compra</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 <script src="{{ asset('js/addProduct.js') }}"></script>
 @endsection

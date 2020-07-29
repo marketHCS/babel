@@ -103,6 +103,13 @@ class DatabaseSeeder extends Seeder
             'emailProvider' => 'printful@printful.com'
             ]);
 
+        App\Provider::create([
+            'nameProvider' => 'JamaProvider',
+            'companyProvider'=> 'JamaProvider',
+            'descriptionProvider' => 'Jama prooveedor.',
+            'emailProvider' => 'jama@jamaaa.me'
+            ]);
+
 
         App\Category::create([
             'nameCategory' => 'DC'
@@ -114,6 +121,15 @@ class DatabaseSeeder extends Seeder
 
         App\Category::create([
             'nameCategory' => 'Unicornios'
+        ]);
+
+        App\Product::create([
+            'nameProduct' => 'playera playera',
+            'description_prod' => 'Playera bien bonita de batman',
+            'costo_prod' => 250.00,
+            'precio_prod'=> 400.00,
+            'category_id' => 1,
+            'provider_id' => 2,
         ]);
 
         App\Product::create([
