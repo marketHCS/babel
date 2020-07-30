@@ -24,5 +24,10 @@ class Product extends Model
         return $this->hasMany(ImagesProduct::class);
     }
 
+    public function buyDetails()
+    {
+        return $this->hasMany('App\BuyDetails');
+    }
+
     protected $table = 'products';
 }

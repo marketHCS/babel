@@ -32,6 +32,7 @@ Route::prefix('/admin')->group(function () {
     Route::put('categories/delete/{category}', 'admin\CategoryController@delete')->name('categories.delete');
 
     // Buys CRUD
-    Route::resource('buys', 'admin\BuyController')->except('edit', 'update');
-    Route::put('buys/delete/{buy}', 'admin\BuyController@delete')->name('buys.delete');
+    Route::resource('buys', 'admin\BuyController')->except('edit', 'destroy', 'update');
+    Route::put('buys/status/{buy}', 'admin\BuyController@status')->name('buys.status');
+    // Route::put('buys/new/{$id}', 'admin\BuyController@stores')->name('buys.creando');
 });

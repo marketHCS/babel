@@ -66,6 +66,7 @@
         <div class="container-fluid mt-1">
           <input type="number" class="hiddenO" id="count" name="count">
           @csrf
+          {{-- @method('put') --}}
           <button type="submit" class="btn btn-success float-right hiddenO" id="submit">Crear compra</button>
         </div>
       </form>

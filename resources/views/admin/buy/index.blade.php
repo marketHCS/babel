@@ -12,11 +12,12 @@
         <thead class="thead-dark">
           <tr>
             <th>#</th>
+            <th>Fecha</th>
             <th>Estado</th>
             <th>Monto</th>
             <th>Administrador</th>
             <th>Proveedor</th>
-            <th colspan="3">&nbsp;</th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
@@ -30,18 +31,12 @@
           @endphp
           <tr>
             <td>{{ $buy->id }}</td>
+            <td>{{ $buy->updated_at }}</td>
             <td class="underline">{{ $status[0]->nameStatus }}</td>
             <td>${{ $buy->cost_com }}</td>
             <td>{{ $userXadmin[0]->name }}</td>
             <td>{{ $provider[0]->nameProvider }}</td>
             <td><a href="{{ route('buys.show', $buy) }}" class="btn btn-sm btn-success">Detalles</a></td>
-            <td>
-              <form action="{{ route('buys.delete', $buy) }}" method="POST">
-                @method('put')
-                @csrf
-                <button class="btn btn-sm btn-danger">Cancelar</button>
-              </form>
-            </td>
           </tr>
           @endforeach
         </tbody>

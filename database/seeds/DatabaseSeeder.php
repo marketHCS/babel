@@ -124,7 +124,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         App\Product::create([
-            'nameProduct' => 'playera playera',
+            'nameProduct' => 'playera de Jama',
             'description_prod' => 'Playera bien bonita de batman',
             'costo_prod' => 250.00,
             'precio_prod'=> 400.00,
@@ -182,8 +182,9 @@ class DatabaseSeeder extends Seeder
         App\Buy::create([
           'administrator_id' => 1,
           'provider_id' => 1,
-          'status_id' => 1
+          'status_id' => 2
           ]);
+
         App\Buy::create([
           'administrator_id' => 2,
           'provider_id' => 1,
