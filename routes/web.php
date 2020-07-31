@@ -11,9 +11,17 @@
 |
 */
 
+// Autenticación
 Auth::routes();
 
+// Home
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::resource('user', 'UserController');
+// Product
+Route::get('product', 'client\ProductController@index')->name('product.index');
+Route::get('product/{product}', 'client\ProductController@show')->name('product.show');
+
+// Cart
+Route::get('cart', 'backend\ProductController@index')->name('cart');
+Route::post('cart/{id}', 'backend\ProductController@addToCart')->name('addToCart');

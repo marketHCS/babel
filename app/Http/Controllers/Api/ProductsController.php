@@ -21,4 +21,10 @@ class ProductsController extends Controller
         $productResult = Product::where('provider_id', '=', $id)->get();
         return response()->json($productResult, 200);
     }
+
+    public function products()
+    {
+        $productResult = Product::orderBy('updated_at', 'desc')->get();
+        return response()->json($productResult, 200);
+    }
 }

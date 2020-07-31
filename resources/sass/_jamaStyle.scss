@@ -334,8 +334,38 @@ span.page-link {
   margin-bottom: 10px;
 }
 
+.accordion-area {
+  width: 100%;
+}
+
 .product-details .p-title-admin {
   font-size: 3rem;
+  font-weight: 700;
+  color: #323330;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.product-details .p-stock-client {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #474747;
+  margin-bottom: 10px;
+}
+
+.product-details .p-stock-client span {
+  color: $amarilloOscuro;
+}
+
+.product-details .p-price-client {
+  font-size: 24px;
+  color: #323330;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.product-details .p-title {
+  font-size: 2rem;
   font-weight: 700;
   color: #323330;
   text-transform: uppercase;

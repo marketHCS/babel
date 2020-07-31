@@ -158,6 +158,78 @@ class DatabaseSeeder extends Seeder
             'category_id' => 2,
             'provider_id' => 1,
         ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
+        App\Product::create([
+            'nameProduct' => 'playera Spiderman',
+            'description_prod' => 'Playera bien bonita de Spiderman',
+            'costo_prod' => '250.00',
+            'precio_prod'=> '400.00',
+            'category_id' => 2,
+            'provider_id' => 1,
+        ]);
 
 
         DB::update('update inventories set eq_s=10, eq_m=10, eq_g=10, ec_s=10, ec_m=10, ec_g=10, eg_s=10, eg_m=10, eg_g=10 where product_id between ? and ?', [1,3]);
@@ -178,6 +250,48 @@ class DatabaseSeeder extends Seeder
             'url' => 'products/3.png',
             'product_id' => 3
           ]);
+
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 4
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 5
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 6
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 7
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 8
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 9
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 10
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 11
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 12
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/1.jpg',
+            'product_id' => 13
+          ]);
+
 
         App\Buy::create([
           'administrator_id' => 1,
