@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $categoryQuery->nameCategory)
+@section('title', $sex)
 @php
 // dd($products)
 @endphp
@@ -8,11 +8,10 @@
 <!-- Page info -->
 <div class="page-top-info pb-5">
   <div class="container">
-    <h4>Categoría: {{ $categoryQuery->nameCategory }}</h4>
+    <h4>{{ $sex }}</h4>
     <div class="site-pagination">
       <a href="{{ route('index') }}">Inicio</a> >
       <a href="{{ route('product.index') }}">Productos</a>
-
     </div>
   </div>
 </div>

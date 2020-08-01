@@ -123,11 +123,16 @@ class DatabaseSeeder extends Seeder
             'nameCategory' => 'Unicornios'
         ]);
 
+        App\Category::create([
+            'nameCategory' => 'Videojuegos'
+        ]);
+
+
         App\Product::create([
             'nameProduct' => 'playera de Jama',
             'description_prod' => 'Playera bien bonita de batman',
             'costo_prod' => 250.00,
-            'precio_prod'=> 400.00,
+            'precio_prod'=> 420.00,
             'category_id' => 1,
             'provider_id' => 2,
         ]);
@@ -136,7 +141,7 @@ class DatabaseSeeder extends Seeder
             'nameProduct' => 'playera batman',
             'description_prod' => 'Playera bien bonita de batman',
             'costo_prod' => 250.00,
-            'precio_prod'=> 400.00,
+            'precio_prod'=> 410.00,
             'category_id' => 1,
             'provider_id' => 1,
         ]);
@@ -145,91 +150,131 @@ class DatabaseSeeder extends Seeder
             'nameProduct' => 'playera Unicornio',
             'description_prod' => 'Playera bien bonita de unicornio',
             'costo_prod' => 250.00,
-            'precio_prod'=> 400.00,
+            'precio_prod'=> 300.00,
             'category_id' => 3,
             'provider_id' => 1,
+            'sex_id' => 2 ,
         ]);
 
         App\Product::create([
             'nameProduct' => 'playera Spiderman',
             'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
+            'costo_prod' => 200.00,
+            'precio_prod'=> 210.00,
             'category_id' => 2,
             'provider_id' => 1,
         ]);
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Playera Mario Bros' ,
+            'description_prod' => 'Playera gris de mario bos pixeleado' ,
+            'costo_prod' => 100.00 ,
+            'precio_prod' => 320.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 2 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Playera Guitar Hero' ,
+            'description_prod' => 'Playera negra de Guitar Hero para hombre' ,
+            'costo_prod' => 230.00 ,
+            'precio_prod' => 350.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 2 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Camiseta Call of Duty' ,
+            'description_prod' => 'Camiseta negra call of duty de manga larga' ,
+            'costo_prod' => 290.00 ,
+            'precio_prod' => 420.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 2 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Playera Halo' ,
+            'description_prod' => 'Playera negra de Halo con estampado blanco' ,
+            'costo_prod' => 200.00 ,
+            'precio_prod' => 340.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 1 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Playera Gears of War' ,
+            'description_prod' => 'Payera negra de gears of wars manga corta' ,
+            'costo_prod' => 190.00 ,
+            'precio_prod' => 290.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 1 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Playera Left 4 Dead' ,
+            'description_prod' => 'Payera negra manga corta Left 4 dead' ,
+            'costo_prod' => 210.00 ,
+            'precio_prod' => 300.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 1 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Playera Gta' ,
+            'description_prod' => 'Payera negra GTA manga corta de hombre' ,
+            'costo_prod' => 150.00 ,
+            'precio_prod' => 240.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 1 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Camiseta Mario Kart' ,
+            'description_prod' => 'Camiseta cuadriculado de Mario Kart, gris con blanco ' ,
+            'costo_prod' => 200.00 ,
+            'precio_prod' => 300.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 2 ,
         ]);
+
+
         App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => '250.00',
-            'precio_prod'=> '400.00',
-            'category_id' => 2,
-            'provider_id' => 1,
+            'nameProduct' => 'Playera Doom Eternal ' ,
+            'description_prod' => 'Playera negra Doom eternal tres cuartos ' ,
+            'costo_prod' => 220.00 ,
+            'precio_prod' => 330.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 1 ,
         ]);
+
+
+        App\Product::create([
+            'nameProduct' => 'Playera The Division 2 ' ,
+            'description_prod' => 'Playera negra The division 2 con estampado naranja ' ,
+            'costo_prod' => 250.00 ,
+            'precio_prod' => 350.00 ,
+            'category_id' => 4 ,
+            'provider_id' => 1 ,
+            'sex_id' => 1 ,
+        ]);
+
+
 
 
         DB::update('update inventories set eq_s=10, eq_m=10, eq_g=10, ec_s=10, ec_m=10, ec_g=10, eg_s=10, eg_m=10, eg_g=10 where product_id between ? and ?', [1,3]);
@@ -256,39 +301,53 @@ class DatabaseSeeder extends Seeder
             'product_id' => 4
           ]);
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/4.jpg' ,
+            'product_id' => 4
+          ]);
+
+        App\ImagesProduct::create([
+            'url' => 'products/5.jpg' ,
             'product_id' => 5
           ]);
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/6.jpg' ,
             'product_id' => 6
           ]);
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/7.jpg' ,
             'product_id' => 7
           ]);
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/8.jpg' ,
             'product_id' => 8
           ]);
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/9.jpg' ,
             'product_id' => 9
           ]);
+
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/10.jpg' ,
             'product_id' => 10
           ]);
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/11.jpg' ,
             'product_id' => 11
           ]);
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/12.jpg' ,
             'product_id' => 12
           ]);
+
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
+            'url' => 'products/13.jpg' ,
             'product_id' => 13
           ]);
 

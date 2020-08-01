@@ -1,18 +1,14 @@
 @extends('layouts.app')
-@section('title', $categoryQuery->nameCategory)
-@php
-// dd($products)
-@endphp
+@section('title', 'Todos los productos')
 
 @section('content')
 <!-- Page info -->
 <div class="page-top-info pb-5">
   <div class="container">
-    <h4>Categoría: {{ $categoryQuery->nameCategory }}</h4>
+    <h4>Todos los productos.</h4>
     <div class="site-pagination">
       <a href="{{ route('index') }}">Inicio</a> >
       <a href="{{ route('product.index') }}">Productos</a>
-
     </div>
   </div>
 </div>

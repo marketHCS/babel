@@ -20,8 +20,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Product
 Route::get('product', 'client\ProductController@index')->name('product.index');
+Route::get('product/category/{id}', 'client\ProductController@category')->name('product.category');
 Route::get('product/{product}', 'client\ProductController@show')->name('product.show');
+Route::get('product/sex/boys', 'client\ProductController@boys')->name('product.boys');
+Route::get('product/sex/girls', 'client\ProductController@girls')->name('product.girls');
 
 // Cart
-Route::get('cart', 'backend\ProductController@index')->name('cart');
-Route::post('cart/{id}', 'backend\ProductController@addToCart')->name('addToCart');
+Route::get('cart', 'backend\CartController@index')->name('cart');
+Route::post('cart/{id}', 'backend\CartController@addToCart')->name('addToCart');

@@ -139,24 +139,28 @@
         <div class="container">
           <!-- menu -->
           <ul class="main-menu">
-            <li><a href="#">Inicio</a></li>
+            <li><a href="{{ route('index') }}">Inicio</a></li>
+            <li><a href="{{ route('product.index') }}">Todos los products</a></li>
             <li>
               <a href="#">
                 Tee-shirts
-                <span class="new">Nuevo</span>
+                <span class="new">Nuevos</span>
               </a>
               <ul class="sub-menu">
-                <li><a href="#">Hombres</a></li>
-                <li><a href="#">Mujeres</a></li>
+                <li><a href="{{ route('product.boys') }}">Hombres</a></li>
+                <li><a href="{{ route('product.girls') }}">Mujeres</a></li>
               </ul>
             </li>
             <li>
-              <a href="#">Pages (test)</a>
+              <a href="#">Categorías</a>
               <ul class="sub-menu">
-                <li><a href="#">Product Page</a></li>
-                <li><a href="#">Category Page</a></li>
-                <li><a href="#">Cart Page</a></li>
-                <li><a href="#">login</a></li>
+                @php
+                $categories = DB::select('select * from categories', []);
+                // dd($categories);
+                @endphp
+                @foreach($categories as $category)
+                <li><a href="{{ route('product.category', $category->id) }}">{{ $category->nameCategory }}</a></li>
+                @endforeach
               </ul>
             </li>
           </ul>

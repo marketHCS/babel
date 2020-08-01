@@ -431,11 +431,26 @@ span.page-link {
   margin-top: 32px;
 }
 
+.image-fit {
+  height: 224px;
+  object-fit: cover;
+}
+
+.last-image-product {
+  height: 290px;
+  width: 271px;
+  object-fit: cover;
+}
+
 .disabled {
   background-color: #e9ecef;
   opacity: 1;
   justify-content: center;
   align-content: center;
+}
+
+.only-show {
+  cursor: default !important;
 }
 
 @media screen and (min-width: 572px) {

@@ -17,3 +17,4 @@ use Illuminate\Http\Request;
 
 Route::get('products/provider/{id}', 'Api\ProductsController@providers')->name('api.providers');
 Route::get('products', 'Api\ProductsController@products')->name('api.products');
+Route::get('images/first/{id}', 'Api\ImagesController@first')->name('images.first');
