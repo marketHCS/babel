@@ -52,39 +52,45 @@
                   @endif
                 </div>
                 <div class="row">
-                  <form action="">
+                  <form action="{{ route('cart.store', $product->id) }}" method="POST">
                     <div class="form-row">
                       @if($existence)
-                      <div class="fw-size-choose only-show">
+                      <div class="fw-size-choose">
                         <p>Tallas disponibles:</p>
                         @if ($small)
                         <div class="sc-item">
-                          <input type="radio" name="size" id="s-size" class="only-show" value="1" disabled />
+                          <input type="radio" name="size" id="s-size" value="1" />
                           <label for="s-size" class="only-show">CH</label>
                         </div>
                         @endif
                         @if ($medium)
                         <div class="sc-item">
-                          <input type="radio" name="size" id="m-size" value="2" class="only-show" disabled />
+                          <input type="radio" name="size" id="m-size" value="2" checked />
                           <label for="m-size" class="only-show">M</label>
                         </div>
                         @endif
                         @if ($large)
                         <div class="sc-item">
-                          <input type="radio" name="size" id="g-size" value="3" class="only-show" disabled />
+                          <input type="radio" name="size" id="g-size" value="3" />
                           <label for="g-size" class="only-show">G</label>
                         </div>
                         @endif
                       </div>
                       @endif
                     </div>
-                    {{-- <div class="quantity">
+                    @if($existence)
+                    <div class="quantity">
                       <p>Cantidad</p>
-                      <div class="pro-qty"><input type="text" value="1" pattern="^[0-9]+" /></div>
-                    </div> --}}
+                      <div class="pro-qty">
+                        <input type="text" value="1" min="1" pattern="^[1-9]+" name="quant" required />
+                      </div>
+                    </div>
+                    @endif
                     @if($existence)
                     @csrf
                     <button type="submit" class="site-btn">Agregar al carrito</button>
+                    @else
+                    <h4 class="underline">Sin existencias disponibles.</h4>
                     @endif
                   </form>
                 </div>
@@ -103,6 +109,34 @@
                       <p>
                         {{ $product->description_prod }}
                       </p>
+                      <div class="info-container mt-1">
+                        <h2 class="p-stock-client">
+                          Estado:
+                          <span>
+                            @php
+                            $queryStatus = DB::select('select nameStatus from products join statusproducts s on products.statusProduct_id = s.id where products.id=?', [$product->id])
+                            @endphp
+                            {{ $queryStatus[0]->nameStatus }}
+                          </span>
+                        </h2>
+                        @if($product->descuento>0)
+                        <h3 class="p-stock-client">Descuento:
+                          <span class="underline">
+                            {{ $product->descuento * 100 }}%
+                          </span>
+                        </h3>
+                        @endif
+                        <h3 class="p-stock-client">Material: {{ $product->material_prod }}</h3>
+                        @php
+                        $queryCategory = DB::select('select nameCategory from categories join products p on categories.id = p.category_id where p.id = ?', [$product->id])
+                        @endphp
+                        <h3 class="p-stock-client">Categoría: {{ $queryCategory[0]->nameCategory }}</h3>
+                        @php
+                        $queryProvider = DB::select('select nameProvider from providers join products p on providers.id = p.provider_id where p.id = ?;', [$product->id])
+                        @endphp
+                        <h5 class="p-date">Creado el: {{ $product->created_at->format('d M Y') }}</h5>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -145,35 +179,6 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="info-container mt-5">
-                <h2 class="p-stock-client">
-                  Estado:
-                  <span>
-                    @php
-                    $queryStatus = DB::select('select nameStatus from products join statusproducts s on products.statusProduct_id = s.id where products.id=?', [$product->id])
-                    @endphp
-                    {{ $queryStatus[0]->nameStatus }}
-                  </span>
-                </h2>
-                @if($product->descuento>0)
-                <h3 class="p-stock-client">Descuento:
-                  <span class="underline">
-                    {{ $product->descuento * 100 }}%
-                  </span>
-                </h3>
-                @endif
-                <h3 class="p-stock-client">Material: {{ $product->material_prod }}</h3>
-                @php
-                $queryCategory = DB::select('select nameCategory from categories join products p on categories.id = p.category_id where p.id = ?', [$product->id])
-                @endphp
-                <h3 class="p-stock-client">Categoría: {{ $queryCategory[0]->nameCategory }}</h3>
-                @php
-                $queryProvider = DB::select('select nameProvider from providers join products p on providers.id = p.provider_id where p.id = ?;', [$product->id])
-                @endphp
-                <h5 class="p-date">Creado el: {{ $product->created_at->format('d M Y') }}</h5>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -205,7 +210,7 @@
           </a>
           @if ($inventories[0]->eq_s > 0 ||$inventories[0]->eq_m > 0 || $inventories[0]->eq_g > 0 || $inventories[0]->ec_s > 0 ||$inventories[0]->ec_m > 0 || $inventories[0]->ec_g > 0 || $inventories[0]->eg_s > 0 ||$inventories[0]->eg_m > 0 || $inventories[0]->eg_g > 0)
           <div class="pi-links">
-            <a href="{{ route('addToCart', $product->id) }}" class="add-card"><i class="flaticon-bag"></i><span>al carrito!!!</span></a>
+            <a href="{{ route('cart.store', $product->id) }}" class="add-card"><i class="flaticon-bag"></i><span>al carrito!!!</span></a>
           </div>
           @endif
         </div>

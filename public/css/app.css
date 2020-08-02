@@ -2742,6 +2742,19 @@ span.page-link {
   margin-bottom: 18px;
 }
 
+.cart-table .product-col img {
+  display: table-cell;
+  vertical-align: middle;
+  float: left;
+  width: 73px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.quants.form-control {
+  width: 50px;
+}
+
 .product-details .p-stock-client {
   font-size: 1rem;
   font-weight: 400;
@@ -2801,6 +2814,21 @@ span.page-link {
   width: 100%;
 }
 
+.main-menu li a .new {
+  position: absolute;
+  top: -8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: #f9dc3e;
+  line-height: 1;
+  text-transform: uppercase;
+  left: calc(50% - 21px);
+  padding: 5px 9px 1px;
+  border-radius: 15px;
+  width: 56px;
+}
+
 .btn-delete {
   position: relative;
   margin-top: 32px;
@@ -2852,10 +2880,6 @@ span.page-link {
   opacity: 1;
   justify-content: center;
   align-content: center;
-}
-
-.only-show {
-  cursor: default !important;
 }
 
 @media screen and (min-width: 572px) {

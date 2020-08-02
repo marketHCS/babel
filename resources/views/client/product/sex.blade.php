@@ -55,7 +55,7 @@
                 </a>
                 @if ($inventories[$product->id - 1]->eq_s > 0 ||$inventories[$product->id - 1]->eq_m > 0 || $inventories[$product->id - 1]->eq_g > 0 || $inventories[$product->id - 1]->ec_s > 0 ||$inventories[$product->id - 1]->ec_m > 0 || $inventories[$product->id - 1]->ec_g > 0 || $inventories[$product->id - 1]->eg_s > 0 ||$inventories[$product->id - 1]->eg_m > 0 || $inventories[$product->id - 1]->eg_g > 0)
                 <div class="pi-links">
-                  <a href="{{ route('addToCart', $product->id) }}" class="add-card"><i class="flaticon-bag"></i><span>¡Al carrito!</span></a>
+                  <a href="{{ route('product.show', $product->id) }}" class="add-card"><i class="flaticon-bag"></i><span>¡Al carrito!</span></a>
                 </div>
                 @endif
               </div>

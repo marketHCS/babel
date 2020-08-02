@@ -45,6 +45,13 @@
     <div class="loader"></div>
   </div> --}}
 
+  @php
+  if (Session::has('cart')) {
+  $cart = Session::get('cart');
+  }
+  @endphp
+
+
 
   @if (Request::url() != route('login') && Request::url() != route('register'))
   <!-- Header section -->
@@ -77,9 +84,13 @@
               <div class="up-item">
                 <div class="shopping-card">
                   <i class="flaticon-bag"></i>
-                  <span>2</span>
+                  @if(Session::has('cart'))
+                  <span>{{ count($cart) }}</span>
+                  @else
+                  <span>0</span>
+                  @endif
                 </div>
-                <a href="#">Carrito de compras</a>
+                <a href="{{ route('cart') }}">Carrito de compras</a>
               </div>
               👕
               @else
@@ -105,9 +116,13 @@
               <div class="up-item">
                 <div class="shopping-card">
                   <i class="flaticon-bag"></i>
-                  <span>2</span>
+                  @if(Session::has('cart'))
+                  <span>{{ count($cart) }}</span>
+                  @else
+                  <span>0</span>
+                  @endif
                 </div>
-                <a href="#">Carrito de compras</a>
+                <a href="{{ route('cart') }}">Carrito de compras</a>
               </div>
               @if(Auth::user()->typeUser_id == 2 || Auth::user()->typeUser_id == 3)
               <div class="up-item ml-4">
