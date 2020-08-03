@@ -93,15 +93,11 @@
       </div>
       <div class="col-lg-4 card-right">
         @if(!empty($cart))
-        <a href="" class="site-btn">Proceder a pagar</a>
+        <a href="{{ route('pay.prebilling') }}" class="site-btn">Proceder a pagar</a>
         <a href="{{ route('cart.reset') }}" class="site-btn sb-dark">Vaciar carrito</a>
         @endif
         <a href="{{ route('index') }}" class="site-btn sb-dark">Continua comprando</a>
       </div>
-    </div>
-  </div>
-</section>
-<!-- cart section end -->
 
 <!-- letest product section -->
 <section class="top-letest-product-section">

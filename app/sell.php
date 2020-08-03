@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Sell extends Model
 {
     protected $fillable = [
-        'fec_vta',
+        'created_at',
+        'updated_at',
         'monto_pago',
-        'status_vta',
-        'user_id'
+        'status_id',
+        'user_id',
+        'address_id',
+        'name',
+        'phone'
     ];
 
     protected $table = 'sells';

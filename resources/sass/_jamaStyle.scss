@@ -354,6 +354,12 @@ span.page-link {
   object-fit: cover;
 }
 
+.image-pay {
+  width: 97px;
+  height: 97px;
+  object-fit: cover;
+}
+
 .quants.form-control {
   width: 50px;
 }
@@ -473,6 +479,22 @@ span.page-link {
   height: 290px;
   width: 271px;
   object-fit: cover;
+}
+
+.no-toques {
+  background: #3b3b3b;
+  opacity: 0.8;
+}
+
+.un-titulo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  border-radius: 50px;
+  background: #3b3b3b;
+  padding: 21px 29px 20px;
+  margin-bottom: 66px;
 }
 
 .disabled {

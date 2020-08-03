@@ -29,12 +29,18 @@ class CartController extends Controller
 
     public function store(Request $request, $id)
     {
+        // $stripe = new \Stripe\StripeClient(
+        //     'sk_test_51HAW7xJMj1omTiKm6rJsQtHMBWrgLbv8NuGQ6shDFJApN9xhRq8M7B4eITEf2DDMvP1zDcHayjUyX2Mzya1nYrIs00b1hK9hzE'
+        // );
+        // $skus = $stripe->skus->all(['limit' => 3]);
+        // dd($skus);
+
         // dd($request);
         $cart = Session::get('cart');
         $product = Product::find($id);
         $anArray = array( 'product' => $product,
                           'quant' => $request->quant,
-                          'size' => (int) $request->size);
+                          'size' => $request->size);
         // dd($anArray);
         $cart[] = $anArray;
         Session::put('cart', $cart);

@@ -30,3 +30,9 @@ Route::get('cart', 'backend\CartController@index')->name('cart');
 Route::post('cart/{id}', 'backend\CartController@store')->name('cart.store');
 Route::get('delete/cart/{id}', 'backend\CartController@destroy')->name('cart.destroy');
 Route::get('reset/cart', 'backend\CartController@reset')->name('cart.reset');
+
+// pay
+Route::get('pay/prebilling', 'backend\PayController@prebilling')->name('pay.prebilling');
+Route::post('pay/confirm/{user}', 'backend\PayController@confirm')->name('pay.confirm');
+Route::get('success', 'backend\PayController@success')->name('pay.success');
+Route::get('canceled', 'backend\PayController@canceled')->name('pay.success');
