@@ -61,7 +61,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-    ];
+        'admin' => \App\Http\Middleware\Admin::class,
+        'isntDeleted' => \App\Http\Middleware\isntDeleted::class,
+        'consults' => \App\Http\Middleware\Consults::class,
+      ];
 
     /**
      * The priority-sorted list of middleware.

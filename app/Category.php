@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
-        'nameCategory'
+        'nameCategory',
+        'status'
     ];
 
     protected $table = 'categories';
+    // public $timestamps = false;
 }

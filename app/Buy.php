@@ -7,8 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Buy extends Model
 {
     protected $fillable = [
-        'fec_com', 'pago_com'
+        'cost_com',
+        'administrator_id',
+        'provider_id',
+        'concepto_compra',
+        'status_id'
     ];
+
+    public function details()
+    {
+        return $this->hasMany('App\BuyDetail');
+    }
 
     protected $table = 'buys';
 }

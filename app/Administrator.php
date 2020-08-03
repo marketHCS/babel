@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Administrator extends Model
 {
-    protected $fillable = [
-
-    ];
+    protected $fillable = [];
 
     protected $table = 'administrators';
 }
