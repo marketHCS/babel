@@ -15,6 +15,12 @@ use Stripe\StripeClient;
 
 class PayController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isntDeleted');
+    }
+
     public function prebilling()
     {
         $cart = Session::get('cart');
