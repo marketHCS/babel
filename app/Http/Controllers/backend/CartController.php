@@ -23,6 +23,7 @@ class CartController extends Controller
     public function index()
     {
         $cart = Session::get('cart');
+        // dd($cart);
         $lastProducts = DB::select('select * from products order by updated_at desc limit 6', []);
         return view('client.cart.index', compact('lastProducts', 'cart'));
     }
@@ -43,6 +44,7 @@ class CartController extends Controller
                           'size' => $request->size);
         // dd($anArray);
         $cart[] = $anArray;
+        // dd($cart);
         Session::put('cart', $cart);
         return back()->with('status', 'Producto añadido al carrito.');
     }
