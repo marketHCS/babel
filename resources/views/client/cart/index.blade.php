@@ -99,7 +99,10 @@
         <a href="{{ route('index') }}" class="site-btn sb-dark">Continua comprando</a>
       </div>
 
-<!-- letest product section -->
+    </div>
+  </div>
+</section>
+      <!-- letest product section -->
 <section class="top-letest-product-section">
   <div class="container">
     <div class="section-title">
