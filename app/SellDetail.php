@@ -15,5 +15,12 @@ class SellDetail extends Model
       'size'
     ];
 
+    /*
+    Size ids:
+      1 = chica;
+      2 = mediana;
+      3 = grande;
+    */
+
     protected $table = 'selldetails';
 }

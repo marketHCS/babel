@@ -131,8 +131,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'playera de Jama',
             'description_prod' => 'Playera bien bonita de batman',
-            'costo_prod' => 250.00,
-            'precio_prod'=> 420.00,
+            'costo_prod' => 300.00,
+            'precio_prod'=> 350.00,
             'category_id' => 1,
             'provider_id' => 2,
         ]);
@@ -140,8 +140,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'playera batman',
             'description_prod' => 'Playera bien bonita de batman',
-            'costo_prod' => 250.00,
-            'precio_prod'=> 410.00,
+            'costo_prod' => 300.00,
+            'precio_prod'=> 350.00,
             'category_id' => 1,
             'provider_id' => 1,
         ]);
@@ -149,8 +149,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'playera Unicornio',
             'description_prod' => 'Playera bien bonita de unicornio',
-            'costo_prod' => 250.00,
-            'precio_prod'=> 300.00,
+            'costo_prod' => 300.00,
+            'precio_prod'=> 350.00,
             'category_id' => 3,
             'provider_id' => 1,
             'sex_id' => 2 ,
@@ -159,8 +159,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'playera Spiderman',
             'description_prod' => 'Playera bien bonita de Spiderman',
-            'costo_prod' => 200.00,
-            'precio_prod'=> 210.00,
+            'costo_prod' => 300.00,
+            'precio_prod'=> 350.00,
             'category_id' => 2,
             'provider_id' => 1,
         ]);
@@ -168,8 +168,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera Mario Bros' ,
             'description_prod' => 'Playera gris de mario bos pixeleado' ,
-            'costo_prod' => 100.00 ,
-            'precio_prod' => 320.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 2 ,
@@ -179,7 +179,7 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera Guitar Hero' ,
             'description_prod' => 'Playera negra de Guitar Hero para hombre' ,
-            'costo_prod' => 230.00 ,
+            'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
@@ -190,8 +190,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Camiseta Call of Duty' ,
             'description_prod' => 'Camiseta negra call of duty de manga larga' ,
-            'costo_prod' => 290.00 ,
-            'precio_prod' => 420.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 2 ,
@@ -201,8 +201,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera Halo' ,
             'description_prod' => 'Playera negra de Halo con estampado blanco' ,
-            'costo_prod' => 200.00 ,
-            'precio_prod' => 340.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 1 ,
@@ -212,8 +212,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera Gears of War' ,
             'description_prod' => 'Payera negra de gears of wars manga corta' ,
-            'costo_prod' => 190.00 ,
-            'precio_prod' => 290.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 1 ,
@@ -223,8 +223,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera Left 4 Dead' ,
             'description_prod' => 'Payera negra manga corta Left 4 dead' ,
-            'costo_prod' => 210.00 ,
-            'precio_prod' => 300.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 1 ,
@@ -234,8 +234,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera Gta' ,
             'description_prod' => 'Payera negra GTA manga corta de hombre' ,
-            'costo_prod' => 150.00 ,
-            'precio_prod' => 240.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 1 ,
@@ -245,8 +245,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Camiseta Mario Kart' ,
             'description_prod' => 'Camiseta cuadriculado de Mario Kart, gris con blanco ' ,
-            'costo_prod' => 200.00 ,
-            'precio_prod' => 300.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 2 ,
@@ -256,8 +256,8 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera Doom Eternal ' ,
             'description_prod' => 'Playera negra Doom eternal tres cuartos ' ,
-            'costo_prod' => 220.00 ,
-            'precio_prod' => 330.00 ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
             'sex_id' => 1 ,
@@ -267,7 +267,7 @@ class DatabaseSeeder extends Seeder
         App\Product::create([
             'nameProduct' => 'Playera The Division 2 ' ,
             'description_prod' => 'Playera negra The division 2 con estampado naranja ' ,
-            'costo_prod' => 250.00 ,
+            'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,

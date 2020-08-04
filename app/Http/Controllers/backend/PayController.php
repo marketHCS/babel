@@ -51,7 +51,7 @@ class PayController extends Controller
         // searching a price
         foreach ($arrayOfPrices as $price) {
             // dd($price);
-            if ($price->unit_amount == $totalToSprite) {
+            if ($price->unit_amount == $totalToSprite && $price->product == 'prod_HlqLnwWvYAS8Jz') {
                 $priceId = $price;
                 break;
             }
@@ -62,7 +62,7 @@ class PayController extends Controller
             $priceId = $stripe->prices->create([
               'unit_amount' => $totalToSprite,
               'currency' => 'mxn',
-              'product' => 'prod_HlMhFZ1SEshtj8',
+              'product' => 'prod_HlqLnwWvYAS8Jz',
             ]);
         }
 
@@ -111,6 +111,42 @@ class PayController extends Controller
     public function success()
     {
         $sell = Session::get('sell');
+        $sellDetails = SellDetail::where('sell_id', '=', $sell->id)->get();
+
+        foreach ($sellDetails as $detail) {
+            $inventory = Inventory::where('product_id', '=', $detail->product_id)->get();
+            // dd($inventory);
+            switch ($detail->size) {
+              case 1:
+                if ($inventory[0]->eq_s > 0) {
+                    $inventory[0]->update(['eq_s' => $inventory[0]->eq_s - $detail->cantidad]);
+                } elseif ($inventory[0]->ec_s > 0) {
+                    $inventory[0]->update(['ec_s' => $inventory[0]->ec_s - $detail->cantidad]);
+                } elseif ($inventory[0]->eg_s > 0) {
+                    $inventory[0]->update(['eg_s' => $inventory[0]->eg_s - $detail->cantidad]);
+                }
+                break;
+              case 2:
+                if ($inventory[0]->eq_m > 0) {
+                    $inventory[0]->update(['eq_m' => $inventory[0]->eq_m - $detail->cantidad]);
+                } elseif ($inventory[0]->ec_m > 0) {
+                    $inventory[0]->update(['ec_m' => $inventory[0]->ec_m - $detail->cantidad]);
+                } elseif ($inventory[0]->eg_m > 0) {
+                    $inventory[0]->update(['eg_m' => $inventory[0]->eg_m - $detail->cantidad]);
+                }
+                break;
+              case 3:
+                if ($inventory[0]->eq_g > 0) {
+                    $inventory[0]->update(['eq_g' => $inventory[0]->eq_g - $detail->cantidad]);
+                } elseif ($inventory[0]->ec_g > 0) {
+                    $inventory[0]->update(['ec_g' => $inventory[0]->ec_g - $detail->cantidad]);
+                } elseif ($inventory[0]->eg_g > 0) {
+                    $inventory[0]->update(['eg_g' => $inventory[0]->eg_g - $detail->cantidad]);
+                }
+                break;
+            }
+        }
+
         Session::put('sell', '');
         Session::put('cart', array());
         if ($sell != '') {

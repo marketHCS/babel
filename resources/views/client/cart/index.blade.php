@@ -37,6 +37,8 @@
                 @endphp
                 @foreach($cart as $element)
                 @php
+                // dd($cart);
+                // dd($element);
                 $image = DB::select('select url from imagesproducts where product_id = ? limit 1', [$element['product']->id])
                 @endphp
 
@@ -57,11 +59,12 @@
                   </td>
                   <td class="size-col text-center">
                     @php
+                    $size = '';
                     if($element['size'] == 1){
                     $size = 'Chica';
                     }elseif($element['size'] == 2){
                     $size = 'Mediana';
-                    }elseif($element['size'] == 2){
+                    }elseif($element['size'] == 3){
                     $size = 'Grande';
                     }
                     @endphp
@@ -99,7 +102,10 @@
         <a href="{{ route('index') }}" class="site-btn sb-dark">Continua comprando</a>
       </div>
 
-<!-- letest product section -->
+    </div>
+  </div>
+</section>
+      <!-- letest product section -->
 <section class="top-letest-product-section">
   <div class="container">
     <div class="section-title">
