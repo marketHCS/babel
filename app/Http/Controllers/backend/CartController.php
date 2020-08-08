@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
 use App\Product;
 use App\Inventory;
+use Illuminate\Http\Request;
+use App\Http\Requests\PayRequest;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\ProductRequest;
 
 class CartController extends Controller
 {

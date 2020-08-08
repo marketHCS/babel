@@ -5,13 +5,15 @@ namespace App\Http\Controllers\backend;
 use App\sell;
 use App\User;
 use App\Address;
+use App\Product;
 use App\Inventory;
 use App\SellDetail;
+use Stripe\StripeClient;
 use Illuminate\Http\Request;
+use App\Http\Requests\PayRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Stripe\StripeClient;
 
 class PayController extends Controller
 {
@@ -21,13 +23,15 @@ class PayController extends Controller
         $this->middleware('isntDeleted');
     }
 
+    // Go to select delivery address
     public function prebilling()
     {
         $cart = Session::get('cart');
         return view('pay.billing', compact('cart'));
     }
 
-    public function confirm(Request $request, User $user)
+    // pass to confirm view, and generate the sell
+    public function confirm(PayRequest $request, User $user)
     {
         // creating stripe instance and variables
         $stripe = new \Stripe\StripeClient(
@@ -75,7 +79,6 @@ class PayController extends Controller
           'city' => $request->city,
           'estate' => $request->estate,
           'cp' => $request->cp,
-          'user_id' => $user->id,
         ]);
 
         // setting phone number
@@ -93,13 +96,20 @@ class PayController extends Controller
         // create sell details
         foreach ($cart as $item) {
             $inventory = Inventory::find($item['product']->id);
+            $productToSell = Product::find($item['product']->id);
+            $discount = 0;
+            if ($productToSell->descuento != null) {
+                $discount = $productToSell->descuento;
+            }
+
             $sellDetail = SellDetail::create([
             'costProduct' => $item['product']->precio_prod,
             'cantidad' => $item['quant'],
             'sell_id' => $sell->id,
             'inventory_id' => $inventory->id,
             'product_id' => $item['product']->id,
-            'size' => $item['size']
+            'size' => $item['size'],
+            'descuento' => $discount
         ]);
         }
 
@@ -108,6 +118,7 @@ class PayController extends Controller
         return view('pay.confirm', compact('cart', 'address', 'sell', 'priceId'));
     }
 
+    // if sell process was successful...??
     public function success()
     {
         $sell = Session::get('sell');
@@ -117,7 +128,7 @@ class PayController extends Controller
             $inventory = Inventory::where('product_id', '=', $detail->product_id)->get();
             // dd($inventory);
             switch ($detail->size) {
-              case 1:
+                case 1:
                 if ($inventory[0]->eq_s > 0) {
                     $inventory[0]->update(['eq_s' => $inventory[0]->eq_s - $detail->cantidad]);
                 } elseif ($inventory[0]->ec_s > 0) {
@@ -125,8 +136,8 @@ class PayController extends Controller
                 } elseif ($inventory[0]->eg_s > 0) {
                     $inventory[0]->update(['eg_s' => $inventory[0]->eg_s - $detail->cantidad]);
                 }
-                break;
-              case 2:
+            break;
+            case 2:
                 if ($inventory[0]->eq_m > 0) {
                     $inventory[0]->update(['eq_m' => $inventory[0]->eq_m - $detail->cantidad]);
                 } elseif ($inventory[0]->ec_m > 0) {
@@ -143,7 +154,7 @@ class PayController extends Controller
                 } elseif ($inventory[0]->eg_g > 0) {
                     $inventory[0]->update(['eg_g' => $inventory[0]->eg_g - $detail->cantidad]);
                 }
-                break;
+            break;
             }
         }
 
@@ -156,6 +167,7 @@ class PayController extends Controller
         return view('pay.success');
     }
 
+    // if sell process was successful...??
     public function canceled()
     {
         $sell = Session::get('sell');

@@ -12,7 +12,8 @@ class SellDetail extends Model
       'sell_id',
       'inventory_id',
       'product_id',
-      'size'
+      'size',
+      'descuento'
     ];
 
     /*
