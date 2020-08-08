@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Autenticación
 Auth::routes();
 
@@ -35,4 +24,4 @@ Route::get('reset/cart', 'backend\CartController@reset')->name('cart.reset');
 Route::get('pay/prebilling', 'backend\PayController@prebilling')->name('pay.prebilling');
 Route::post('pay/confirm/{user}', 'backend\PayController@confirm')->name('pay.confirm');
 Route::get('success', 'backend\PayController@success')->name('pay.success');
-Route::get('canceled', 'backend\PayController@canceled')->name('pay.success');
+Route::get('canceled', 'backend\PayController@canceled')->name('pay.canceled');

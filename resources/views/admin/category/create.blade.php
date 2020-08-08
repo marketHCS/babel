@@ -24,7 +24,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Crear nueva categoría</h5>
-      <form action="{{ route('providers.store') }}" method="post">
+      <form action="{{ route('categories.store') }}" method="post">
         <div class="form-group">
           <div class="form-row">
             <label for="nameCategory">Nombre: </label>

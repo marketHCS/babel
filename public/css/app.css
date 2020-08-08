@@ -2762,6 +2762,10 @@ span.page-link {
   width: 50px;
 }
 
+.shadows {
+  text-shadow: 0px 0px 15px #000;
+}
+
 .product-details .p-stock-client {
   font-size: 1rem;
   font-weight: 400;
@@ -2774,7 +2778,7 @@ span.page-link {
 }
 
 .product-details .p-price-client {
-  font-size: 24px;
+  font-size: 2rem;
   color: #323330;
   font-weight: 500;
   margin-bottom: 20px;

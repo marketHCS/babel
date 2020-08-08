@@ -57,7 +57,7 @@
                 @endif
               </div>
               <div class="pi-text">
-                <h6>$ {{ $product->precio_prod }}</h6>
+                <h6>$ <span class="underline green">{{ $product->precio_prod }}</span> </h6>
                 <p>{{ $product->nameProduct }}</p>
               </div>
             </div>

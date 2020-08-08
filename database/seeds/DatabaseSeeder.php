@@ -24,17 +24,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         App\User::create([
-            'name' => 'Apolo Ideal',
-            'ap' => 'Escobedo',
-            'am' => 'Olguín',
-            'email' => 'apolohcs@outlook.com',
-            'password' => bcrypt('acceso.jama'),
-            'birthdate' => '2000-03-20',
-            'sex_id' => 1,
-            'profilePicture' => 'https://api.adorable.io/avatars/285/ApoloIdealEscobedoOlguin.png'
-        ]);
-
-        App\User::create([
             'name' => 'Verónica ',
             'ap' => 'Lorenzo',
             'am' => 'Alavez',
@@ -45,45 +34,8 @@ class DatabaseSeeder extends Seeder
             'profilePicture' => 'https://api.adorable.io/avatars/285/VeronicaLorenzoAlavez.png'
         ]);
 
-        App\User::create([
-            'name' => 'Victor',
-            'ap' => 'Alguilar',
-            'am' => 'Sanchez',
-            'email' => 'vaguilar@uteq.edu.mx',
-            'password' => bcrypt('vic.aguilar'),
-            'birthdate' => '1980-10-10',
-            'sex_id' => 1,
-            'profilePicture' => 'https://api.adorable.io/avatars/285/VictorAguilarSanchez.png'
-        ]);
-
-        App\User::create([
-            'name' => 'Eliminado',
-            'ap' => 'Eliminado',
-            'am' => 'Eliminado',
-            'email' => 'eliminado@eliminado.com',
-            'password' => bcrypt('acceso.jama'),
-            'birthdate' => '1980-10-10',
-            'sex_id' => 1,
-            'profilePicture' => 'https://api.adorable.io/avatars/285/VictorAguilarSanchez.png'
-        ]);
-
-        factory(App\User::class, 50)->create();
-
         DB::update('update users set typeUser_id=3 where id = ?', [1]);
-        DB::update('update users set typeUser_id=2 where id = ?', [3]);
-        DB::update('update users set typeUser_id=2 where id = ?', [4]);
-        DB::update('update users set typeUser_id=4 where id = ?', [5]);
-
-        App\Address::create([
-            'street' => 'Prol. Francisco Zarco',
-            'exteriorNumberAddress' => '15',
-            'interiorNumberAddress' => '1',
-            'suburb' => 'San José',
-            'city' => 'Tula de Allende',
-            'estate' => 'Hidalgo',
-            'cp' => '42805',
-            'user_id' => 1
-        ]);
+        DB::update('update users set typeUser_id=3 where id = ?', [2]);
 
         App\Address::create([
             'street' => 'Prol. Francisco Zarco',
@@ -110,276 +62,197 @@ class DatabaseSeeder extends Seeder
             'emailProvider' => 'jama@jamaaa.me'
             ]);
 
-
-        App\Category::create([
-            'nameCategory' => 'DC'
-        ]);
-
-        App\Category::create([
-            'nameCategory' => 'Marvel'
-        ]);
-
-        App\Category::create([
-            'nameCategory' => 'Unicornios'
-        ]);
-
-        App\Category::create([
-            'nameCategory' => 'Videojuegos'
-        ]);
-
+        App\Category::create(['nameCategory' => 'Apolo']);
+        App\Category::create(['nameCategory' => 'Babel']);
+        App\Category::create(['nameCategory' => 'Bojack Horseman']);
+        App\Category::create(['nameCategory' => 'Unicornios']);
+        App\Category::create(['nameCategory' => 'Art']);
+        App\Category::create(['nameCategory' => 'Mex']);
+        App\Category::create(['nameCategory' => 'Videojuegos']);
+        App\Category::create(['nameCategory' => 'Mr Robot']);
 
         App\Product::create([
-            'nameProduct' => 'playera de Jama',
-            'description_prod' => 'Playera bien bonita de batman',
-            'costo_prod' => 300.00,
-            'precio_prod'=> 350.00,
-            'category_id' => 1,
-            'provider_id' => 2,
-        ]);
-
-        App\Product::create([
-            'nameProduct' => 'playera batman',
-            'description_prod' => 'Playera bien bonita de batman',
-            'costo_prod' => 300.00,
-            'precio_prod'=> 350.00,
-            'category_id' => 1,
-            'provider_id' => 1,
-        ]);
-
-        App\Product::create([
-            'nameProduct' => 'playera Unicornio',
-            'description_prod' => 'Playera bien bonita de unicornio',
-            'costo_prod' => 300.00,
-            'precio_prod'=> 350.00,
-            'category_id' => 3,
-            'provider_id' => 1,
-            'sex_id' => 2 ,
-        ]);
-
-        App\Product::create([
-            'nameProduct' => 'playera Spiderman',
-            'description_prod' => 'Playera bien bonita de Spiderman',
+            'nameProduct' => 'Babel',
+            'description_prod' => 'Playera bien bonita de la marca',
             'costo_prod' => 300.00,
             'precio_prod'=> 350.00,
             'category_id' => 2,
             'provider_id' => 1,
-        ]);
-
+        ]); // 1 - Babel
         App\Product::create([
-            'nameProduct' => 'Playera Mario Bros' ,
-            'description_prod' => 'Playera gris de mario bos pixeleado' ,
+            'nameProduct' => 'Apolo Amstrong',
+            'description_prod' => 'Playera bien bonita de Apolo cuando fue a la luna',
+            'costo_prod' => 300.00,
+            'precio_prod'=> 350.00,
+            'category_id' => 1,
+            'provider_id' => 1,
+        ]); // 2 - Apolo Amstrong
+        App\Product::create([
+            'nameProduct' => 'Horseman',
+            'description_prod' => '¿Es el caballo de retozando?',
+            'costo_prod' => 300.00,
+            'precio_prod'=> 350.00,
+            'category_id' => 3,
+            'provider_id' => 1,
+        ]); // 3 - Horseman
+        App\Product::create([
+            'nameProduct' => 'Hackerman',
+            'description_prod' => '¿Elliot? ¿Qué estás haciendo?',
+            'costo_prod' => 300.00,
+            'precio_prod'=> 350.00,
+            'category_id' => 8,
+            'provider_id' => 1,
+        ]); // 4 - Hackerman
+        App\Product::create([
+            'nameProduct' => 'El mirador' ,
+            'description_prod' => '¿Bojack? Quiero ser arquitecta.' ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
+            'category_id' => 3 ,
+            'provider_id' => 1 ,
+        ]); // 5 - El mirador
+        App\Product::create([
+            'nameProduct' => 'Licorne' ,
+            'description_prod' => 'Playera de los Toramigos.' ,
             'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
             'category_id' => 4 ,
             'provider_id' => 1 ,
-            'sex_id' => 2 ,
-        ]);
-
-
+        ]); // 6 - Licorne
         App\Product::create([
-            'nameProduct' => 'Playera Guitar Hero' ,
-            'description_prod' => 'Playera negra de Guitar Hero para hombre' ,
+            'nameProduct' => 'Mar de nubes' ,
+            'description_prod' => 'El caminante sobre el mar de nubes' ,
             'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
+            'category_id' => 5,
             'provider_id' => 1 ,
-            'sex_id' => 2 ,
-        ]);
-
-
+        ]); // 7 - Mar de nubes
         App\Product::create([
-            'nameProduct' => 'Camiseta Call of Duty' ,
-            'description_prod' => 'Camiseta negra call of duty de manga larga' ,
+            'nameProduct' => 'Quetza' ,
+            'description_prod' => 'Playera diseñada por XSierra, estudiante de la carrera de diseño de videojuegos.' ,
             'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
+            'category_id' => 6,
             'provider_id' => 1 ,
-            'sex_id' => 2 ,
-        ]);
-
-
+        ]); // 8 - Quetza
         App\Product::create([
-            'nameProduct' => 'Playera Halo' ,
+            'nameProduct' => 'YHLQMDLG' ,
+            'description_prod' => 'Yo hago lo que me de la gana. ¿Oiste humano?' ,
+            'costo_prod' => 300.00 ,
+            'precio_prod' => 350.00 ,
+            'category_id' => 1,
+            'provider_id' => 1 ,
+        ]); // 9 - YHLQMDLG
+        App\Product::create([
+            'nameProduct' => 'Halo Guardians' ,
             'description_prod' => 'Playera negra de Halo con estampado blanco' ,
             'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
+            'category_id' => 7 ,
             'provider_id' => 1 ,
-            'sex_id' => 1 ,
-        ]);
-
-
+        ]); // 10 - Halo
         App\Product::create([
-            'nameProduct' => 'Playera Gears of War' ,
+            'nameProduct' => 'Gears of War' ,
             'description_prod' => 'Payera negra de gears of wars manga corta' ,
             'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
+            'category_id' => 7 ,
             'provider_id' => 1 ,
-            'sex_id' => 1 ,
-        ]);
-
-
+        ]); // 11 - Gears of War
         App\Product::create([
-            'nameProduct' => 'Playera Left 4 Dead' ,
-            'description_prod' => 'Payera negra manga corta Left 4 dead' ,
+            'nameProduct' => 'Guitar Hero' ,
+            'description_prod' => 'Playera negra Guitar hero con estampado verde' ,
             'costo_prod' => 300.00 ,
             'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
+            'category_id' => 7 ,
             'provider_id' => 1 ,
-            'sex_id' => 1 ,
-        ]);
+        ]); // 12 - Guitar Hero
 
-
-        App\Product::create([
-            'nameProduct' => 'Playera Gta' ,
-            'description_prod' => 'Payera negra GTA manga corta de hombre' ,
-            'costo_prod' => 300.00 ,
-            'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
-            'provider_id' => 1 ,
-            'sex_id' => 1 ,
-        ]);
-
-
-        App\Product::create([
-            'nameProduct' => 'Camiseta Mario Kart' ,
-            'description_prod' => 'Camiseta cuadriculado de Mario Kart, gris con blanco ' ,
-            'costo_prod' => 300.00 ,
-            'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
-            'provider_id' => 1 ,
-            'sex_id' => 2 ,
-        ]);
-
-
-        App\Product::create([
-            'nameProduct' => 'Playera Doom Eternal ' ,
-            'description_prod' => 'Playera negra Doom eternal tres cuartos ' ,
-            'costo_prod' => 300.00 ,
-            'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
-            'provider_id' => 1 ,
-            'sex_id' => 1 ,
-        ]);
-
-
-        App\Product::create([
-            'nameProduct' => 'Playera The Division 2 ' ,
-            'description_prod' => 'Playera negra The division 2 con estampado naranja ' ,
-            'costo_prod' => 300.00 ,
-            'precio_prod' => 350.00 ,
-            'category_id' => 4 ,
-            'provider_id' => 1 ,
-            'sex_id' => 1 ,
-        ]);
-
-
-
-
-        DB::update('update inventories set eq_s=10, eq_m=10, eq_g=10, ec_s=10, ec_m=10, ec_g=10, eg_s=10, eg_m=10, eg_g=10 where product_id between ? and ?', [1,3]);
-
-
+        DB::update('update inventories set eq_s=100, eq_m=100, eq_g=100, ec_s=100, ec_m=100, ec_g=100, eg_s=100, eg_m=100, eg_g=100 where product_id between ? and ?', [1,9]);
 
         App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
-            'product_id' => 1
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/2.jpg',
-            'product_id' => 2
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/3.png',
-            'product_id' => 3
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/1.jpg',
-            'product_id' => 4
-          ]);
-        App\ImagesProduct::create([
-            'url' => 'products/4.jpg' ,
-            'product_id' => 4
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/5.jpg' ,
-            'product_id' => 5
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/6.jpg' ,
-            'product_id' => 6
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/7.jpg' ,
-            'product_id' => 7
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/8.jpg' ,
-            'product_id' => 8
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/9.jpg' ,
-            'product_id' => 9
-          ]);
-
-
-        App\ImagesProduct::create([
-            'url' => 'products/10.jpg' ,
-            'product_id' => 10
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/11.jpg' ,
-            'product_id' => 11
-          ]);
-
-        App\ImagesProduct::create([
-            'url' => 'products/12.jpg' ,
+            'url' => 'products/5.jpg',
             'product_id' => 12
           ]);
-
         App\ImagesProduct::create([
-            'url' => 'products/13.jpg' ,
-            'product_id' => 13
+            'url' => 'products/7.jpg',
+            'product_id' => 10
           ]);
-
-
-        App\Buy::create([
-          'administrator_id' => 1,
-          'provider_id' => 1,
-          'status_id' => 2
+        App\ImagesProduct::create([
+            'url' => 'products/8.jpg',
+            'product_id' => 11
           ]);
-
-        App\Buy::create([
-          'administrator_id' => 2,
-          'provider_id' => 1,
-          'status_id' => 2
-        ]);
-
-        App\BuyDetail::create([
-          'cantidad_com' => 2,
-          'product_id' => 1,
-          'buy_id' => 1
-        ]);
-
-        App\BuyDetail::create([
-          'cantidad_com' => 1,
-          'product_id' => 2,
-          'buy_id' => 1
-        ]);
-
-        App\BuyDetail::create([
-          'cantidad_com' => 1,
-          'product_id' => 1,
-          'buy_id' => 2
-        ]);
+        App\ImagesProduct::create([
+            'url' => 'products/apolo-amstrong.png',
+            'product_id' => 2
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/apolo-amstrong-source.png',
+            'product_id' => 2
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/babel.png',
+            'product_id' => 1
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/babel-source.png',
+            'product_id' => 1
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/bojack-head.png',
+            'product_id' => 3
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/bojack-head-source.jpg',
+            'product_id' => 3
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/hackerman.png',
+            'product_id' => 4
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/hackerman-source.jpg',
+            'product_id' => 4
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/i-want-to-be-architec.png',
+            'product_id' => 5
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/i-want-to-be-architec-source.jpg',
+            'product_id' => 5
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/licorne.png',
+            'product_id' => 6
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/licorne-source.jpg',
+            'product_id' => 6
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/mar-de-nubes.png',
+            'product_id' => 7
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/mar-de-nubes-source.jpg',
+            'product_id' => 7
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/quetza.png',
+            'product_id' => 8
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/quetza-source.png',
+            'product_id' => 8
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/YHLQMDLG.png',
+            'product_id' => 9
+          ]);
+        App\ImagesProduct::create([
+            'url' => 'products/YHLQMDLG-source.png',
+            'product_id' => 9
+          ]);
     }
 }

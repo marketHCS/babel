@@ -26,7 +26,6 @@ class ProductController extends Controller
         return view('client.product.show', compact('product', 'images', 'inventory', 'small', 'medium', 'large', 'existence', 'lastProducts'));
     }
 
-
     public function index()
     {
         $products = Product::all();
@@ -42,10 +41,10 @@ class ProductController extends Controller
         $products = Product::where('category_id', '=', $category)->get();
         $categoryQuery = Category::find($category);
         $categories = Category::all();
-
+        $inventories = Inventory::all();
         // dd($products);
         // dd($categoryQuery);
-        return view('client.product.category', compact('products', 'categoryQuery', 'categories'));
+        return view('client.product.category', compact('products', 'categoryQuery', 'categories', 'inventories'));
     }
 
     public function boys()
@@ -53,8 +52,9 @@ class ProductController extends Controller
         $products = Product::where('sex_id', '=', 1)->get();
         // dd($products);
         $sex = 'Hombres';
+        $inventories = Inventory::all();
         $categories = Category::all();
-        return view('client.product.sex', compact('sex', 'categories', 'products'));
+        return view('client.product.sex', compact('sex', 'categories', 'products', 'inventories'));
     }
 
     public function girls()
@@ -62,7 +62,8 @@ class ProductController extends Controller
         $products = Product::where('sex_id', '=', 2)->get();
         // dd($products);
         $sex = 'Mujeres';
+        $inventories = Inventory::all();
         $categories = Category::all();
-        return view('client.product.sex', compact('sex', 'categories', 'products'));
+        return view('client.product.sex', compact('sex', 'categories', 'products', 'inventories'));
     }
 }

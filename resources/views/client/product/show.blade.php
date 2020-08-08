@@ -44,11 +44,13 @@
             <div class="row">
               <div class="col">
                 <div class="row">
-                  <h2 class="p-title">{{ $product->nameProduct }} | Tee-shirt</h2>
+                  <h2 class="p-title mr-5">{{ $product->nameProduct }} | Tee-shirt</h2> <br />
                   @if($product->descuento>0)
-                  <h3 class="p-price-client">Precio: $<span class="underline green">{{ $product->precio_prod - ($product->precio_prod * $product->descuento) }}</span></h3>
+                  <br>
+                  <h3 class="p-price-client float-right ml-auto mr-5">$<span class="underline green">{{ $product->precio_prod - ($product->precio_prod * $product->descuento) }}</span></h3>
                   @else
-                  <h3 class="p-price-client">Precio: $<span class="underline green">{{ $product->precio_prod }}</span></h3>
+                  <br>
+                  <h3 class="p-price-client float-right ml-auto mr-5">$<span class="underline green">{{ $product->precio_prod }}</span></h3>
                   @endif
                 </div>
                 <div class="row">

@@ -6,40 +6,47 @@
 <section class="hero-section">
   <div class="hero-slider owl-carousel">
     <div class="hs-item set-bg" data-setbg="{{ asset('img/banner-1.jpg') }}">
+      @php
+          $t1 = DB::select('select * from products where id = ?', [6]);
+      @endphp
       <div class="container">
         <div class="row">
           <div class="col-xl-6 col-lg-7 text-white">
-            <span>¡Nuevo!</span>
-            <h2>Toy Story</h2>
+            <span class="shadows">¡Nuevo!</span>
+            <h2 class="shadows">{{ $t1[0]->nameProduct }}<br/>Tee-Shirt</h2>
             <p class="nbsp">
               &nbsp;
             </p>
-            <a href="#" class="site-btn sb-line">ver más</a>
-            <a href="#" class="site-btn sb-white">Añadir al carrito</a>
+            <a href="{{ route('product.show', $t1[0]->id) }}" class="site-btn sb-line shadows">ver más</a>
+            <a href="{{ route('product.show', $t1[0]->id) }}" class="site-btn sb-white shadows">Añadir al carrito</a>
           </div>
         </div>
         <div class="offer-card text-white">
-          <h2>$300</h2>
-          <p>Obtenla</p>
+          <h2>${{ $t1[0]->precio_prod }}</h2>
+          <p class="shadows">Obtenla</p>
         </div>
       </div>
     </div>
     <div class="hs-item set-bg" data-setbg="{{ asset('img/banner-2.jpg') }}">
+      @php
+          $t2 = DB::select('select * from products where id = ?', [8]);
+          // dd($t2);
+      @endphp
       <div class="container">
         <div class="row">
           <div class="col-xl-6 col-lg-7 text-white">
-            <span>¡Nuevo!</span>
-            <h2>Looney Toones</h2>
+            <span class="shadows">¡Nuevo!</span>
+            <h2 class="shadows">{{ $t2[0]->nameProduct }}<br/>Tee-shirt</h2>
             <p class="nbsp">
               &nbsp;
             </p>
-            <a href="#" class="site-btn sb-line">Ver más</a>
-            <a href="#" class="site-btn sb-white">Añadir al carrito</a>
+            <a href="{{ route('product.show', $t2[0]->id) }}" class="site-btn sb-line shadows">Ver más</a>
+            <a href="{{ route('product.show', $t2[0]->id) }}" class="site-btn sb-white shadows">Añadir al carrito</a>
           </div>
         </div>
         <div class="offer-card text-white">
-          <h2>$300</h2>
-          <p>Obtenla</p>
+          <h2>${{ $t2[0]->precio_prod }}</h2>
+          <p class="shadows">Obtenla</p>
         </div>
       </div>
     </div>

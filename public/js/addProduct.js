@@ -71,43 +71,43 @@ const addNewProduct = productsResponses => {
     <div class="row">
       <div class="col-1">
         <label for="eq_s${count}">Small</label>
-        <input type="number" name="eq_s${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="eq_s${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
       <div class="col-1">
         <label for="eq_m${count}">Medium</label>
-        <input type="number" name="eq_m${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="eq_m${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
       <div class="col-1">
         <label for="eq_g${count}">Large</label>
-        <input type="number" name="eq_g${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="eq_g${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
 
 
       <div class="col-1 offset-1">
         <label for="ec_s${count}">Small</label>
-        <input type="number" name="ec_s${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="ec_s${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
       <div class="col-1">
         <label for="ec_m${count}">Medium</label>
-        <input type="number" name="ec_m${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="ec_m${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
       <div class="col-1">
         <label for="ec_g${count}">Large</label>
-        <input type="number" name="ec_g${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="ec_g${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
 
 
       <div class="col-1 offset-1">
         <label for="eg_s${count}">Small</label>
-        <input type="number" name="eg_s${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="eg_s${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
       <div class="col-1">
         <label for="eg_m${count}">Medium</label>
-        <input type="number" name="eg_m${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="eg_m${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
       <div class="col-1">
         <label for="eg_g${count}">Large</label>
-        <input type="number" name="eg_g${count}" id="quant-${count}" class="form-control id-controloC" min="1" pattern="^[0-9]+">
+        <input type="number" name="eg_g${count}" id="quant-${count}" class="form-control id-controloC" min="0" pattern="^[0-9]+">
       </div>
     </div>
   </div>
