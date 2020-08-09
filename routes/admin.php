@@ -34,5 +34,9 @@ Route::prefix('/admin')->group(function () {
     // Buys CRUD
     Route::resource('buys', 'admin\BuyController')->except('edit', 'destroy', 'update');
     Route::put('buys/status/{buy}', 'admin\BuyController@status')->name('buys.status');
+
+    // Sells CRUD
+    Route::resource('sells', 'admin\SellController')->except('edit', 'destroy', 'update', 'create', 'store', 'edit');
+    Route::put('sells/status/{sell}', 'admin\SellController@status')->name('sells.status');
     // Route::put('buys/new/{$id}', 'admin\BuyController@stores')->name('buys.creando');
 });

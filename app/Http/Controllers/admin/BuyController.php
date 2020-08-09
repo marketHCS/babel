@@ -168,7 +168,7 @@ class BuyController extends Controller
     {
         $details = BuyDetail::where('buy_id', '=', $buy->id)->get();
         $provider = DB::select('select * from providers where id= ?', [$buy->provider_id]);
-        $buyStatus = DB::select('select * from buystatus', []);
+        $buyStatus = DB::select('select * from buystatus where id between 1 and 3', []);
         $status = DB::select('select nameStatus from buystatus where id = ?', [$buy->status_id]);
         // $products = DB::select('select * from products where provider_id = ? ', [$buy->product_id]);
         $userXadmin = DB::select('select * from users join administrators a on users.id = a.user_id where a.id = ?', [$buy->administrator_id]);
