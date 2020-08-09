@@ -3,14 +3,13 @@
 
 @section('content')
 <div class="container">
-  <a href="{{ route('users.show', $address->user_id) }}" class="btn btn-danger mt-5"><i class="fas fa-backward"></i> Regrezar</a>
-
+  <a href="{{ route('profile.show') }}" class="btn btn-danger mt-5"><i class="fas fa-backward"></i> Regrezar</a>
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">Editar dirección</div>
         <div class="card-body">
-          <form action="{{ route('addresses.update', $address) }}" method="POST">
+          <form action="{{ route('client.address.update', $address) }}" method="POST">
             <div class="form-group">
               <label for="cp">*Codigo postal</label>
               <div class="form-row">
@@ -71,7 +70,6 @@
                     <small id="helper" class="form-text text-muted">
                       En caso de no poseer, dejar el campo en valor 0.
                     </small>
-
                   </div>
                 </div>
               </div>

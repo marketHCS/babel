@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Address;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -43,7 +44,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-        /**
+    /**
      * Handle a registration request for the application.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -56,6 +57,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
         $user->createAsStripeCustomer();
 
+        Address::create(['user_id' => $user->id]);
 
         $this->guard()->login($user);
 

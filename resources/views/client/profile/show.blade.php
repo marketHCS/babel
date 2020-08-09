@@ -108,42 +108,35 @@ $sexo = 'Otro';
             @php
             $count = 0;
             @endphp
-            @foreach($addresses as $address)
+            @if (count($addresses) != 0)
             @php
             $count++;
             @endphp
             <div class="row mb-2">
               <div class="col-5">
                 <p>
-                  <span class="bold mr-4">Dirección #{{ $count }}</span>
+                  <span class="bold mr-4">Dirección</span>
                 </p>
                 <p>
-                  <a href="{{ route('addresses.edit', $address) }}" class="btn btn-sm btn-warning mx-2">
+                  <a href="{{ route('client.address.edit') }}" class="btn btn-sm btn-warning mx-2">
                     Editar
                   </a>
-                </p>
-                <p>
-                  <form action="{{ route('addresses.destroy', $address) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" class="btn btn-sm btn-danger" value="Eliminar" onclick="return confirm('¿Está seguro de que desea eliminar?')">
-                  </form>
                 </p>
               </div>
               <div class="col-7">
                 <ul>
-                  <li><span class="bold">Calle: </span><span class="text-muted underline">{{ $address->street }}</span></li>
-                  <li><span class="bold">N. Exterior: </span><span class="text-muted underline">{{ $address->exteriorNumberAddress }}</span></li>
-                  <li><span class="bold">N. Interior: </span><span class="text-muted underline">{{ $address->interiorNumberAddress }}</span></li>
-                  <li><span class="bold">Colonia: </span><span class="text-muted underline">{{ $address->suburb }}</span></li>
-                  <li><span class="bold">Código Postal: </span><span class="text-muted underline">{{ $address->cp }}</span></li>
-                  <li><span class="bold">Ciudad: </span><span class="text-muted underline">{{ $address->city }}</span></li>
-                  <li><span class="bold">Estado: </span><span class="text-muted underline">{{ $address->estate }}</span></li>
+                  <li><span class="bold">Calle: </span><span class="text-muted underline">{{ $addresses[0]->street }}</span></li>
+                  <li><span class="bold">N. Exterior: </span><span class="text-muted underline">{{ $addresses[0]->exteriorNumberAddress }}</span></li>
+                  <li><span class="bold">N. Interior: </span><span class="text-muted underline">{{ $addresses[0]->interiorNumberAddress }}</span></li>
+                  <li><span class="bold">Colonia: </span><span class="text-muted underline">{{ $addresses[0]->suburb }}</span></li>
+                  <li><span class="bold">Código Postal: </span><span class="text-muted underline">{{ $addresses[0]->cp }}</span></li>
+                  <li><span class="bold">Ciudad: </span><span class="text-muted underline">{{ $addresses[0]->city }}</span></li>
+                  <li><span class="bold">Estado: </span><span class="text-muted underline">{{ $addresses[0]->estate }}</span></li>
                 </ul>
               </div>
               <div class="separated"></div>
             </div>
-            @endforeach
+            @endif
           </div>
         </div>
         <div class="row my-3">

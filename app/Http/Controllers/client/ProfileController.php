@@ -27,8 +27,8 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-        Address::where('user_id', '=', $user->id)->update($request->all());
+        $user->update($request->all());
 
-        return redirect('/profile')->with('status', 'Actualizado con éxito');
+        return back()->with('status', 'Actualizado con éxito');
     }
 }

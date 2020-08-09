@@ -172,13 +172,6 @@ $sexo = 'Otro';
                     Editar
                   </a>
                 </p>
-                <p>
-                  <form action="{{ route('addresses.destroy', $address) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" class="btn btn-sm btn-danger" value="Eliminar" onclick="return confirm('¿Está seguro de que desea eliminar?')">
-                  </form>
-                </p>
               </div>
               <div class="col-7">
                 <ul>

@@ -48,6 +48,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1
         ]);
 
+        App\Address::create(['user_id' => 2]);
+
         App\Provider::create([
             'nameProvider' => 'Printful',
             'companyProvider'=> 'Printful',

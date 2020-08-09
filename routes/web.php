@@ -29,7 +29,10 @@ Route::get('canceled', 'backend\PayController@canceled')->name('pay.canceled');
 // User settings
 Route::get('profile', 'client\ProfileController@show')->name('profile.show');
 Route::get('profile/edit', 'client\ProfileController@edit')->name('profile.edit');
-Route::get('profile/update', 'client\ProfileController@edit')->name('profile.update');
+Route::put('profile/update', 'client\ProfileController@update')->name('profile.update');
 
 // Addresses CRUD
-Route::resource('addresses', 'client\AddressesController')->except('index', 'show');
+Route::get('profile/address/edit', 'client\AddressesController@edit')->name('client.address.edit');
+Route::put('profile/address/update/{address}', 'client\AddressesController@update')->name('client.address.update');
+// Route::put('profile/address/destroy/{address}', 'client\AddressesController@destroy')->name('client.address.destroy');
+Route::put('profile/address/create', 'client\AddressesController@create')->name('client.address.create');

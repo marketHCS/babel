@@ -30,7 +30,7 @@ class AddressRequest extends FormRequest
         'suburb'=> 'required',
         'city'=> 'required',
         'estate' => 'required',
-        'cp' => ['required', 'numeric', 'max:10']
+        'cp' => ['required', 'numeric']
         ];
     }
 }
