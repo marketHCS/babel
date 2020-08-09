@@ -6,6 +6,7 @@ use App\Buy;
 use App\sell;
 use App\User;
 use App\Address;
+use App\Shipment;
 use App\BuyDetail;
 use App\Inventory;
 use App\SellDetail;
@@ -53,7 +54,9 @@ class SellController extends Controller
         $status = DB::select('select nameStatus from buystatus where id = ?', [$sell->status_id]);
         $user = User::find($sell->user_id);
         $address = Address::find($sell->address_id);
-        return view('admin.sell.show', compact('user', 'address', 'sell', 'details', 'buyStatus', 'status'));
+        $shipment = Shipment::find($sell->id);
+        // dd($shipment);
+        return view('admin.sell.show', compact('user', 'address', 'sell', 'details', 'buyStatus', 'status', 'shipment'));
     }
 
     public function status(Request $request, sell $sell)
@@ -104,5 +107,11 @@ class SellController extends Controller
         if ($sell->status_id != 1) {
             return back()->with('status', 'No puedes modificar esta venta.');
         }
+    }
+
+    public function shipment(Request $request, sell $sell)
+    {
+        Shipment::find($sell->id)->update($request->all());
+        return back()->with('status', 'Actualizado con éxito');
     }
 }

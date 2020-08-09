@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Pay extends Model
 {
     protected $fillable = [
-        'fec_pago',
+        'id',
         'tipo_pago',
+        'receipt_email',
+        'status',
+        'amount',
         'sell_id',
-        'but_id'
     ];
 
     protected $table = 'pays';

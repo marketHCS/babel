@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Pay;
 use App\sell;
 use App\User;
+use App\Ticket;
 use App\Address;
 use App\Product;
+use App\Shipment;
 use App\Inventory;
 use App\SellDetail;
 use Stripe\StripeClient;
@@ -122,6 +125,7 @@ class PayController extends Controller
     public function success()
     {
         $sell = Session::get('sell');
+        // dd($sell);
         $sellDetails = SellDetail::where('sell_id', '=', $sell->id)->get();
 
         foreach ($sellDetails as $detail) {
@@ -158,6 +162,31 @@ class PayController extends Controller
             }
         }
 
+        $stripe = new \Stripe\StripeClient('sk_test_51HAW7xJMj1omTiKm6rJsQtHMBWrgLbv8NuGQ6shDFJApN9xhRq8M7B4eITEf2DDMvP1zDcHayjUyX2Mzya1nYrIs00b1hK9hzE');
+        $payment = $stripe->paymentIntents->all(['limit' => 1]);
+
+        Pay::create([
+          'id' => $payment->data[0]->id,
+          'tipo_pago' => $payment->data[0]->payment_method_types[0],
+          'receipt_email' => $payment->data[0]->receipt_email,
+          'status' => $payment->data[0]->status,
+          'amount' => $payment->data[0]->amount,
+          'sell_id' => $sell->id,
+        ]);
+
+        Ticket::create([
+          'id' => $payment->data[0]->charges->data[0]->id,
+          'url' => $payment->data[0]->charges->data[0]->receipt_url,
+          'sell_id' => $sell->id,
+          'customer_stripe_id' => $payment->data[0]->charges->data[0]->customer
+        ]);
+
+        Shipment::create([
+          'sell_id' => $sell->id,
+          'user_id' => $sell->user_id,
+          'address_id' => $sell->address_id
+        ]);
+
         Session::put('sell', '');
         Session::put('cart', array());
         if ($sell != '') {
@@ -176,6 +205,24 @@ class PayController extends Controller
         if ($sell != '') {
             DB::select('update sells set status_id=3 where id= ? ', [$sell->id]);
         }
+
+
+        $stripe = new \Stripe\StripeClient('sk_test_51HAW7xJMj1omTiKm6rJsQtHMBWrgLbv8NuGQ6shDFJApN9xhRq8M7B4eITEf2DDMvP1zDcHayjUyX2Mzya1nYrIs00b1hK9hzE');
+        $payment = $stripe->paymentIntents->all(['limit' => 1]);
+
+        Pay::create([
+          'id' => $payment->data[0]->id,
+          'tipo_pago' => $payment->data[0]->payment_method_types[0],
+          'receipt_email' => $payment->data[0]->receipt_email,
+          'status' => $payment->data[0]->status,
+          'amount' => $payment->data[0]->amount,
+          'sell_id' => $sell->id,
+        ]);
+
+        Ticket::create([
+          'id' => $payment->data[0]->id,
+          'sell_id' => $sell->id,
+        ]);
 
         return view('pay.canceled');
     }

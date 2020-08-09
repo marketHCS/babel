@@ -15,6 +15,7 @@
             <th>Estado</th>
             <th>Monto</th>
             <th>Cliente</th>
+            <th>Recibo</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -28,13 +29,15 @@
           // dd($userXadmin);
           // dd($users);
           $status = DB::select('select nameStatus from buystatus where id = ?', [$sell->status_id]);
+          $ticket = DB::select('select * from tickets where sell_id = ?', [$sell->id]);
           @endphp
           <tr>
             <td>{{ $sell->id }}</td>
             <td>{{ $sell->updated_at }}</td>
             <td class="underline">{{ $status[0]->nameStatus }}</td>
             <td>${{ $sell->monto_pago }}</td>
-            <td> <a href="{{ route('users.show', $user[0]->id) }}"> {{ $user[0]->email }} </a></td>
+            <td><a href="{{ route('users.show', $user[0]->id) }}"> {{ $user[0]->email }} </a></td>
+            <td><a href="{{ $ticket[0]->url }}" target=”_blank”>Ticket</a></td>
             <td><a href="{{ route('sells.show', $sell) }}" class="btn btn-sm btn-success">Detalles</a></td>
           </tr>
           @endforeach

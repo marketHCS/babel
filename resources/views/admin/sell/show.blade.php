@@ -48,7 +48,7 @@
               <div class="form-group">
                 <div class="form-row">
                   <div class="col">
-                    <label for="cp">*Codigo postal</label>
+                    <label for="cp">Codigo postal</label>
                     <input type="number" name="cp" id="cp" class="form-control" value="{{ $address->cp }}" disabled />
                   </div>
                   <div class="col">
@@ -104,6 +104,41 @@
                         En caso de no poseer, el campo tendrá el valor 0.
                       </small>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col">
+            <form action="{{ route('sells.shipment', $sell->id) }}" method="POST">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-6">
+                    <label for="paqueteria">Paquetería:</label>
+                    <input type="text" class="form-control" id="paqueteria" name="paqueteria" value="{{ old('paqueteria', $shipment->paqueteria) }}">
+                  </div>
+                  <div class="col-6">
+                    <label for="guia">No. Guía:</label>
+                    <input type="text" class="form-control" id="guia" name="guia" value="{{ old('guia', $shipment->guia) }}">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-4">
+                    <label for="fec_env">Fecha de envío:</label>
+                    <input type="date" id="fec_env" name="fec_env" class="form-control" value="{{ old('fec_env', $shipment->fec_env) }}">
+                  </div>
+                  <div class="col-4">
+                    <label for="fec_ent">Fecha de entrega:</label>
+                    <input type="date" id="fec_ent" name="fec_ent" class="form-control" value="{{ old('fec_ent', $shipment->fec_ent) }}">
+                  </div>
+                  <div class="col-4">
+                    @method('put')
+                    @csrf
+                    <button type="submit" class="btn btn-success btn-block toDown">Actualizar</button>
                   </div>
                 </div>
               </div>
@@ -166,6 +201,9 @@
                       </td>
                       <td class="total-col">
                         <h4>$<span class="subtotal"></span></h4>
+                      </td>
+                      <td class="total-col">
+                        <h4 class="text-center">%{{ $detail->descuento * 100 }}</h4>
                       </td>
                     </tr>
                     @php
