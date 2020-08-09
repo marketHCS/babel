@@ -25,3 +25,11 @@ Route::get('pay/prebilling', 'backend\PayController@prebilling')->name('pay.preb
 Route::post('pay/confirm/{user}', 'backend\PayController@confirm')->name('pay.confirm');
 Route::get('success', 'backend\PayController@success')->name('pay.success');
 Route::get('canceled', 'backend\PayController@canceled')->name('pay.canceled');
+
+// User settings
+Route::get('profile', 'client\ProfileController@show')->name('profile.show');
+Route::get('profile/edit', 'client\ProfileController@edit')->name('profile.edit');
+Route::get('profile/update', 'client\ProfileController@edit')->name('profile.update');
+
+// Addresses CRUD
+Route::resource('addresses', 'client\AddressesController')->except('index', 'show');

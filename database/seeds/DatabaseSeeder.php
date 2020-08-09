@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('acceso.jama'),
             'birthdate' => '2000-03-20',
             'sex_id' => 1,
-            'profilePicture' => 'https://api.adorable.io/avatars/285/JamaIdealEscobedoOlguin.png'
+            'profilePicture' => 'https://scontent.fmex10-2.fna.fbcdn.net/v/t1.0-9/85125424_4065065830186046_1976842346767056896_o.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_eui2=AeFVRrxob1UgdrIgkUPKMCaFVNpve6GT8EVU2m97oZPwRUMDRCAD9dTsiBAWAw3G09Ju9c0MEw_KxIUf9cypyeYM&_nc_ohc=iyh3SEWM78UAX_8T06c&_nc_ht=scontent.fmex10-2.fna&oh=7ef1cd539cf0b4275d5ebc4de1f887d4&oe=5F54C4CF'
         ]);
 
         App\User::create([
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('veronica1999'),
             'birthdate' => '1999-02-03',
             'sex_id' => 2,
-            'profilePicture' => 'https://api.adorable.io/avatars/285/VeronicaLorenzoAlavez.png'
+            'profilePicture' => 'https://scontent.fmex10-2.fna.fbcdn.net/v/t1.0-9/105304380_3055814717827936_7436596492019864306_o.jpg?_nc_cat=109&_nc_sid=09cbfe&_nc_eui2=AeE1Tx6zi6boHoy0V1vOdxh4UxoQkknRbRZTGhCSSdFtFnB-jOfIM3XhLUA4Zz5aadvuOBpEEFhYuM8hUhxK7vZm&_nc_ohc=fa9sWT-b0FcAX8p0ffe&_nc_ht=scontent.fmex10-2.fna&oh=262fc00d3bc5e9296705409ae3eb62b1&oe=5F547DA5'
         ]);
 
         DB::update('update users set typeUser_id=3 where id = ?', [1]);
