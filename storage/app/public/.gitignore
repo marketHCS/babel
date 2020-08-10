@@ -3,3 +3,4 @@
 !products/*.jpg
 !products/*.jpeg
 !products/*.png
+!products/
