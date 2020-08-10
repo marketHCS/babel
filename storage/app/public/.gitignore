@@ -1,2 +1,5 @@
 !products/
+!products/*.jpg
+!products/*.jpeg
+!products/*.png
 !.gitignore
