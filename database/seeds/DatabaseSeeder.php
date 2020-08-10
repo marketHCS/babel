@@ -229,7 +229,7 @@ class DatabaseSeeder extends Seeder
             'product_id' => 6
           ]);
         App\ImagesProduct::create([
-            'url' => 'products/licorne-source.jpg',
+            'url' => 'products/licorne-source.png',
             'product_id' => 6
           ]);
         App\ImagesProduct::create([

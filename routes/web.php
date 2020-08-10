@@ -36,3 +36,7 @@ Route::get('profile/address/edit', 'client\AddressesController@edit')->name('cli
 Route::put('profile/address/update/{address}', 'client\AddressesController@update')->name('client.address.update');
 // Route::put('profile/address/destroy/{address}', 'client\AddressesController@destroy')->name('client.address.destroy');
 Route::put('profile/address/create', 'client\AddressesController@create')->name('client.address.create');
+
+// Mes courses
+Route::get('orders', 'client\OrdersController@index')->name('orders.index');
+Route::get('orders/{sell}', 'client\OrdersController@show')->name('orders.show');

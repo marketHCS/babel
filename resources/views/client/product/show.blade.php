@@ -152,11 +152,7 @@
                     <div class="panel-body">
                       <img src="{{ asset('img/cards.png') }}" alt="" />
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Proin pharetra tempor so dales. Phasellus
-                        sagittis auctor gravida. Integer bibendum sodales arcu
-                        id te mpus. Ut consectetur lacus leo, non scelerisque
-                        nulla euismod nec.
+                        Contamos pagos en linea de la más alta seguridad a través de Stripe, la pasarela de pago que presta los servicios más seguros y actuales en el mercado, admitiendo alternativas como Google Pay, Paypal a través de Google Pay y la gran mayoría de las tarjetas de crédito y débito del mercado.
                       </p>
                     </div>
                   </div>

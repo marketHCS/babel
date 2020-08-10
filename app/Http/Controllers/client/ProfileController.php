@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isntDeleted');
+    }
+
     public function show()
     {
         $user = Auth::user();
