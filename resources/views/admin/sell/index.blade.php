@@ -16,6 +16,7 @@
             <th>Monto</th>
             <th>Cliente</th>
             <th>Recibo</th>
+            <th>Factura</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -37,7 +38,13 @@
             <td class="underline">{{ $status[0]->nameStatus }}</td>
             <td>${{ $sell->monto_pago }}</td>
             <td><a href="{{ route('users.show', $user[0]->id) }}"> {{ $user[0]->email }} </a></td>
+            @if ($sell->status_id != 3)
             <td><a href="{{ $ticket[0]->url }}" target=”_blank”>Ticket</a></td>
+            <td><a href="{{ route('factures.download', $sell) }}" target=”_blank”>Factura</a></td>
+            @else
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            @endif
             <td><a href="{{ route('sells.show', $sell) }}" class="btn btn-sm btn-success">Detalles</a></td>
           </tr>
           @endforeach

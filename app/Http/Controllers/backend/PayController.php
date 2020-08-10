@@ -96,6 +96,8 @@ class PayController extends Controller
           'phone' => $request->phone,
         ]);
 
+        Shipment::create(['sell_id' => $sell->id]);
+
         // create sell details
         foreach ($cart as $item) {
             $inventory = Inventory::find($item['product']->id);

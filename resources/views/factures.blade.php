@@ -91,10 +91,10 @@
           <th style="text-align: center;">
             <h4>Concepto</h4>
           </th>
-          <th style="text-align: center;">
+          <th style="text-align: right;">
             <h4>Precio unitario</h4>
           </th>
-          <th style="text-align: center;">
+          <th style="text-align: right;">
             <h4>Total</h4>
           </th>
         </tr>
