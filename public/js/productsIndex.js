@@ -5,7 +5,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable eqeqeq */
 const product_container = document.getElementById("products");
-const serverURL = "http://localhost:8000/";
+const serverURL = "https://www.babel.fashion/";
 let productsResponse = [];
 
 const getTemplate = (imageUrl, price, productName, id) => {

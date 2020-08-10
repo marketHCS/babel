@@ -16,7 +16,7 @@ let productsResponse = [];
 providerSelect.addEventListener("change", () => {
   providerSelected = providerSelect.options.selectedIndex;
   // console.log(providerSelected);
-  fetch(`http://127.0.0.1:8000/api/products/provider/${providerSelected}`)
+  fetch(`https://www.babel.fashion/api/products/provider/${providerSelected}`)
     .then(response => {
       if (response.status >= 200 && response.status < 300) {
         return response.text();
