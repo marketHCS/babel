@@ -220,33 +220,28 @@
               <h2 class="footer-questions">¿Preguntas?</h2>
             </a>
             <ul>
-              <li><a href="#">Acerca de nosotros</a></li>
-              <li><a href="#">Devoluciones</a></li>
-              <li><a href="#">Envios</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">Marcas</a></li>
-              <li><a href="#">Atención al cliente</a></li>
-              <li><a href="#">Aviso de privacidad</a></li>
+              <li><a href="{{ route('about.us') }}">Acerca de nosotros</a></li>
+              <li><a href="{{ route('shipping') }}">Envios</a></li>
+              <li><a href="{{ route('support') }}">Atención al cliente</a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="footer-widget contact-widget">
-            <a href="#">
+            <a href="{{ route('support') }}">
               <h2 class="footer-questions">Sucursales</h2>
             </a>
             <div class="con-info">
               <span>1. </span>
-              <p><a href="#">Querétaro</a></p>
+              <p><a href="{{ route('support') }}">Querétaro</a></p>
             </div>
             <div class="con-info">
               <span>2. </span>
-              <p><a href="#">CDMX</a></p>
+              <p><a href="{{ route('support') }}">CDMX</a></p>
             </div>
             <div class="con-info">
               <span>3. </span>
-              <p><a href="#">Guadalajara</a></p>
+              <p><a href="{{ route('support') }}">Guadalajara</a></p>
             </div>
           </div>
         </div>
@@ -254,19 +249,15 @@
     </div>
     <div class="social-links-warp">
       <div class="container">
-        <div class="social-links">
-          <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
-          <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
-          <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
-        </div>
         <p class="text-white text-center mt-5">
           Copyright &copy;
           <script>
             document.write(new Date().getFullYear());
 
           </script>
-          All rights reserved | ⌨ con 💛 por
-          <a href="#">Abstraction</a>
+          All rights reserved <br>
+          ⌨ con 💛 por
+          <a href="" data-toggle="tooltip" data-placement="top" class="abstraction" title="O sea, el equipo de Vero y de Jama">Abstraction</a>
         </p>
       </div>
     </div>
