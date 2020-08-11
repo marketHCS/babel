@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Buy;
 use App\sell;
 use App\User;
+use App\Ticket;
 use App\Address;
 use App\Shipment;
 use App\BuyDetail;
@@ -61,6 +62,46 @@ class SellController extends Controller
 
     public function status(Request $request, sell $sell)
     {
+        if ($sell->status_id == 4) {
+            $details = SellDetail::where('sell_id', '=', $sell->id)->get();
+
+            foreach ($details as $detail) {
+                $inventory = Inventory::where('product_id', '=', $detail->product_id)->get();
+
+                $eq_s = $inventory[0]->eq_s - $detail->eq_s;
+                $eq_m = $inventory[0]->eq_m - $detail->eq_m;
+                $eq_g = $inventory[0]->eq_g - $detail->eq_g;
+                $ec_s = $inventory[0]->ec_s - $detail->ec_s;
+                $ec_m = $inventory[0]->ec_m - $detail->ec_m;
+                $ec_g = $inventory[0]->ec_g - $detail->ec_g;
+                $eg_s = $inventory[0]->eg_s - $detail->eg_s;
+                $eg_m = $inventory[0]->eg_m - $detail->eg_m;
+                $eg_g = $inventory[0]->eg_g - $detail->eg_g;
+
+                $inventory[0]->update([
+                  'eq_s' => $eq_s,
+                  'eq_m' => $eq_m,
+                  'eq_g' => $eq_g,
+                  'ec_s' => $ec_s,
+                  'ec_m' => $ec_m,
+                  'ec_g' => $ec_g,
+                  'eg_s' => $eg_s,
+                  'eg_m' => $eg_m,
+                  'eg_g' => $eg_g,
+                ]);
+                // dd($inventory);
+            }
+
+            Ticket::create([
+              'url' => route('factures.download', $sell),
+              'sell_id' => $sell->id,
+              'id' => 'BABEL-00' . $sell->id
+            ]);
+
+            $sell->update($request->all());
+            return back()->with('status', 'Venta cerrada con éxito.');
+        }
+
         if ($sell->status_id == 1 && $request->status_id == 2) {
             $details = SellDetail::where('sell_id', '=', $sell->id)->get();
 
@@ -95,6 +136,7 @@ class SellController extends Controller
             return back()->with('status', 'Venta cerrada con éxito.');
         }
 
+
         if ($sell->status_id == 1 && $request->status_id == 3) {
             $sell->update($request->all());
             return back()->with('status', 'Venta cancelada con éxito.');
@@ -104,7 +146,7 @@ class SellController extends Controller
             return back()->with('status', 'Selecciona otra opción.');
         }
 
-        if ($sell->status_id != 1) {
+        if ($sell->status_id != 1 && $sell->status_id != 4) {
             return back()->with('status', 'No puedes modificar esta venta.');
         }
     }

@@ -38,7 +38,7 @@
             <td class="underline">{{ $status[0]->nameStatus }}</td>
             <td>${{ $sell->monto_pago }}</td>
             <td><a href="{{ route('users.show', $user[0]->id) }}"> {{ $user[0]->email }} </a></td>
-            @if ($sell->status_id != 3)
+            @if ($sell->status_id != 3 && $sell->status_id != 4)
             <td><a href="{{ $ticket[0]->url }}" target=”_blank”>Ticket</a></td>
             <td><a href="{{ route('factures.download', $sell) }}" target=”_blank”>Factura</a></td>
             @else

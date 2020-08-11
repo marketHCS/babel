@@ -49,7 +49,7 @@ class PayController extends Controller
         $cart = Session::get('cart');
         $total = 0;
         foreach ($cart as $item) {
-            $total += $item['product']->precio_prod;
+            $total += $item['product']->precio_prod * $item['quant'];
         }
 
         // calc sprite mount
