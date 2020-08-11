@@ -100,6 +100,9 @@
  */
 // require("bootstrap");
 // const moment = require("moment");
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 /***/ }),
 

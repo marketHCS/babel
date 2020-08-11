@@ -40,3 +40,12 @@ Route::put('profile/address/create', 'client\AddressesController@create')->name(
 // Mes courses
 Route::get('orders', 'client\OrdersController@index')->name('orders.index');
 Route::get('orders/{sell}', 'client\OrdersController@show')->name('orders.show');
+
+// Factures
+Route::get('factures/view/{sell}', 'FacturesController@view')->name('factures.view');
+Route::get('factures/download/{sell}', 'FacturesController@download')->name('factures.download');
+
+// Statis pages, I guess
+Route::get('support', 'StaticController@support')->name('support');
+Route::get('about', 'StaticController@about')->name('about.us');
+Route::get('shipping', 'StaticController@shipping')->name('shipping');

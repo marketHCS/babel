@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 // Route::apiResource('productsREST', 'Api\ProductsController');
 
 // Products
+Route::get('products/existence', 'Api\ProductsController@existence')->name('api.providers');
 Route::get('products/provider/{id}', 'Api\ProductsController@providers')->name('api.providers');
 Route::get('products', 'Api\ProductsController@products')->name('api.products');
 Route::get('images/first/{id}', 'Api\ImagesController@first')->name('images.first');

@@ -12,6 +12,13 @@
       <a href="{{ route('sells.index') }}">Ventas</a>
       <div class="back-link">
         <a href="{{ route('sells.index') }}" class="btn btn-danger my-3 float-left"><i class="fas fa-backward"></i> Regrezar</a>
+        @if ($sell->status_id != 3)
+        @php
+        $ticket = DB::select('select * from tickets where sell_id = ?', [$sell->id]);
+        @endphp
+        <a href="{{ route('factures.download', $sell) }}" target=”_blank” class="btn btn-secondary  float-right">Factura</a>
+        <a href="{{ $ticket[0]->url }}" target=”_blank” class="btn btn-secondary float-right mx-2">Ticket</a>
+        @endif
       </div>
     </div>
   </div>
@@ -117,6 +124,7 @@
                 <div class="form-row">
                   <div class="col-6">
                     <label for="paqueteria">Paquetería:</label>
+
                     <input type="text" class="form-control" id="paqueteria" name="paqueteria" value="{{ old('paqueteria', $shipment->paqueteria) }}">
                   </div>
                   <div class="col-6">

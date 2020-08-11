@@ -3,3 +3,7 @@
 !products/*.jpeg
 !products/*.png
 !.gitignore
+!products/*.jpg
+!products/*.jpeg
+!products/*.png
+!products/
