@@ -45,6 +45,7 @@ class SellController extends Controller
     /**
      * Display the specified resource.
      *
+     *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
