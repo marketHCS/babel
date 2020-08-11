@@ -96,6 +96,8 @@ class PayController extends Controller
           'phone' => $request->phone,
         ]);
 
+        Session::put('sell', $sell);
+
         Shipment::create(['sell_id' => $sell->id]);
 
         // create sell details
@@ -118,8 +120,6 @@ class PayController extends Controller
         ]);
         }
 
-        Session::put('sell', $sell);
-
         return view('pay.confirm', compact('cart', 'address', 'sell', 'priceId'));
     }
 
@@ -127,6 +127,10 @@ class PayController extends Controller
     public function success()
     {
         $sell = Session::get('sell');
+        if ($sell == '') {
+            return view('pay.success')->with('status', 'Pago realizado con éxito.');
+        }
+
         // dd($sell);
         $sellDetails = SellDetail::where('sell_id', '=', $sell->id)->get();
 
