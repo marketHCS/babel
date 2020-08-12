@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PayRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class PayController extends Controller
@@ -87,6 +88,12 @@ class PayController extends Controller
         // setting phone number
         DB::select('update users set phone= ? where id= ?', [$request->phone, $user->id]);
 
+        $shipment = Shipment::create([
+          'user_id' => Auth::user()->id,
+          'address_id' => $address->id
+        ]);
+
+
         // create sell
         $sell = sell::create([
           'monto_pago' => $total,
@@ -94,6 +101,7 @@ class PayController extends Controller
           'address_id' => $address->id,
           'name' => $request->completeName,
           'phone' => $request->phone,
+          'shipment_id' => $shipment->id
         ]);
 
         Shipment::create([
@@ -102,9 +110,6 @@ class PayController extends Controller
         ]);
 
         Session::put('sell', $sell);
-
-        Shipment::create(['sell_id' => $sell->id]);
-
         // create sell details
         foreach ($cart as $item) {
             $inventory = Inventory::find($item['product']->id);
@@ -192,11 +197,6 @@ class PayController extends Controller
           'customer_stripe_id' => $payment->data[0]->charges->data[0]->customer
         ]);
 
-        Shipment::create([
-          'sell_id' => $sell->id,
-          'user_id' => $sell->user_id,
-          'address_id' => $sell->address_id
-        ]);
 
         Session::put('sell', '');
         Session::put('cart', array());

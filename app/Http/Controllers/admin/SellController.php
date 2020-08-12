@@ -57,7 +57,11 @@ class SellController extends Controller
         $user = User::find($sell->user_id);
         $address = Address::find($sell->address_id);
         $shipment = Shipment::find($sell->shipment_id);
+<<<<<<< HEAD
         // dd($shipment);
+=======
+        // dd($sell);
+>>>>>>> development
         // dd($shipment);
         return view('admin.sell.show', compact('user', 'address', 'sell', 'details', 'buyStatus', 'status', 'shipment'));
     }
