@@ -6,7 +6,7 @@ Route::prefix('/admin')->group(function () {
     // Users CRUD
     Route::resource('users', 'admin\UsersController')->except('destroy', 'store', 'create');
     Route::put('users/delete/{user}', 'admin\UsersController@delete')->name('users.delete');
-    // Route::put('users/{$user}/admin', 'admin\UsersController@admin')->name('users.admin');
+    Route::put('users/{$user}/admin', 'admin\UsersController@admin')->name('users.admin');
 
     // Addresses CRUD
     Route::resource('addresses', 'admin\AddressesController')->except('index', 'store', 'create', 'show');
