@@ -21,7 +21,7 @@ class OrdersController extends Controller
 
     public function index()
     {
-        $orders = sell::where('user_id', '=', Auth::user()->id)->paginate();
+        $orders = sell::where('user_id', '=', Auth::user()->id)->orderBy('updated_at')->paginate();
         return view('client.orders.index', compact('orders'));
     }
 
