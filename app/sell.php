@@ -14,7 +14,8 @@ class Sell extends Model
         'user_id',
         'address_id',
         'name',
-        'phone'
+        'phone',
+        'shipment_id'
     ];
 
     protected $table = 'sells';

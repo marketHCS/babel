@@ -129,7 +129,6 @@
                 <div class="form-row">
                   <div class="col-6">
                     <label for="paqueteria">Paquetería:</label>
-
                     <input type="text" class="form-control" id="paqueteria" name="paqueteria" value="{{ old('paqueteria', $shipment->paqueteria) }}">
                   </div>
                   <div class="col-6">

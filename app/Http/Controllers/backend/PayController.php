@@ -96,6 +96,11 @@ class PayController extends Controller
           'phone' => $request->phone,
         ]);
 
+        Shipment::create([
+          'user_id' => Auth::user()->id,
+          'address_id' => $address->id
+        ]);
+
         Session::put('sell', $sell);
 
         Shipment::create(['sell_id' => $sell->id]);
