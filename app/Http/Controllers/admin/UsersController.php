@@ -80,7 +80,15 @@ class UsersController extends Controller
 
     public function admin(Request $request, User $user)
     {
-        $user->update($request->all());
-        return \redirect(\route('users.show', $user));
+        // dd($request, $user);
+        if ($user->typeUser_id == 3) {
+            return back()->with('status', 'No puedes modificar a este usuario.');
+        } elseif ($user->typeUser_id == 1) {
+            $user->update(['typeUser_id' => 2]);
+            return back()->with('status', 'Actualizado con éxito.');
+        } elseif ($user->typeUser_id == 2) {
+            $user->update(['typeUser_id' => 1]);
+            return back()->with('status', 'Actualizado con éxito.');
+        }
     }
 }

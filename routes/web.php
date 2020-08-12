@@ -49,3 +49,6 @@ Route::get('factures/download/{sell}', 'FacturesController@download')->name('fac
 Route::get('support', 'StaticController@support')->name('support');
 Route::get('about', 'StaticController@about')->name('about.us');
 Route::get('shipping', 'StaticController@shipping')->name('shipping');
+
+// Browser
+Route::post('browse', 'BrowserController@browser')->name('browser');

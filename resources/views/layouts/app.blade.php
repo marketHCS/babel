@@ -66,9 +66,10 @@
             </a>
           </div>
           <div class="col-xl-3 col-lg-4">
-            <form class="header-search-form centered">
-              <input type="text" placeholder="Buscar en babel ...." />
-              <button><i class="flaticon-search"></i></button>
+            <form class="header-search-form centered" action="{{ route('browser') }}" method="POST">
+              <input type="text" name="toSearch" placeholder="Buscar en babel ...." />
+              @csrf
+              <button type="submit"><i class="flaticon-search"></i></button>
             </form>
           </div>
           <div class="col-xl-7 col-lg-6">
@@ -158,19 +159,14 @@
           <!-- menu -->
           <ul class="main-menu">
             <li><a href="{{ route('index') }}">Inicio</a></li>
-            <li><a href="{{ route('product.index') }}">Todos los products</a></li>
             <li>
-              <a href="#">
-                Tee-shirts
+              <a href="{{ route('product.index') }}">
+                Todos los products
                 <span class="new">Nuevos</span>
               </a>
-              <ul class="sub-menu">
-                <li><a href="{{ route('product.boys') }}">Hombres</a></li>
-                <li><a href="{{ route('product.girls') }}">Mujeres</a></li>
-              </ul>
             </li>
             <li>
-              <a href="#">Categorías</a>
+              <a href="#">Tee-shirts</a>
               <ul class="sub-menu">
                 @php
                 $categories = DB::select('select * from categories', []);
@@ -181,6 +177,8 @@
                 @endforeach
               </ul>
             </li>
+            <li><a href="{{ route('about.us') }}">Acerca de nosotros</a></li>
+            <li><a href="{{ route('support') }}">Sucursales y contacto</a></li>
           </ul>
         </div>
       </nav>

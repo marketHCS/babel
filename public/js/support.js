@@ -1,4 +1,4 @@
-var acc = document.getElementsByClassName("accordion");
+var acc = document.getElementsByClassName("accordion-m");
 // var i;
 
 for (let i = 0; i < acc.length; i++) {

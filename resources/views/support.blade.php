@@ -4,10 +4,10 @@
 @section('content')
 
 <!-- Page info -->
-<div class="page-top-info mb-5">
+<div class="page-top-info mb-0 pb-4">
   <div class="container">
     <h4>Nuestras sucursales</h4>
-    <div class="site-pagination">
+    <div class="site-pagination mb-4">
       <a href="{{ route('index') }}">Inicio</a> /
       <a href="{{ route('support') }}">Contacto</a>
     </div>
@@ -18,8 +18,8 @@
 <section class="contact-section mt-0 pt-0">
   <div class="container">
     <div class="row">
-      <button class="accordion">Querétaro</button>
-      <div class="panel">
+      <button class="accordion-m">Querétaro</button>
+      <div class="panel-m">
         <div class="col-lg-6 contact-info">
           <h3 class="mt-4">¡Visita nuestra sucursal!</h3>
           <p>
@@ -33,8 +33,8 @@
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.38403086495!2d-100.40828248507535!3d20.65394950584361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35a486363880d%3A0xd927286fe3c75218!2sUTEQ!5e0!3m2!1ses-419!2smx!4v1597113280660!5m2!1ses-419!2smx" style="border: 0;" allowfullscreen></iframe>
         </div>
       </div>
-      <button class="accordion">Ciudad de México</button>
-      <div class="panel">
+      <button class="accordion-m">Ciudad de México</button>
+      <div class="panel-m">
         <div class="col-lg-6 contact-info">
           <h3 class="mt-4">¡Visita nuestra sucursal!</h3>
           <p>
@@ -48,8 +48,8 @@
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1881.3307860565562!2d-99.16869369191163!3d19.427023126223215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd1563%3A0x6c366f0e2de02ff7!2sEl%20%C3%81ngel%20de%20la%20Independencia!5e0!3m2!1ses-419!2smx!4v1597114741822!5m2!1ses-419!2smx" style="border: 0;" allowfullscreen></iframe>
         </div>
       </div>
-      <button class="accordion">Guadalajara</button>
-      <div class="panel">
+      <button class="accordion-m">Guadalajara</button>
+      <div class="panel-m">
         <div class="col-lg-6 contact-info">
           <h3 class="mt-4">¡Visita nuestra sucursal!</h3>
           <p>Reforma 44890 Guadalajara, Jal.</p>
