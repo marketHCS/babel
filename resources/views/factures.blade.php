@@ -125,11 +125,20 @@
           <td class="text-right">&nbsp;</td>
           <td class="text-right">&nbsp;</td>
         </tr>
-
+        @php
+        $iva = $total * 0.16;
+        @endphp
         <tr>
-          <td colspan="2" style="text-align: right;">IVA: ${{ $total * 0.16 }} (16%)</td>
-          <td colspan="1" style="text-align: right;">Total MXN.</td>
-          <td style="text-align: right;">$ {{ $total }}</td>
+          <td colspan="3" style="text-align: right;">Subtotal:</td>
+          <td style="text-align: right;">$ {{ $total - $iva }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: right;">IVA:</td>
+          <td style="text-align: right;">$ {{ $iva }}</td>
+        </tr>
+        <tr style="border: solid 1px #000">
+          <td colspan="3" style="text-align: right;">Total MXN.</td>
+          <td style="text-align: right; border: solid 1px #000">$ {{ $total }}</td>
         </tr>
       </tbody>
     </table>

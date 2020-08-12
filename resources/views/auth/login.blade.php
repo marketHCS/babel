@@ -46,9 +46,9 @@
                   @if (Route::has('password.request'))
                   <div class="form-group row mt-5" id="last">
                     <ul>
-                      <li>
+                      {{-- <li>
                         <a class="btn btn-link" href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
-                      </li>
+                      </li> --}}
                       <li>
                         <a class="btn btn-link" href="{{ route('register') }}">¿No tienes cuenta? ¡registrate!</a>
                       </li>
