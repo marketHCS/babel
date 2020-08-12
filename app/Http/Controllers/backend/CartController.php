@@ -41,6 +41,26 @@ class CartController extends Controller
         // dd($request);
         $cart = Session::get('cart');
         $product = Product::find($id);
+        switch ($request->size) {
+          case 1:
+            DB::select('call pc_sell_s( ? , ? , @outvalue)', [$product->id, $request->quant]);
+          break;
+          case 2:
+            DB::select('call pc_sell_m( ? , ? , @outvalue)', [$product->id, $request->quant]);
+          break;
+          case 3:
+            DB::select('call pc_sell_g( ? , ? , @outvalue)', [$product->id, $request->quant]);
+          break;
+        }
+
+        $existence = DB::select('select @outvalue', []);
+        $objetcfor = get_object_vars($existence[0]);
+        if ($objetcfor['@outvalue'] == 0) {
+            return back()->with('status', 'No tenemos suficientes existencias de este producto.');
+        }
+
+        // if($existence[0])
+
         $anArray = array( 'product' => $product,
                           'quant' => $request->quant,
                           'size' => $request->size);
