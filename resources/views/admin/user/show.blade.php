@@ -47,34 +47,21 @@ $sexo = 'Otro';
         <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-warning float-right mx-2">
           Editar
         </a>
-        {{-- @if(Auth::user()->typeUser_id == 3)
-          @if($user->typeUser_id != 3 && $user->typeUser_id == 1)
-          <form action="{{ route('users.admin', $user) }}" method="POST">
-        <input type="text" class="hiddenInput" name="name" value="{{ old('name', $user->name) }}">
-        <input type="text" class="hiddenInput" name="ap" value="{{ old('ap', $user->ap) }}">
-        <input type="text" class="hiddenInput" name="am" value="{{ old('am', $user->am) }}">
-        <input type="number" id="makeAdmin" class="hiddenInput" name="typeUser_id" value="{{ old('typeUser_id', $user->typeUser_id) }}">
-        @csrf
-        @method('PUT')
-        <button type="submit" class="btn btn-sm btn-warning float-right ml-2">
-          Hacer administrador
-        </button>
-        </form>
-        @elseif($user->typeUser_id != 3 && $user->typeUser_id == 2)
-        <form action=" {{ route('users.admin', $user) }}" method="POST">
-          <input type="text" class="hiddenInput" name="name" value="{{ old('name', $user->name) }}">
-          <input type="text" class="hiddenInput" name="ap" value="{{ old('ap', $user->ap) }}">
-          <input type="text" class="hiddenInput" name="am" value="{{ old('am', $user->am) }}">
-          <input type="number" id="makeAdmin" class="hiddenInput" name="typeUser_id" value="{{ old('typeUser_id', $user->typeUser_id) }}">
+        @if(Auth::user()->typeUser_id == 3)
+        @if($user->typeUser_id == 1 || $user->typeUser_id == 2)
+        <form action="{{ route('users.admin', $user) }}" method="POST">
           @csrf
-          @method('PUT')
-          <button type="submit" class="btn btn-sm btn-warning float-right ml-2">
-            Quitar administrador
+          @method('put')
+          <button type="submit" class="btn btn-sm btn-secondary float-right mx-2">
+            @if($user->typeUser_id == 1)
+            Hacer admin
+            @elseif($user->typeUser_id == 2)
+            Quitar admin
+            @endif
           </button>
         </form>
         @endif
-        <script src="{{ asset('js/makeAdmin.js') }}"></script>
-        @endif --}}
+        @endif
       </div>
     </div>
   </div>
