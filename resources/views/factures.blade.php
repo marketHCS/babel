@@ -95,7 +95,7 @@
             <h4>Precio unitario</h4>
           </th>
           <th style="text-align: right;">
-            <h4>Total</h4>
+            <h4>SubTotal</h4>
           </th>
         </tr>
       </thead>
@@ -125,8 +125,10 @@
           <td class="text-right">&nbsp;</td>
           <td class="text-right">&nbsp;</td>
         </tr>
+
         <tr>
-          <td colspan="3" style="text-align: right;">Total MXN.</td>
+          <td colspan="2" style="text-align: right;">IVA: ${{ $total * 0.16 }} (16%)</td>
+          <td colspan="1" style="text-align: right;">Total MXN.</td>
           <td style="text-align: right;">$ {{ $total }}</td>
         </tr>
       </tbody>
