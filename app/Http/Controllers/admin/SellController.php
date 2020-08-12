@@ -56,7 +56,8 @@ class SellController extends Controller
         $status = DB::select('select nameStatus from buystatus where id = ?', [$sell->status_id]);
         $user = User::find($sell->user_id);
         $address = Address::find($sell->address_id);
-        $shipment = Shipment::find($sell->id);
+        $shipment = Shipment::find($sell->shipment_id);
+        // dd($shipment);
         // dd($shipment);
         return view('admin.sell.show', compact('user', 'address', 'sell', 'details', 'buyStatus', 'status', 'shipment'));
     }
@@ -154,7 +155,7 @@ class SellController extends Controller
 
     public function shipment(Request $request, sell $sell)
     {
-        Shipment::find($sell->id)->update($request->all());
+        Shipment::find($sell->shipment_id)->update($request->all());
         return back()->with('status', 'Actualizado con éxito');
     }
 }

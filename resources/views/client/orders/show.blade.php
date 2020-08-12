@@ -116,7 +116,7 @@
             </form>
           </div>
         </div>
-        @if ($shipment->paqueteria == '' || $shipment->paqueteria == null)
+        @if ($shipment->paqueteria == '' || $shipment->paqueteria == null || $shipment->paqueteria != '')
         <div class="row my-2">
           <div class="col">
             <form>

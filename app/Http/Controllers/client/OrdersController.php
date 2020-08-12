@@ -29,7 +29,7 @@ class OrdersController extends Controller
     {
         $user = Auth::user();
         $address = Address::find($sell->address_id);
-        $shipment = Shipment::where('sell_id', '=', $sell->id)->get()[0];
+        $shipment = Shipment::find($sell->shipment_id);
         $details = SellDetail:: where('sell_id', '=', $sell->id)->get();
         $status = DB::select('select * from buyStatus where id = ?', [$sell->status_id])[0];
 
