@@ -2425,6 +2425,10 @@ a.btn {
   background-color: #ccc;
 }
 
+.btn-link {
+  color: #000 !important;
+}
+
 .image-static {
   max-width: 50%;
 }
