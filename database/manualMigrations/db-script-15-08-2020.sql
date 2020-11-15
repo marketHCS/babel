@@ -1,10 +1,10 @@
 # drop database if exists babel;
-drop database if exists tienda;
+# drop database if exists tienda;
 # create database if not exists babel;
-create database if not exists tienda;
+# create database if not exists tienda;
 # create database if not exists trys;
 # use babel;
-use tienda;
+# use tienda;
 #  use trys;
 
 # CREATE USER 'jamahcs' IDENTIFIED BY 'Acceso.117';
@@ -24,6 +24,7 @@ use tienda;
 # cambio en la 384
 # php artisan make:model users -cfsr
 
+drop table if existss addresses;
 create table addresses
 (
     id                    int NOT NULL AUTO_INCREMENT,
@@ -41,6 +42,7 @@ create table addresses
     constraint pk4 primary key (id)
 );
 
+drop trable if exists offices;
 create table offices
 (
     id         int NOT NULL AUTO_INCREMENT,
@@ -58,6 +60,7 @@ values (0, 'Ciudad de México', now(), now()),
        (0, 'Guadalajara', now(), now()),
        (0, 'Querétaro', now(), now());
 
+drop table if exists categories;
 create table categories
 (
     id           int NOT NULL AUTO_INCREMENT,
@@ -68,6 +71,7 @@ create table categories
     constraint pk6 primary key (id)
 );
 
+drop table if exists providers;
 create table providers
 (
     id                  int         NOT NULL AUTO_INCREMENT,
@@ -89,6 +93,7 @@ ALTER TABLE addresses
     ADD CONSTRAINT FOREIGN KEY (provider_id)
         REFERENCES providers (id);
 
+drop table if exists typeUsers;
 create table typeUsers
 (
     id         int auto_increment primary key,
@@ -104,6 +109,7 @@ values (0, 'Cliente', now(), now()),
        (0, 'Eliminado', now(), now()),
        (0, 'Diseñador', now(), now());
 
+drop table sexs;
 create table sexs
 (
     id         int auto_increment,
@@ -118,6 +124,7 @@ values (0, 'Masculino', now(), now()),
        (0, 'Femenino', now(), now()),
        (0, 'Otro', now(), now());
 
+drop table if exists users;
 create table users
 (
     id                bigint              NOT NULL auto_increment,
@@ -152,6 +159,7 @@ ALTER TABLE addresses
     ADD CONSTRAINT FOREIGN KEY (user_id)
         REFERENCES users (id);
 
+drop trigger if exists typeUsers;
 delimiter //
 create trigger typeUsers
     before insert
@@ -162,6 +170,7 @@ begin
 end;
 delimiter ;
 
+drop trable if exists administrators;
 create table administrators
 (
     id         bigint NOT NULL AUTO_INCREMENT,
@@ -174,6 +183,7 @@ create table administrators
     constraint fk6 foreign key (office_id) references offices (id) ON DELETE cascade ON UPDATE CASCADE
 );
 
+drop trigger if exists createAdmin;
 delimiter //
 create trigger createAdmin
     after update
@@ -188,6 +198,7 @@ begin
 end //
 delimiter ;
 
+drop trigger if exists timestamps;
 delimiter //
 create trigger timestamps
     before insert
@@ -199,6 +210,7 @@ begin
 end;
 delimiter ;
 
+drop table if exists statusProducts;
 create table statusProducts
 (
     id         int auto_increment not null,
@@ -213,7 +225,7 @@ values (0, 'Nuevo'),
        (0, 'Sin existencia'),
        (0, 'Eliminado');
 
-
+drop table if exists products;
 create table products
 (
     id               int          NOT NULL AUTO_INCREMENT,
@@ -237,6 +249,7 @@ create table products
     constraint fk15 foreign key (provider_id) references providers (id) ON DELETE restrict ON UPDATE CASCADE
 );
 
+drop trigger if exists verificaPrecio;
 delimiter //
 create trigger verificaPrecio
     before insert
@@ -250,6 +263,7 @@ begin
 end //
 delimiter  ;
 
+drop table if exists imagesProducts;
 create table imagesProducts
 (
     id         int auto_increment,
@@ -261,6 +275,7 @@ create table imagesProducts
     foreign key (product_id) references products (id)
 );
 
+drop table if exists inventories;
 create table inventories
 (
     id         int NOT NULL AUTO_INCREMENT,
@@ -280,6 +295,7 @@ create table inventories
     constraint fk16 foreign key (product_id) references products (id) ON DELETE cascade ON UPDATE CASCADE
 );
 
+drop trigger if exists prodXtrigger;
 delimiter //
 create trigger prodXtrigger
     after insert
@@ -290,6 +306,7 @@ begin
 end//
 delimiter ;
 
+drop table if exists buyStatus;
 create table buyStatus
 (
     id         int auto_increment,
@@ -303,6 +320,7 @@ values (0, 'En proceso'),
        (0, 'Cancelada'),
        (0, 'sin completar');
 
+drop table if exists buys;
 create table buys
 (
     id               int NOT NULL AUTO_INCREMENT,
@@ -319,6 +337,7 @@ create table buys
     foreign key (status_id) references buyStatus (id)
 );
 
+drop table if exists buyComment;
 create table buyComment
 (
     id               int auto_increment,
@@ -330,6 +349,7 @@ create table buyComment
     constraint foreign key (buy_id) references buys (id)
 );
 
+drop table if exists buyDetails;
 create table buyDetails
 (
     id           int auto_increment,
@@ -353,7 +373,8 @@ create table buyDetails
     foreign key (product_id) references products (id)
 );
 
-DELIMITER //
+drop procedure if exists TOTAL_COMPRA;
+DELIMITER $$
 CREATE PROCEDURE TOTAL_COMPRA(in buys int, out total float)
 BEGIN
     SELECT SUM(cantidad_com * costo_prod)
@@ -364,9 +385,9 @@ BEGIN
     WHERE products.id = buydetails.product_id
       AND buyDetails.buy_id = buys.id
       and buys.id = buys;
-END //
-DELIMITER ;
+END $$
 
+drop trigger if exists total_com;
 DELIMITER //
 CREATE TRIGGER total_com
     AFTER INSERT
@@ -380,7 +401,7 @@ BEGIN
 END //
 DELIMITER ;
 
-
+drop table if exists shipments;
 create table shipments
 (
     id         int NOT NULL AUTO_INCREMENT,
@@ -397,6 +418,7 @@ create table shipments
     foreign key (address_id) references addresses (id)
 );
 
+drop table if exists sells;
 create table sells
 (
     id         int          NOT NULL AUTO_INCREMENT,
@@ -416,7 +438,7 @@ create table sells
     foreign key (shipment_id) references shipments (id)
 );
 
-
+drop table if exists sellDetails;
 create table sellDetails
 (
     id           int auto_increment,
@@ -436,6 +458,10 @@ create table sellDetails
 );
 
 delimiter //
+drop procedure if exists pc_sell_s;
+// delimiter ;
+
+delimiter $$
 create procedure pc_sell_s(in _product_id int, _cantidad int, out _disponibility boolean)
 begin
     declare _existencia int;
@@ -445,10 +471,10 @@ begin
     else
         set _disponibility=false;
     end if;
-end;
-//delimiter ;
+end$$
 
-delimiter //
+drop procedure if exists pc_sell_m;
+delimiter $$
 create procedure pc_sell_m(in _product_id int, _cantidad int, out _disponibility boolean)
 begin
     declare _existencia int;
@@ -458,10 +484,10 @@ begin
     else
         set _disponibility=false;
     end if;
-end;
-//delimiter ;
+end$$
 
-delimiter //
+drop procedure if exists pc_sell_g;
+delimiter $$
 create procedure pc_sell_g(in _product_id int, _cantidad int, out _disponibility boolean)
 begin
     declare _existencia int;
@@ -471,10 +497,10 @@ begin
     else
         set _disponibility=false;
     end if;
-end;
-//delimiter ;
+end$$
 
-delimiter //
+drop procedure if exists pc_insert_detail;
+delimiter $$
 create procedure pc_insert_detail(in _product_id int, _cantidad int, _size_id int, _sell_id int)
 begin
     declare _precio float;
@@ -512,9 +538,9 @@ begin
             rollback ;
         end if;
     end if;
-end;
-//delimiter ;
+end$$
 
+drop table if exists pays;
 create table pays
 (
     id            varchar(255) NOT NULL,
@@ -529,6 +555,7 @@ create table pays
     constraint fk18 foreign key (sell_id) references sells (id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
+drop table if exists tickets;
 create table tickets
 (
     id                 varchar(255),
@@ -541,7 +568,8 @@ create table tickets
     constraint fk19 foreign key (sell_id) references sells (id) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
-DELIMITER //
+drop procedure if exists TOT_VTA;
+DELIMITER $$
 CREATE PROCEDURE TOT_VTA(in sells int, out total float)
 BEGIN
     SELECT SUM(cantidad * precio_prod - (cantidad * precio_prod * sellDetails.descuento))
@@ -552,9 +580,9 @@ BEGIN
     WHERE products.id = sellDetails.product_id
       AND sellDetails.sell_id = sells.id
       and sells.id = sells;
-END //
-DELIMITER ;
+END $$
 
+drop trigger if exists tot;
 DELIMITER //
 CREATE TRIGGER tot
     AFTER INSERT
@@ -568,6 +596,7 @@ BEGIN
 END //
 DELIMITER ;
 
+drop table if exists audits;
 create table audits
 (
     id         int auto_increment primary key,
@@ -580,6 +609,7 @@ create table audits
     constraint foreign key (product_id) references products (id)
 );
 
+drop trigger if exists Auditoria;
 delimiter //
 create trigger Auditoria
     before update

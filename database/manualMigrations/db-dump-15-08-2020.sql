@@ -92,9 +92,12 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `timestamps` BEFORE INSERT ON `administrators` FOR EACH ROW begin
-    set new.created_at = now();
-    set new.updated_at = now();
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `timestamps` BEFORE INSERT ON `administrators` FOR EACH ROW begin
+
+    set new.created_at = now();
+
+    set new.updated_at = now();
+
 end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -211,11 +214,16 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `total_com` AFTER INSERT ON `buydetails` FOR EACH ROW BEGIN
-    CALL TOTAL_COMPRA(new.buy_id, @total);
-    UPDATE buys
-    SET cost_com = @total
-    WHERE id = new.buy_id;
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `total_com` AFTER INSERT ON `buydetails` FOR EACH ROW BEGIN
+
+    CALL TOTAL_COMPRA(new.buy_id, @total);
+
+    UPDATE buys
+
+    SET cost_com = @total
+
+    WHERE id = new.buy_id;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -362,7 +370,7 @@ CREATE TABLE `imagesproducts` (
 
 LOCK TABLES `imagesproducts` WRITE;
 /*!40000 ALTER TABLE `imagesproducts` DISABLE KEYS */;
-INSERT INTO `imagesproducts` VALUES (1,'products/5.jpg','2020-08-12 18:19:09','2020-08-12 18:19:09',12),(2,'products/7.jpg','2020-08-12 18:19:09','2020-08-12 18:19:09',10),(3,'products/8.jpg','2020-08-12 18:19:09','2020-08-12 18:19:09',11),(4,'products/apolo-amstrong.png','2020-08-12 18:19:10','2020-08-12 18:19:10',2),(5,'products/apolo-amstrong-source.png','2020-08-12 18:19:10','2020-08-12 18:19:10',2),(6,'products/babel.png','2020-08-12 18:19:10','2020-08-12 18:19:10',1),(7,'products/babel-source.png','2020-08-12 18:19:10','2020-08-12 18:19:10',1),(8,'products/bojack-head.png','2020-08-12 18:19:10','2020-08-12 18:19:10',3),(9,'products/bojack-head-source.jpg','2020-08-12 18:19:11','2020-08-12 18:19:11',3),(10,'products/hackerman.png','2020-08-12 18:19:11','2020-08-12 18:19:11',4),(11,'products/hackerman-source.jpg','2020-08-12 18:19:11','2020-08-12 18:19:11',4),(12,'products/i-want-to-be-architec.png','2020-08-12 18:19:11','2020-08-12 18:19:11',5),(13,'products/i-want-to-be-architec-source.jpg','2020-08-12 18:19:11','2020-08-12 18:19:11',5),(14,'products/licorne.png','2020-08-12 18:19:12','2020-08-12 18:19:12',6),(15,'products/licorne-source.png','2020-08-12 18:19:12','2020-08-12 18:19:12',6),(16,'products/mar-de-nubes.png','2020-08-12 18:19:12','2020-08-12 18:19:12',7),(17,'products/mar-de-nubes-source.jpg','2020-08-12 18:19:12','2020-08-12 18:19:12',7),(18,'products/quetza.png','2020-08-12 18:19:12','2020-08-12 18:19:12',8),(19,'products/quetza-source.png','2020-08-12 18:19:13','2020-08-12 18:19:13',8),(20,'products/YHLQMDLG.png','2020-08-12 18:19:13','2020-08-12 18:19:13',9),(21,'products/YHLQMDLG-source.png','2020-08-12 18:19:13','2020-08-12 18:19:13',9),(22,'products/Ni6TwVjRHT44s4R8LKMSLIp9Py1L7vSyD36gci3g.jpeg','2020-08-12 20:35:29','2020-08-12 20:35:30',13);
+INSERT INTO `imagesproducts` VALUES (1,'products/5.jpg','2020-08-12 18:19:09','2020-08-12 18:19:09',12),(2,'products/7.jpg','2020-08-12 18:19:09','2020-08-12 18:19:09',10),(3,'products/8.jpg','2020-08-12 18:19:09','2020-08-12 18:19:09',11),(4,'products/apolo-amstrong.png','2020-08-12 18:19:10','2020-08-12 18:19:10',2),(5,'products/apolo-amstrong-source.png','2020-08-12 18:19:10','2020-08-12 18:19:10',2),(6,'products/babel.png','2020-08-12 18:19:10','2020-08-12 18:19:10',1),(7,'products/babel-source.png','2020-08-12 18:19:10','2020-08-12 18:19:10',1),(8,'products/bojack-head.png','2020-08-12 18:19:10','2020-08-12 18:19:10',3),(9,'products/bojack-head-source.jpg','2020-08-12 18:19:11','2020-08-12 18:19:11',3),(10,'products/hackerman.png','2020-08-12 18:19:11','2020-08-12 18:19:11',4),(11,'products/hackerman-source.jpg','2020-08-12 18:19:11','2020-08-12 18:19:11',4),(12,'products/i-want-to-be-architec.png','2020-08-12 18:19:11','2020-08-12 18:19:11',5),(13,'products/i-want-to-be-architec-source.jpg','2020-08-12 18:19:11','2020-08-12 18:19:11',5),(14,'products/licorne.png','2020-08-12 18:19:12','2020-08-12 18:19:12',6),(15,'products/licorne-source.png','2020-08-12 18:19:12','2020-08-12 18:19:12',6),(16,'products/mar-de-nubes.png','2020-08-12 18:19:12','2020-08-12 18:19:12',7),(17,'products/mar-de-nubes-source.jpg','2020-08-12 18:19:12','2020-08-12 18:19:12',7),(18,'products/quetza.png','2020-08-12 18:19:12','2020-08-12 18:19:12',8),(19,'products/quetza-source.png','2020-08-12 18:19:13','2020-08-12 18:19:13',8),(20,'products/YHLQMDLG.png','2020-08-12 18:19:13','2020-08-12 18:19:13',9),(21,'products/YHLQMDLG-source.png','2020-08-12 18:19:13','2020-08-12 18:19:13',9);
 /*!40000 ALTER TABLE `imagesproducts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -565,11 +573,16 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `verificaPrecio` BEFORE INSERT ON `products` FOR EACH ROW begin
-    if new.precio_prod <= new.costo_prod
-    then
-        set new.precio_prod = null;
-    end if;
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `verificaPrecio` BEFORE INSERT ON `products` FOR EACH ROW begin
+
+    if new.precio_prod <= new.costo_prod
+
+    then
+
+        set new.precio_prod = null;
+
+    end if;
+
 end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -585,8 +598,10 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `prodXtrigger` AFTER INSERT ON `products` FOR EACH ROW begin
-    insert into inventories (product_id) value (new.id);
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `prodXtrigger` AFTER INSERT ON `products` FOR EACH ROW begin
+
+    insert into inventories (product_id) value (new.id);
+
 end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -602,10 +617,14 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `Auditoria` BEFORE UPDATE ON `products` FOR EACH ROW begin
-    insert into audits
-    values (0, current_user(), old.precio_prod,
-            new.precio_prod, now(), now(), new.id);
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `Auditoria` BEFORE UPDATE ON `products` FOR EACH ROW begin
+
+    insert into audits
+
+    values (0, current_user(), old.precio_prod,
+
+            new.precio_prod, now(), now(), new.id);
+
 end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -693,11 +712,16 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `tot` AFTER INSERT ON `selldetails` FOR EACH ROW BEGIN
-    CALL tot_vta(new.sell_id, @total);
-    UPDATE sells
-    SET monto_pago = @total
-    WHERE id = new.sell_id;
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `tot` AFTER INSERT ON `selldetails` FOR EACH ROW BEGIN
+
+    CALL tot_vta(new.sell_id, @total);
+
+    UPDATE sells
+
+    SET monto_pago = @total
+
+    WHERE id = new.sell_id;
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1006,8 +1030,10 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `typeUsers` BEFORE INSERT ON `users` FOR EACH ROW begin
-    set new.typeUser_id = 1;
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `typeUsers` BEFORE INSERT ON `users` FOR EACH ROW begin
+
+    set new.typeUser_id = 1;
+
 end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1023,12 +1049,18 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `createAdmin` AFTER UPDATE ON `users` FOR EACH ROW begin
-    if new.typeUser_id != 1 then
-        begin
-            insert into administrators (user_id) value (new.id);
-        end;
-    end if;
+/*!50003 CREATE*/ /*!50017 DEFINER=`babel`@`%`*/ /*!50003 TRIGGER `createAdmin` AFTER UPDATE ON `users` FOR EACH ROW begin
+
+    if new.typeUser_id != 1 then
+
+        begin
+
+            insert into administrators (user_id) value (new.id);
+
+        end;
+
+    end if;
+
 end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1054,42 +1086,78 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`babel`@`%` PROCEDURE `pc_insert_detail`(in _product_id int, _cantidad int, _size_id int, _sell_id int)
-begin
-    declare _precio float;
-    declare _inventory_id int;
-    select id into _inventory_id from inventories where product_id = _product_id;
-    select precio_prod into _precio from products where id = _product_id;
-    if _size_id = 1 then
-        call pc_sell_s(_product_id, _cantidad, @outbool);
-        start transaction ;
-        insert into selldetails (product_id, sell_id, cantidad, costProduct, size, inventory_id)
-            value (_product_id, _sell_id, _cantidad, _precio, _size_id, _inventory_id);
-        if @outbool = 1 then
-            commit ;
-        elseif @outbool = 0 then
-            rollback ;
-        end if;
-    elseif _size_id = 2 then
-        call pc_sell_m(_product_id, _cantidad, @outbool);
-        start transaction ;
-        insert into selldetails (product_id, sell_id, cantidad, costProduct, size, inventory_id)
-            value (_product_id, _sell_id, _cantidad, _precio, _size_id, _inventory_id);
-        if @outbool = 1 then
-            commit ;
-        elseif @outbool = 0 then
-            rollback ;
-        end if;
-    elseif _size_id = 3 then
-        call pc_sell_g(_product_id, _cantidad, @outbool);
-        start transaction ;
-        insert into selldetails (product_id, sell_id, cantidad, costProduct, size, inventory_id)
-            value (_product_id, _sell_id, _cantidad, _precio, _size_id, _inventory_id);
-        if @outbool = 1 then
-            commit ;
-        elseif @outbool = 0 then
-            rollback ;
-        end if;
-    end if;
+begin
+
+    declare _precio float;
+
+    declare _inventory_id int;
+
+    select id into _inventory_id from inventories where product_id = _product_id;
+
+    select precio_prod into _precio from products where id = _product_id;
+
+    if _size_id = 1 then
+
+        call pc_sell_s(_product_id, _cantidad, @outbool);
+
+        start transaction ;
+
+        insert into selldetails (product_id, sell_id, cantidad, costProduct, size, inventory_id)
+
+            value (_product_id, _sell_id, _cantidad, _precio, _size_id, _inventory_id);
+
+        if @outbool = 1 then
+
+            commit ;
+
+        elseif @outbool = 0 then
+
+            rollback ;
+
+        end if;
+
+    elseif _size_id = 2 then
+
+        call pc_sell_m(_product_id, _cantidad, @outbool);
+
+        start transaction ;
+
+        insert into selldetails (product_id, sell_id, cantidad, costProduct, size, inventory_id)
+
+            value (_product_id, _sell_id, _cantidad, _precio, _size_id, _inventory_id);
+
+        if @outbool = 1 then
+
+            commit ;
+
+        elseif @outbool = 0 then
+
+            rollback ;
+
+        end if;
+
+    elseif _size_id = 3 then
+
+        call pc_sell_g(_product_id, _cantidad, @outbool);
+
+        start transaction ;
+
+        insert into selldetails (product_id, sell_id, cantidad, costProduct, size, inventory_id)
+
+            value (_product_id, _sell_id, _cantidad, _precio, _size_id, _inventory_id);
+
+        if @outbool = 1 then
+
+            commit ;
+
+        elseif @outbool = 0 then
+
+            rollback ;
+
+        end if;
+
+    end if;
+
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1107,14 +1175,22 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`babel`@`%` PROCEDURE `pc_sell_g`(in _product_id int, _cantidad int, out _disponibility boolean)
-begin
-    declare _existencia int;
-    select ec_g + eg_g + eq_g into _existencia from inventories where product_id = _product_id;
-    if _existencia > _cantidad then
-        set _disponibility=true;
-    else
-        set _disponibility=false;
-    end if;
+begin
+
+    declare _existencia int;
+
+    select ec_g + eg_g + eq_g into _existencia from inventories where product_id = _product_id;
+
+    if _existencia > _cantidad then
+
+        set _disponibility=true;
+
+    else
+
+        set _disponibility=false;
+
+    end if;
+
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1132,14 +1208,22 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`babel`@`%` PROCEDURE `pc_sell_m`(in _product_id int, _cantidad int, out _disponibility boolean)
-begin
-    declare _existencia int;
-    select ec_m + eg_m + eq_m into _existencia from inventories where product_id = _product_id;
-    if _existencia > _cantidad then
-        set _disponibility=true;
-    else
-        set _disponibility=false;
-    end if;
+begin
+
+    declare _existencia int;
+
+    select ec_m + eg_m + eq_m into _existencia from inventories where product_id = _product_id;
+
+    if _existencia > _cantidad then
+
+        set _disponibility=true;
+
+    else
+
+        set _disponibility=false;
+
+    end if;
+
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1157,14 +1241,22 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`babel`@`%` PROCEDURE `pc_sell_s`(in _product_id int, _cantidad int, out _disponibility boolean)
-begin
-    declare _existencia int;
-    select ec_s + eg_s + eq_s into _existencia from inventories where product_id = _product_id;
-    if _existencia > _cantidad then
-        set _disponibility=true;
-    else
-        set _disponibility=false;
-    end if;
+begin
+
+    declare _existencia int;
+
+    select ec_s + eg_s + eq_s into _existencia from inventories where product_id = _product_id;
+
+    if _existencia > _cantidad then
+
+        set _disponibility=true;
+
+    else
+
+        set _disponibility=false;
+
+    end if;
+
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1182,15 +1274,24 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`babel`@`%` PROCEDURE `TOTAL_COMPRA`(in buys int, out total float)
-BEGIN
-    SELECT SUM(cantidad_com * costo_prod)
-    into total
-    FROM products,
-         buyDetails,
-         buys
-    WHERE products.id = buydetails.product_id
-      AND buyDetails.buy_id = buys.id
-      and buys.id = buys;
+BEGIN
+
+    SELECT SUM(cantidad_com * costo_prod)
+
+    into total
+
+    FROM products,
+
+         buyDetails,
+
+         buys
+
+    WHERE products.id = buydetails.product_id
+
+      AND buyDetails.buy_id = buys.id
+
+      and buys.id = buys;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1208,15 +1309,24 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`babel`@`%` PROCEDURE `TOT_VTA`(in sells int, out total float)
-BEGIN
-    SELECT SUM(cantidad * precio_prod - (cantidad * precio_prod * sellDetails.descuento))
-    into total
-    FROM products,
-         sellDetails,
-         sells
-    WHERE products.id = sellDetails.product_id
-      AND sellDetails.sell_id = sells.id
-      and sells.id = sells;
+BEGIN
+
+    SELECT SUM(cantidad * precio_prod - (cantidad * precio_prod * sellDetails.descuento))
+
+    into total
+
+    FROM products,
+
+         sellDetails,
+
+         sells
+
+    WHERE products.id = sellDetails.product_id
+
+      AND sellDetails.sell_id = sells.id
+
+      and sells.id = sells;
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
