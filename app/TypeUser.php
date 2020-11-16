@@ -11,4 +11,10 @@ class TypeUser extends Model
     ];
 
     protected $table = 'typeusers';
+
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

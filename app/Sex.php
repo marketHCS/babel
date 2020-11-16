@@ -11,4 +11,9 @@ class Sex extends Model
     ];
 
     protected $table = 'sexs';
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }
