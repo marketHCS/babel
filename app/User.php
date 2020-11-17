@@ -49,15 +49,15 @@ class User extends Authenticatable
 
     public function typeUSer()
     {
-        return $this->belongsTo(TypeUser::class);
+        return $this->hasOne(TypeUser::class);
     }
 
     public function sex()
     {
-        return $this->belongsTo(Sex::class);
+        return $this->hasOne(Sex::class);
     }
 
-    public function Address()
+    public function address()
     {
         return $this->hasMany(Address::class);
     }

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class Provider extends Model
@@ -17,6 +18,16 @@ class Provider extends Model
         'rfcProvider',
         'status'
     ];
+
+    protected $hidden = [
+      'created_at',
+      'updated_at'
+    ];
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
 
     protected $table = 'providers';
 }

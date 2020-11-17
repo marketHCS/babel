@@ -2,8 +2,11 @@
 
 namespace App;
 
+use App\Category;
+use App\Provider;
+use App\BuyDetail;
+use App\ImagesProduct;
 use Illuminate\Database\Eloquent\Model;
-use ImagesProduct;
 
 class Product extends Model
 {
@@ -19,14 +22,31 @@ class Product extends Model
       'provider_id', //
     ];
 
+
+
     public function imagesProduct()
     {
         return $this->hasMany(ImagesProduct::class);
     }
 
+    public function statusProduct()
+    {
+        return $this->hasOne(StatusProducts::class, 'id', 'statusProduct_id');
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
+    public function provider()
+    {
+        return $this->hasOne('App\Provider', 'id', 'provider_id');
+    }
+
     public function buyDetails()
     {
-        return $this->hasMany('App\BuyDetails');
+        return $this->hasMany(BuyDetail::class);
     }
 
     protected $table = 'products';
