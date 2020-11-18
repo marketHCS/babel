@@ -38,7 +38,7 @@ class AuthController extends Controller
             $token->delete();
         });
 
-        return response()->json('Bye!', 200);
+        return response()->json('Bye!', 202);
     }
 
     public function register(Request $request)

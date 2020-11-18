@@ -12,7 +12,7 @@ class BrowserController extends Controller
     {
         if (isset($request->search)) {
             $products = DB::select('select * from products where nameProduct like "%' . $request->search . '%"', []);
-            dd($products);
+            // dd($products);
 
             return response()->json($products, 200);
         } else {

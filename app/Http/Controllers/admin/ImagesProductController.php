@@ -22,8 +22,14 @@ class ImagesProductController extends Controller
     {//salvar
         $image = ImagesProduct::create($request->all());
         $image->product_id = $product->id;
+
         //imagen
-        $image->url = $request->url->store('products', 'public');
+
+        $file = $request->url;
+        $file->move(public_path('products', $file), $file->getClientOriginalName());
+        $image->url = 'products/' . $file->getClientOriginalName();
+
+        // $image->url = $request->url->store('products', 'public');
         $image->save();
 
         //retornar

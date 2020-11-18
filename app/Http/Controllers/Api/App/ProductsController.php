@@ -25,6 +25,8 @@ class ProductsController extends Controller
             $productsQuery = Product::where('provider_id', '=', $request->provider)->get();
         } elseif (isset($request->category)) {
             $productsQuery = Product::where('category_id', '=', $request->category)->get();
+        } elseif (isset($request->id)) {
+            $productsQuery = Product::where('id', '=', $request->id)->get();
         } else {
             $productsQuery = Product::orderBy('updated_at', 'desc')->get();
         }
