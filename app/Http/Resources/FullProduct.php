@@ -31,6 +31,7 @@ class FullProduct extends JsonResource
             'descuento' => $this->descuento,
             'material_prod' => $this->material_prod,
             'image' => $images,
+            'inventory' => $this->inventory()->get(),
             'status' => $this->statusProduct()->get(),
             'category' => $this->category()->get(),
             'provider' => $this->provider()->get()

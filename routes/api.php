@@ -19,4 +19,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     // Products
     route::get('products', 'Api\App\ProductsController@products')->name('api.v1.products');
+
+    // Search
+    route::get('search', 'Api\App\BrowserController@browser')->name('browses');
 });

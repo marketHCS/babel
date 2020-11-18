@@ -16,27 +16,23 @@ class ProductsController extends Controller
         $this->middleware('guest');
     }
 
-    public function providers($id)
+    public function products(Request $request)
     {
-        $productResult = Product::where('provider_id', '=', $id)->get();
-        return response()->json($productResult, 200);
-    }
-
-    public function products()
-    {
-        $productsQuery = Product::orderBy('updated_at', 'desc')->get();
         $products = [];
+        $productsQuery= [];
+
+        if (isset($request->provider)) {
+            $productsQuery = Product::where('provider_id', '=', $request->provider)->get();
+        } elseif (isset($request->category)) {
+            $productsQuery = Product::where('category_id', '=', $request->category)->get();
+        } else {
+            $productsQuery = Product::orderBy('updated_at', 'desc')->get();
+        }
 
         foreach ($productsQuery as $product) {
             array_push($products, new FullProduct($product));
         }
 
         return response()->json($products, 200);
-    }
-
-    public function existence()
-    {
-        $existences = DB::select('select nameProduct, ec_g + ec_m + ec_s + eg_g + eg_m + eg_s + eq_g + eq_m + eq_s as "exístencia total" from inventories join products p on p.id = inventories.product_id', []);
-        return response()->json($existences, 200);
     }
 }

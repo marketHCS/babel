@@ -5,6 +5,7 @@ namespace App;
 use App\Category;
 use App\Provider;
 use App\BuyDetail;
+use App\Inventory;
 use App\ImagesProduct;
 use Illuminate\Database\Eloquent\Model;
 
@@ -47,6 +48,11 @@ class Product extends Model
     public function buyDetails()
     {
         return $this->hasMany(BuyDetail::class);
+    }
+
+    public function inventory()
+    {
+        return $this->hasOne(Inventory::class);
     }
 
     protected $table = 'products';
