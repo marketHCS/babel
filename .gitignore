@@ -107,3 +107,5 @@ yarn-error.log
 # Build
 dist/
 .DS_Store
+
+App/Providers/AuthServiceProvider.php
