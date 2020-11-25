@@ -6,7 +6,9 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\FullProduct;
+use App\Http\Resources\ListProduct;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DetailsProduct;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductsController extends Controller
@@ -16,7 +18,7 @@ class ProductsController extends Controller
         $this->middleware('consults');
     }
 
-    public function products(Request $request)
+    public function productsList(Request $request)
     {
         $products = [];
         $productsQuery= [];
@@ -32,9 +34,14 @@ class ProductsController extends Controller
         }
 
         foreach ($productsQuery as $product) {
-            array_push($products, new FullProduct($product));
+            array_push($products, new ListProduct($product));
         }
 
         return response()->json($products, 200);
+    }
+
+    public function productsDetails(Request $request, Product $product)
+    {
+        return response()->json(new DetailsProduct($product), 200);
     }
 }

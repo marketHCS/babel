@@ -18,8 +18,9 @@ Route::group(['prefix' => 'v1'], function () {
     route::middleware('auth:api')->post('logout', 'Api\App\AuthController@logout')->name('api.v1.logout');
 
     // Products
-    route::get('products', 'Api\App\ProductsController@products')->name('api.v1.products');
+    route::get('products', 'Api\App\ProductsController@productsList')->name('api.v1.products');
+    route::get('details/products/{product}', 'Api\App\ProductsController@productsDetails')->name('api.v1.productsDetails');
 
     // Search
-    route::get('search', 'Api\App\BrowserController@browser')->name('browses');
+    route::get('search', 'Api\App\BrowserController@browser')->name('api.v1.browses');
 });
