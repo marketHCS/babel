@@ -51,7 +51,7 @@
               <div class="pi-pic">
                 <div class="tag-sale">¡Nuevo!</div>
                 <a href="{{ route('product.show',$product->id) }}">
-                  <img src="{{ url("storage/".$image[0]->url) }}" alt="{{ $product->nameProduct }}" class="image-fit" />
+                  <img src="{{ url($image[0]->url) }}" alt="{{ $product->nameProduct }}" class="image-fit" />
                 </a>
                 @if ($inventories[$product->id - 1]->eq_s > 0 ||$inventories[$product->id - 1]->eq_m > 0 || $inventories[$product->id - 1]->eq_g > 0 || $inventories[$product->id - 1]->ec_s > 0 ||$inventories[$product->id - 1]->ec_m > 0 || $inventories[$product->id - 1]->ec_g > 0 || $inventories[$product->id - 1]->eg_s > 0 ||$inventories[$product->id - 1]->eg_m > 0 || $inventories[$product->id - 1]->eg_g > 0)
                 <div class="pi-links">

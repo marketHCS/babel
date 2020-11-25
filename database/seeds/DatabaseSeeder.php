@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Verónica ',
             'ap' => 'Lorenzo',
             'am' => 'Alavez',
-            'email' => 'veronicalorenzo1999@gmail.com',
-            'password' => bcrypt('veronica1999'),
-            'birthdate' => '1999-02-03',
+            'email' => 'andreamendoza130@gmail.com',
+            'password' => bcrypt('acceso.andrea'),
+            'birthdate' => '2000-07-13',
             'sex_id' => 2,
-            'profilePicture' => 'https://scontent.fmex10-2.fna.fbcdn.net/v/t1.0-9/105304380_3055814717827936_7436596492019864306_o.jpg?_nc_cat=109&_nc_sid=09cbfe&_nc_eui2=AeE1Tx6zi6boHoy0V1vOdxh4UxoQkknRbRZTGhCSSdFtFnB-jOfIM3XhLUA4Zz5aadvuOBpEEFhYuM8hUhxK7vZm&_nc_ohc=fa9sWT-b0FcAX8p0ffe&_nc_ht=scontent.fmex10-2.fna&oh=262fc00d3bc5e9296705409ae3eb62b1&oe=5F547DA5'
+            'profilePicture' => 'https://scontent.fmex10-2.fna.fbcdn.net/v/t1.0-9/66469688_2483078925247166_444180703093981184_o.jpg?_nc_cat=109&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeFDRoegc-HEW5wlELtC0DvCDcD6cP9IWQ4NwPpw_0hZDnm3L1n0gW9Mp9ULEKXScidxU2cfPLuTdRiWpnChCtJf&_nc_ohc=FG5qTgUjfi0AX_2Crmu&_nc_ht=scontent.fmex10-2.fna&oh=41c47015d28adcdbd87ac5722cf296b4&oe=5FDFAB23'
         ]);
 
         DB::update('update users set typeUser_id=3 where id = ?', [1]);

@@ -105,7 +105,7 @@
     </div>
   </div>
 </section>
-      <!-- letest product section -->
+<!-- letest product section -->
 <section class="top-letest-product-section">
   <div class="container">
     <div class="section-title">
@@ -123,7 +123,7 @@
         <div class="pi-pic">
           <div class="tag-new">Nuevo</div>
           <a href="{{ route('product.show',$product->id) }}">
-            <img src="{{ url("storage/".$image[0]->url) }}" alt="{{ $product->nameProduct }}" class="last-image-product" />
+            <img src="{{ url($image[0]->url) }}" alt="{{ $product->nameProduct }}" class="last-image-product" />
           </a>
           @if ($inventories[0]->eq_s > 0 ||$inventories[0]->eq_m > 0 || $inventories[0]->eq_g > 0 || $inventories[0]->ec_s > 0 ||$inventories[0]->ec_m > 0 || $inventories[0]->ec_g > 0 || $inventories[0]->eg_s > 0 ||$inventories[0]->eg_m > 0 || $inventories[0]->eg_g > 0)
           <div class="pi-links">

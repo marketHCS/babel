@@ -7,13 +7,13 @@
   <div class="hero-slider owl-carousel">
     <div class="hs-item set-bg" data-setbg="{{ asset('img/banner-1.jpg') }}">
       @php
-          $t1 = DB::select('select * from products where id = ?', [6]);
+      $t1 = DB::select('select * from products where id = ?', [6]);
       @endphp
       <div class="container">
         <div class="row">
           <div class="col-xl-6 col-lg-7 text-white">
             <span class="shadows">¡Nuevo!</span>
-            <h2 class="shadows">{{ $t1[0]->nameProduct }}<br/>Tee-Shirt</h2>
+            <h2 class="shadows">{{ $t1[0]->nameProduct }}<br />Tee-Shirt</h2>
             <p class="nbsp">
               &nbsp;
             </p>
@@ -29,14 +29,14 @@
     </div>
     <div class="hs-item set-bg" data-setbg="{{ asset('img/banner-2.jpg') }}">
       @php
-          $t2 = DB::select('select * from products where id = ?', [8]);
-          // dd($t2);
+      $t2 = DB::select('select * from products where id = ?', [8]);
+      // dd($t2);
       @endphp
       <div class="container">
         <div class="row">
           <div class="col-xl-6 col-lg-7 text-white">
             <span class="shadows">¡Nuevo!</span>
-            <h2 class="shadows">{{ $t2[0]->nameProduct }}<br/>Tee-shirt</h2>
+            <h2 class="shadows">{{ $t2[0]->nameProduct }}<br />Tee-shirt</h2>
             <p class="nbsp">
               &nbsp;
             </p>
@@ -108,7 +108,7 @@
         <div class="pi-pic">
           <div class="tag-new">Nuevo</div>
           <a href="{{ route('product.show',$product->id) }}">
-            <img src="{{ url("storage/".$image[0]->url) }}" alt="{{ $product->nameProduct }}" class="last-image-product" />
+            <img src="{{ url($image[0]->url) }}" alt="{{ $product->nameProduct }}" class="last-image-product" />
           </a>
           @if ($inventories[0]->eq_s > 0 ||$inventories[0]->eq_m > 0 || $inventories[0]->eq_g > 0 || $inventories[0]->ec_s > 0 ||$inventories[0]->ec_m > 0 || $inventories[0]->ec_g > 0 || $inventories[0]->eg_s > 0 ||$inventories[0]->eg_m > 0 || $inventories[0]->eg_g > 0)
           <div class="pi-links">

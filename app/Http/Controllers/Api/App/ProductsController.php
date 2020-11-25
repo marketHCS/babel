@@ -13,7 +13,7 @@ class ProductsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('consults');
     }
 
     public function products(Request $request)

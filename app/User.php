@@ -5,6 +5,7 @@ namespace App;
 use App\Sex;
 use App\Address;
 use App\TypeUser;
+use App\WishList;
 use Laravel\Cashier\Billable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function address()
     {
         return $this->hasMany(Address::class);
+    }
+
+    public function wishList()
+    {
+        return WishList::where('user_id', '=', $this->id)->get();
     }
 }

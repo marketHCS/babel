@@ -70,9 +70,7 @@ class AuthController extends Controller
             'ap' => ['required', 'string', 'max:255'],
             'am' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
-            'birthdate' => ['date', 'required'],
-            'sex_id' =>['required', 'integer']
+            'password' => ['required', 'string', 'min:8']
         ]);
     }
 }
