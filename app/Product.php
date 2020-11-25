@@ -4,6 +4,7 @@ namespace App;
 
 use App\Category;
 use App\Provider;
+use App\WishList;
 use App\BuyDetail;
 use App\Inventory;
 use App\ImagesProduct;
@@ -53,6 +54,11 @@ class Product extends Model
     public function inventory()
     {
         return $this->hasOne(Inventory::class);
+    }
+
+    public function wishList()
+    {
+        return $this->belongsTo(WishList::class);
     }
 
     protected $table = 'products';

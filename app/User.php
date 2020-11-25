@@ -63,8 +63,13 @@ class User extends Authenticatable
         return $this->hasMany(Address::class);
     }
 
+    // public function wishList()
+    // {
+    //     return WishList::where('user_id', '=', $this->id)->get();
+    // }
+
     public function wishList()
     {
-        return WishList::where('user_id', '=', $this->id)->get();
+        return $this->hasMany(WishList::class);
     }
 }

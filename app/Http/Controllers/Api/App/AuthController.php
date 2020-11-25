@@ -21,9 +21,13 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' =>$request->password])) {
+            // dd($request);
             $user = Auth::user();
+            // dd($user);
             $user->sex = Sex::find($user->sex_id);
+            // dd($user);
             $user->token = $user->createToken('babel')->accessToken;
+            // dd($user);
 
             return response()->json($user, 200);
         } else {
@@ -34,9 +38,11 @@ class AuthController extends Controller
     public function logout()
     {
         $user = Auth()->user();
-        $user->tokens->each(function ($token, $key) {
-            $token->delete();
-        });
+        $user->tokens->each(
+            function ($token, $key) {
+                $token->delete();
+            }
+        );
 
         return response()->json('Bye!', 202);
     }

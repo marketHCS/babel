@@ -23,4 +23,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     // Search
     route::get('search', 'Api\App\BrowserController@browser')->name('api.v1.browses');
+
+    // WishList
+    route::middleware('auth:api')->get('wishlist', 'Api\App\WishListController@index')->name('api.v1.wishList');
 });
