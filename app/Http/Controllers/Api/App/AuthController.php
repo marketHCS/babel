@@ -6,6 +6,7 @@ use App\Sex;
 use App\User;
 use App\Address;
 use Illuminate\Http\Request;
+use App\Http\Resources\Login;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,7 @@ class AuthController extends Controller
             $user->token = $user->createToken('babel')->accessToken;
             // dd($user);
 
-            return response()->json($user, 200);
+            return response()->json(new Login($user), 200);
         } else {
             return response()->json(['error'=>'Unauthorised'], 401);
         }

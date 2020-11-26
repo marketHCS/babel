@@ -30,7 +30,7 @@ class ProductsController extends Controller
         } elseif (isset($request->id)) {
             $productsQuery = Product::where('id', '=', $request->id)->get();
         } else {
-            $productsQuery = Product::orderBy('updated_at', 'desc')->get();
+            $productsQuery = Product::orderBy('id', 'asc')->get();
         }
 
         foreach ($productsQuery as $product) {
@@ -42,6 +42,13 @@ class ProductsController extends Controller
 
     public function productsDetails(Request $request, Product $product)
     {
-        return response()->json(new DetailsProduct($product), 200);
+        $var = new DetailsProduct($product);
+
+        $array = [];
+
+        array_push($array, $var);
+        //dd($array);
+
+        return json_encode($array);
     }
 }
