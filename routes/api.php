@@ -26,4 +26,6 @@ Route::group(['prefix' => 'v1'], function () {
 
     // WishList
     route::middleware('auth:api')->get('wishlist', 'Api\App\WishListController@index')->name('api.v1.wishList');
+    route::middleware('auth:api')->get('wishlist/add/{id}', 'Api\App\WishListController@store')->name('api.v1.wishList.store');
+    route::middleware('auth:api')->get('wishlist/destroy/{wishlist}', 'Api\App\WishListController@destroy')->name('api.v1.wishList.destroy');
 });
