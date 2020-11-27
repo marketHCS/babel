@@ -179,7 +179,7 @@
             $image = DB::select('select url from imagesproducts where product_id = ? limit 1', [$item['product']->id]);
             @endphp
             <li>
-              <div class="pl-thumb"><img src="{{ url("storage/".$image[0]->url) }}" class="image-pay" alt=""></div>
+              <div class="pl-thumb"><img src="{{ url($image[0]->url) }}" class="image-pay" alt=""></div>
               <h6>{{ $item['product']->nameProduct }}</h6>
               @php
               $total = $item['product']->precio_prod * (int) $item['quant'];

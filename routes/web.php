@@ -52,3 +52,6 @@ Route::get('shipping', 'StaticController@shipping')->name('shipping');
 
 // Browser
 Route::post('browse', 'BrowserController@browser')->name('browser');
+
+// WishList
+Route::get('wishlist', 'client\WishListController@index')->name('wishList');
