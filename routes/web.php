@@ -54,4 +54,6 @@ Route::get('shipping', 'StaticController@shipping')->name('shipping');
 Route::post('browse', 'BrowserController@browser')->name('browser');
 
 // WishList
-Route::get('wishlist', 'client\WishListController@index')->name('wishList');
+Route::get('wishlist', 'client\WishListController@index')->name('wishlist');
+Route::get('wishlist/{product}', 'client\WishListController@store')->name('wishlist.store');
+Route::get('wishlist/destroy/{wishlist}', 'client\WishListController@destroy')->name('wishlist.destroy');

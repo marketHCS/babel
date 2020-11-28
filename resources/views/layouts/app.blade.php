@@ -95,6 +95,7 @@
               </div>
               👕
               @else
+
               <div class="up-item">
                 <div class="row">
                   <i class="flaticon-profile"></i>
@@ -116,6 +117,14 @@
                   </span>
                 </div>
               </div>
+
+              <div class="up-item mr-2">
+                <div class="row">
+                  <a href="{{ route('wishlist') }}" class="mr-4">Lista de deseos</a>
+
+                </div>
+              </div>
+
               <div class="up-item">
                 <div class="shopping-card">
                   <i class="flaticon-bag"></i>

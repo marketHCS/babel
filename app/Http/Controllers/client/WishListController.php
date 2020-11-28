@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\client;
 
+use App\Product;
 use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +30,18 @@ class WishListController extends Controller
     {
         $wishlist->delete();
 
-        return back()->with('message', 'Eliminado correctamente de la wishList');
+        return back()->with('status', 'Eliminado correctamente de la wishList');
+    }
+
+    public function store(Product $product)
+    {
+        $user = Auth()->user();
+
+        WishList::create([
+        'user_id' => $user->id,
+        'product_id' => $product->id
+      ]);
+
+        return back()->with('status', 'Agregado correctamente a la wishList');
     }
 }

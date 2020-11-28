@@ -96,6 +96,9 @@
                     @endif
                   </form>
                 </div>
+                <div class="row mt-2">
+                  <a href="{{ route('wishlist.store', $product->id) }}" class="site-btn">Agregar a la lista de deseos</a>
+                </div>
               </div>
             </div>
             <div class="row">

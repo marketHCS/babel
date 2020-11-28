@@ -50,7 +50,8 @@
                     <h4 class="text-center pr-0 mr-2">{{ $product->description_prod }}</h4>
                   </td>
                   <td>
-                    <a href="{{ route('cart.destroy', $element->id) }}" class="btn btn-danger ml-4"><i class="far fa-trash-alt"></i></a>
+                    <a href="{{ route('wishlist.destroy', $element->id) }}" class="btn btn-danger ml-4"><i class="far fa-trash-alt"></i></a>
+
                   </td>
                 </tr>
                 @php
