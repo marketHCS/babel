@@ -42,7 +42,9 @@
                   <td class="product-col">
                     <img src="{{ url($image[0]->url) }}" alt="{{ $product->nameProduct }}" />
                     <div class="pc-title">
-                      <h4>{{ $product->nameProduct }} | Tee-shirt</h4>
+                      <a href="{{ route('product.show', $product->id) }}">
+                        <h4>{{ $product->nameProduct }} | Tee-shirt</h4>
+                      </a>
                     </div>
                   </td>
 

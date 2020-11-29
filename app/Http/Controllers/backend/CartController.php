@@ -25,7 +25,7 @@ class CartController extends Controller
     public function index()
     {
         $cart = Session::get('cart');
-        dd($cart);
+        // dd($cart);
         $lastProducts = DB::select('select * from products order by updated_at desc limit 6', []);
         return view('client.cart.index', compact('lastProducts', 'cart'));
     }

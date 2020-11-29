@@ -131,8 +131,9 @@
                 // a successful payment.
                 // Instead use one of the strategies described in
                 // https://stripe.com/docs/payments/checkout/fulfillment
-                successUrl: window.location.protocol + '//127.0.0.1:8000/success'
-                , cancelUrl: window.location.protocol + '//127.0.0.1:8000/canceled'
+                successUrl: window.location.origin + '/success'
+                , cancelUrl: window.location.origin + '/canceled'
+
               , })
               .then(function(result) {
                 if (result.error) {
