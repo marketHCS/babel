@@ -70,6 +70,12 @@ class AuthController extends Controller
         return response()->json($user, 201);
     }
 
+    public function user()
+    {
+        $user = Auth()->user();
+        return response()->json($user, 200);
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [

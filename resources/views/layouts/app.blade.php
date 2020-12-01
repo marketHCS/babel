@@ -263,8 +263,7 @@
 
           </script>
           All rights reserved <br>
-          ⌨ con 💛 por
-          <a href="" data-toggle="tooltip" data-placement="top" class="abstraction" title="O sea, el equipo de Jama & Vero">Abstraction</a>
+          ⌨ con 💛 por Jama y Andrea.
         </p>
       </div>
     </div>

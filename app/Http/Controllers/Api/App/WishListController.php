@@ -48,4 +48,15 @@ class WishListController extends Controller
 
         return response()->json($list, 200);
     }
+
+    public function reset()
+    {
+        $user = Auth()->user();
+        $list = WishList::where('user_id', '=', $user->id)->get();
+        foreach ($list as $wishlist) {
+            $wishlist->delete();
+        }
+
+        return response()->json('Wish list deleted', 200);
+    }
 }
