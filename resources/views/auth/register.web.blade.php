@@ -10,7 +10,7 @@
             <img src="{{ asset('img/babel.svg') }}" alt="Babel Logo" class="card-img-top babel-svg central-card" />
           </a>
           <div class="card-body">
-            <form id="form">
+            <form method="POST" action="{{ route('register') }}">
               @csrf
 
               <div class="form-group text-center mb-3">
@@ -81,8 +81,7 @@
 
               <div class="form-group row">
                 <div class="col">
-                  <input type="button" name="submitFormLogin" id="button" class="btn toDown btn-babel float-right" value="Registrarse" />
-
+                  <input type="submit" name="submitFormLogin" id="submitFormLogin" class="btn toDown btn-babel float-right" value="Registrarse" />
                 </div>
               </div>
             </form>
@@ -104,7 +103,8 @@
               })();
 
             </script>
-            <script src="{{ asset('js/register.js') }}"></script>
+
+
           </div>
         </div>
       </div>

@@ -12,12 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('isntDeleted');
-    }
-
     public function show(Product $product)
     {
         $images = ImagesProduct::where('imagesproducts.product_id', '=', $product->id)->get();

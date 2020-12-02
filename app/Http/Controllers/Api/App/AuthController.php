@@ -36,6 +36,23 @@ class AuthController extends Controller
         }
     }
 
+    public function loginWeb(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' =>$request->password])) {
+            // dd($request);
+            $user = Auth::user();
+            // dd($user);
+            $user->sex = Sex::find($user->sex_id);
+            // dd($user);
+            $user->token = $user->createToken('babel')->accessToken;
+            // dd($user);
+
+            return response()->json(new Login($user), 200);
+        } else {
+            return response()->json(['error'=>'Unauthorised'], 401);
+        }
+    }
+
     public function logout()
     {
         $user = Auth()->user();

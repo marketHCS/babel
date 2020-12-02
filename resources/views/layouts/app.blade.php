@@ -73,90 +73,8 @@
             </form>
           </div>
           <div class="col-xl-7 col-lg-6">
-            <div class="user-panel">
-              @if(!Auth::User())
-              <div class="up-item">
-                <div class="row">
-                  <i class="flaticon-profile"></i>
-                  <a class="btn nav-item" href="{{ route('login') }}">Iniciar sesión</a>
-                  <a class="btn nav-item" href="{{ route('register') }}">Registrarse</a>
-                </div>
-              </div>
-              <div class="up-item">
-                <div class="shopping-card">
-                  <i class="flaticon-bag"></i>
-                  @if(Session::has('cart'))
-                  <span>{{ count($cart) }}</span>
-                  @else
-                  <span>0</span>
-                  @endif
-                </div>
-                <a href="{{ route('cart') }}">Carrito de compras</a>
-              </div>
-              👕
-              @else
+            <div class="user-panel" id="user-panel">
 
-              <div class="up-item">
-                <div class="row">
-                  <i class="flaticon-profile"></i>
-                  <span class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{ route('profile.show') }}">Mi perfil</a>
-                      <a class="dropdown-item" href="{{ route('orders.index') }}">Mis compras</a>
-                      <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar sesión') }}
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                      </form>
-                    </div>
-                  </span>
-                </div>
-              </div>
-
-              <div class="up-item mr-2">
-                <div class="row">
-                  <a href="{{ route('wishlist') }}" class="mr-4">Lista de deseos</a>
-
-                </div>
-              </div>
-
-              <div class="up-item">
-                <div class="shopping-card">
-                  <i class="flaticon-bag"></i>
-                  @if(Session::has('cart'))
-                  <span>{{ count($cart) }}</span>
-                  @else
-                  <span>0</span>
-                  @endif
-                </div>
-                <a href="{{ route('cart') }}">Carrito de compras</a>
-              </div>
-              @if(Auth::user()->typeUser_id == 2 || Auth::user()->typeUser_id == 3)
-              <div class="up-item ml-4">
-                <div class="row">
-                  <span class="nav-item dropdown">
-                    <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Administrador</a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
-                      <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
-                      <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
-                      <a class="dropdown-item" href="{{ route('categories.index') }}">Categorías</a>
-                      <a class="dropdown-item" href="{{ route('providers.index') }}">Proveedores</a>
-                      <a class="dropdown-item" href="{{ route('products.index') }}">Productos</a>
-                      <a class="dropdown-item" href="{{ route('buys.index') }}">Compras</a>
-                      <a class="dropdown-item" href="{{ route('sells.index') }}">Ventas</a>
-                      </a>
-                    </div>
-                  </span>
-                </div>
-              </div>
-              @endif
-              👕
-              @endif
             </div>
           </div>
         </div>
@@ -299,6 +217,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="{{ asset('js/main.js') }}"></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/navBar.js') }}"></script>
   @if($errors->any())
   <script src="{{ asset('js/alerts.js') }}"></script>
   @endif

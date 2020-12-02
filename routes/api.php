@@ -15,6 +15,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Auth
     route::post('register', 'Api\App\AuthController@register')->name('api.v1.register');
     route::post('login', 'Api\App\AuthController@login')->name('api.v1.login');
+    route::post('web/login', 'Api\App\AuthController@loginWeb')->name('api.v1.login.web');
     route::middleware('auth:api')->post('logout', 'Api\App\AuthController@logout')->name('api.v1.logout');
     route::middleware('auth:api')->get('user', 'Api\App\AuthController@user')->name('api.v1.user');
 
