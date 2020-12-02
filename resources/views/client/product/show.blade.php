@@ -2,6 +2,7 @@
 @section('title', 'Producto')
 
 @section('content')
+<script src="{{ asset('js/details.js') }}"></script>
 
 <!-- Page info -->
 <div class="page-top-info">
@@ -97,7 +98,7 @@
                   </form>
                 </div>
                 <div class="row mt-2">
-                  <a href="{{ route('wishlist.store', $product->id) }}" class="site-btn">Agregar a la lista de deseos</a>
+                  <button class="site-btn" type="button" onclick="addWishlist({{ $product->id }})">Agregar a la lista de deseos</button>
                 </div>
               </div>
             </div>
@@ -225,6 +226,7 @@
     </div>
   </div>
 </section>
+
 <!-- letest product section end -->
 
 
