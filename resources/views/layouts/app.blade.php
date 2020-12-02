@@ -74,7 +74,27 @@
           </div>
           <div class="col-xl-7 col-lg-6">
             <div class="user-panel" id="user-panel">
-
+              @if(Auth::user())
+              @if(Auth::user()->typeUser_id == 2 || Auth::user()->typeUser_id == 3)
+              <div class="up-item ml-4">
+                <div class="row">
+                  <span class="nav-item dropdown">
+                    <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Administrador</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                      <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                      <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
+                      <a class="dropdown-item" href="{{ route('categories.index') }}">Categorías</a>
+                      <a class="dropdown-item" href="{{ route('providers.index') }}">Proveedores</a>
+                      <a class="dropdown-item" href="{{ route('products.index') }}">Productos</a>
+                      <a class="dropdown-item" href="{{ route('buys.index') }}">Compras</a>
+                      <a class="dropdown-item" href="{{ route('sells.index') }}">Ventas</a>
+                      </a>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              @endif
+              @endif
             </div>
           </div>
         </div>

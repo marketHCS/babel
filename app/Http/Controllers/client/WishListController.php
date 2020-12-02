@@ -10,12 +10,6 @@ use App\Http\Controllers\Controller;
 
 class WishListController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('isntDeleted');
-    }
-
     public function index()
     {
         $lastProducts = DB::select('select * from products order by updated_at desc limit 6', []);
