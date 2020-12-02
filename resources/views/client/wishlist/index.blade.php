@@ -12,9 +12,6 @@
           <h3>Tu lista de deseos</h3>
           <div class="cart-table-warp">
 
-            @if (empty($products))
-            <h3>No tienes ningún producto en tu lista de deseos :(</h3>
-            @else
             <table>
               <thead>
                 <tr>
@@ -23,47 +20,10 @@
                   <th class="total-th">&nbsp;</th>
                 </tr>
               </thead>
-              <tbody>
-                @php
-                $count = 1;
-                $i = 0;
-                @endphp
-                @foreach($products as $element)
+              <tbody id="container-wishlist">
 
-                @php
-                // dd($cart);
-                // dd($element);
-
-                $product = $element->product()->get()[0];
-                $image = DB::select('select url from imagesproducts where product_id = ? limit 1', [$product->id]);
-                @endphp
-
-                <tr>
-                  <td class="product-col">
-                    <img src="{{ url($image[0]->url) }}" alt="{{ $product->nameProduct }}" />
-                    <div class="pc-title">
-                      <a href="{{ route('product.show', $product->id) }}">
-                        <h4>{{ $product->nameProduct }} | Tee-shirt</h4>
-                      </a>
-                    </div>
-                  </td>
-
-                  <td class="size-col text-center">
-                    <h4 class="text-center pr-0 mr-2">{{ $product->description_prod }}</h4>
-                  </td>
-                  <td>
-                    <a href="{{ route('wishlist.destroy', $element->id) }}" class="btn btn-danger ml-4"><i class="far fa-trash-alt"></i></a>
-
-                  </td>
-                </tr>
-                @php
-                $count++;
-                $i++;
-                @endphp
-                @endforeach
               </tbody>
             </table>
-            @endif
           </div>
           <div class="total-cost">
             </h6>
@@ -71,9 +31,7 @@
         </div>
       </div>
       <div class="col-lg-4 card-right">
-
       </div>
-
     </div>
   </div>
 </section>
@@ -112,5 +70,6 @@
       @endforeach
     </div>
   </div>
+  <script src="{{ asset('js/wishlist.js') }}"></script>
 </section>
 @endsection

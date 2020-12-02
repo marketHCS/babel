@@ -13,11 +13,11 @@ class WishListController extends Controller
     public function index()
     {
         $lastProducts = DB::select('select * from products order by updated_at desc limit 6', []);
-        $products = WishList::where('user_id', '=', Auth()->user()->id)->get();
+        // $products = WishList::where('user_id', '=', Auth()->user()->id)->get();
 
         // dd($products);
 
-        return view('client.wishlist.index', \compact('products', 'lastProducts'));
+        return view('client.wishlist.index', \compact('lastProducts'));
     }
 
     public function destroy(WishList $wishlist)
