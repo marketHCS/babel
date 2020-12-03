@@ -2,6 +2,7 @@
 
 // Autenticación
 Auth::routes();
+Route::get('/v1/login', 'StaticController@loginWeb')->name('login.web');
 
 // Home
 Route::get('/', 'IndexController@index')->name('index');

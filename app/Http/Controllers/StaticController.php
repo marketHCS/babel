@@ -25,4 +25,9 @@ class StaticController extends Controller
         $lastProducts = DB::select('select * from products order by updated_at desc limit 6', []);
         return view('shipping', compact('lastProducts'));
     }
+
+    public function loginWeb()
+    {
+        return view('auth.loginWeb');
+    }
 }
