@@ -21,6 +21,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Products
     route::get('products', 'Api\App\ProductsController@productsList')->name('api.v1.products');
     route::get('details/products/{product}', 'Api\App\ProductsController@productsDetails')->name('api.v1.productsDetails');
+    route::post('cart', 'Api\App\CartController@cart')->name('api.v1.cart');
 
     // Search
     route::get('search', 'Api\App\BrowserController@browser')->name('api.v1.browses');
@@ -30,4 +31,10 @@ Route::group(['prefix' => 'v1'], function () {
     route::middleware('auth:api')->get('wishlist/add/{id}', 'Api\App\WishListController@store')->name('api.v1.wishList.store');
     route::middleware('auth:api')->get('wishlist/destroy/{wishlist}', 'Api\App\WishListController@destroy')->name('api.v1.wishList.destroy');
     route::middleware('auth:api')->get('wishlist/reset/', 'Api\App\WishListController@reset')->name('api.v1.wishList.reset');
+
+    // Pay
+    Route::middleware('auth:api')->get('pay/prebilling', 'backend\PayController@prebilling')->name('api.v1.pay.prebilling');
+    Route::middleware('auth:api')->post('pay/confirm/{user}', 'backend\PayController@confirm')->name('api.v1.pay.confirm');
+    Route::middleware('auth:api')->get('success', 'backend\PayController@success')->name('api.v1.pay.success');
+    Route::middleware('auth:api')->get('canceled', 'backend\PayController@canceled')->name('api.v1.pay.canceled');
 });
