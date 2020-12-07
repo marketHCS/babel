@@ -59,7 +59,8 @@ class AuthController extends Controller
     /**
      * Logout api function
      *
-     * In this function we going to resolve the logout request. Only receiving on the http headers the param "Authorization", with type "Bearer" and the token concatenation.
+     * In this function we going to resolve the logout request. Only receiving on the http headers the param "Authorization",
+     * with type "Bearer" and the token concatenation.
      *
      * With laravel passport, we going to check the token validity received and if asserts, pass to this function, giving back an http 202 status.
      * @return response()->json();
@@ -88,7 +89,8 @@ class AuthController extends Controller
      * http post request. Contains: Http data, name, middle name, last name, email and password for the user register.
      * @param Request $request
      *
-     * Doing a data validation, we gonna to evaluate if the user can register in the platform. If asserts, we return the user created and the http 201 status. Else, we return an json array with every error in the validator.
+     * Doing a data validation, we gonna to evaluate if the user can register in the platform.
+     * If asserts, we return the user created and the http 201 status. Else, we return an json array with every error in the validator.
      * @return void
      */
     public function register(Request $request)
