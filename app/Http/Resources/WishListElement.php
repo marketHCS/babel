@@ -25,7 +25,7 @@ class WishListElement extends JsonResource
         $image = $images[0]->url;
 
         return [
-          'wishList_id' => $this->wishList_id,
+          'wishList_id' => ($this->wishList_id == null) ? 0 : $this->wishList_id,
             'product_id' => $this->id,
             'nameProduct' => $this->nameProduct,
             'description_prod' => $this->description_prod,
